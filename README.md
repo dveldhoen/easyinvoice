@@ -22,56 +22,49 @@ $ npm install easyinvoice --save
 ```js
 //Import the library into your project
 var easyinvoice = require('easyinvoice');
-var axios = require('axios');
 
-//Download a sample logo image
-axios.get('https://www.easyinvoice.cloud/img/logo.png', {responseType: 'arraybuffer'}).then(function (response) {
-    let logoBase64 = Buffer.from(response.data).toString('base64');
+var data = {
+    "currency": "USD",
+    "taxNotation": "vat", //or gst
+    "marginTop": 25,
+    "marginRight": 25,
+    "marginLeft": 25,
+    "marginBottom": 25,
+    "logo": 'https://www.easyinvoice.cloud/img/logo.png', //or base64
+    //"logoExtension": "png", //only when logo is base64
+    "companyFrom": "Sample Corp",
+    "addressFrom": "Sample Street 123",
+    "zipFrom": "1234 AB",
+    "cityFrom": "Sampletown",
+    "countryFrom": "Samplecountry",
+    "companyTo": "Client Corp",
+    "addressTo": "Clientstreet 456",
+    "zipTo": "4567 CD",
+    "cityTo": "Clientcity",
+    "countryTo": "Clientcountry",
+    "invoiceNumber": "2020.0001",
+    "invoiceDate": "05-01-2020",
+    "products": [
+        {
+            "quantity": "2",
+            "description": "Test1",
+            "tax": 6,
+            "price": 33.87
+        },
+        {
+            "quantity": "4",
+            "description": "Test2",
+            "tax": 21,
+            "price": 10.45
+        }
+    ],
+    "bottomNotice": "Kindly pay your invoice within 15 days."
+};
 
-    //Set some invoice options, see documentation for full list of options
-    var data = {
-        "currency": "USD",
-        "taxNotation": "vat", //or gst
-        "marginTop": 25,
-        "marginRight": 25,
-        "marginLeft": 25,
-        "marginBottom": 25,
-        "logoBase64": logoBase64,
-        "logoExtension": "png",
-        "companyFrom": "Sample Corp",
-        "addressFrom": "Sample Street 123",
-        "zipFrom": "1234 AB",
-        "cityFrom": "Sampletown",
-        "countryFrom": "Samplecountry",
-        "companyTo": "Client Corp",
-        "addressTo": "Clientstreet 456",
-        "zipTo": "4567 CD",
-        "cityTo": "Clientcity",
-        "countryTo": "Clientcountry",
-        "invoiceNumber": "2020.0001",
-        "invoiceDate": "05-01-2020",
-        "products": [
-            {
-                "quantity": "2",
-                "description": "Test1",
-                "tax": 6,
-                "price": 33.87
-            },
-            {
-                "quantity": "4",
-                "description": "Test2",
-                "tax": 21,
-                "price": 10.45
-            }
-        ],
-        "bottomNotice": "Kindly pay your invoice within 15 days."
-    };
-
-    //Create your invoice! Easy!
-    easyinvoice.createInvoice(data, function (result) {
-        //The response will contain a base64 encoded PDF file
-        console.log(result.pdf);
-    });
+//Create your invoice! Easy!
+easyinvoice.createInvoice(data, function (result) {
+    //The response will contain a base64 encoded PDF file
+    console.log(result.pdf);
 });
 ```
 
