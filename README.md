@@ -1,7 +1,7 @@
 <p align="center"><a href="https://easyinvoice.cloud" target="_blank" rel="noopener noreferrer"><img width="250" src="https://easyinvoice.cloud/img/logo.png" alt="Vue logo"></a></p>
 
 <p align="center">
-  <a href="https://badge.fury.io/js/easyinvoice"><img src="https://badge.fury.io/js/easyinvoice.svg" alt="NPM Version"></a>
+  <a href="https://img.shields.io/npm/v/easyinvoice"><img src="https://img.shields.io/npm/v/easyinvoice.svg" alt="npm"></a>
 </p>
 
 SOON! This will be your main package for easily adding a complete invoicing solution to your app. We are preparing this package for a Q3 2020 release. Stay tuned!
