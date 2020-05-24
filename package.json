@@ -3,6 +3,7 @@
   "version": "1.0.33",
   "description": "Easily create beautiful pdf invoices.",
   "license": "MIT",
+  "homepage": "https://easyinvoice.cloud",
   "author": {
     "name": "Danny Veldhoen"
   },
