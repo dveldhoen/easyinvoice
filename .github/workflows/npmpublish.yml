@@ -12,7 +12,19 @@ on:
         - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run test
+
   bump-version:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
