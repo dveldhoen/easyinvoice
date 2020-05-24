@@ -17,7 +17,7 @@ jobs:
       - run: git config --global user.email "info@easyinvoice.cloud"
       - run: git config --global user.name "Danny Veldhoen"
       - run: npm version patch
-      - run: git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvocie
+      - run: git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvoice
 
 
   #   build:
