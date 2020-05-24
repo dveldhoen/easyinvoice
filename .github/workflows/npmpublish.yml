@@ -9,10 +9,8 @@ jobs:
   bump-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Bump version
-          run: |
-            npm version patch
-            git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvocie
+      - run: npm version patch
+      - run: git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvocie
 
 
   #   build:
@@ -40,7 +38,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
-#    needs: build
+    #    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
