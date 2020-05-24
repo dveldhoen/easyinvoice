@@ -1,8 +1,9 @@
 <p align="center"><a href="https://easyinvoice.cloud" target="_blank" rel="noopener noreferrer"><img width="250" src="https://easyinvoice.cloud/img/logo.png" alt="Vue logo"></a></p>
 
 <p align="center">
-  <a href="https://img.shields.io/npm/v/easyinvoice"><img src="https://img.shields.io/npm/v/easyinvoice.svg" alt="npm"></a>
-  <a href="https://github.com/dveldhoen/easyinvoice/actions?query=branch%3Amaster"><img src="https://github.com/dveldhoen/easyinvoice/workflows/build/badge.svg" alt="npm"></a>
+  <a href="https://img.shields.io/npm/v/easyinvoice"><img src="https://img.shields.io/npm/v/easyinvoice.svg" alt="Version"></a>
+  <a href="https://github.com/dveldhoen/easyinvoice/actions?query=branch%3Amaster"><img src="https://github.com/dveldhoen/easyinvoice/workflows/build/badge.svg" alt="Build Status"></a>
+  <a href="https://npmcharts.com/compare/easyinvoice?minimal=true"><img src="https://img.shields.io/npm/dm/easyinvoice.svg" alt="Downloads"></a>
 </p>
 
 SOON! This will be your main package for easily adding a complete invoicing solution to your app. We are preparing this package for a Q3 2020 release. Stay tuned!
