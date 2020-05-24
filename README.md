@@ -9,7 +9,7 @@
 SOON! This will be your main package for easily adding a complete invoicing solution to your app. We are preparing this package for a Q3 2020 release. Stay tuned!
 
 In the meantime we made our beta GUI publicly available. Use it as much as you want to generate PDF invoices:
-https://easyinvoice.cloud
+[https://easyinvoice.cloud](https://easyinvoice.cloud)
 
 Ór
 
