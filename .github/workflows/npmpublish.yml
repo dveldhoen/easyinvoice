@@ -56,7 +56,7 @@ jobs:
           scope: '@dveldhoen'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #      - run: npm config set registry 'https://npm.pkg.github.com/@dveldhoen'
       - run: |
+#          run: npm config set registry 'https://npm.pkg.github.com/@dveldhoen'
           npm publish
 
