@@ -56,8 +56,8 @@ jobs:
           scope: '@dveldhoen'
       - name: publish
         env:
-          # NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          NODE_AUTH_TOKEN: ${{secrets.gpr_token}}
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#          NODE_AUTH_TOKEN: ${{secrets.gpr_token}}
         run: |
           npm config set registry 'https://npm.pkg.github.com/@dveldhoen'
           npm publish
