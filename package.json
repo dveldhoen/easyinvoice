@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "npx webpack",
-    "publish": "npm run lint && npm run test && npm run build && git add -A dist",
+    "package": "npm run lint && npm run test && npm run build && git add -A dist",
     "lint": "eslint index.js --fix",
     "test": "jest",
     "test:coverage": "jest --coverage"
