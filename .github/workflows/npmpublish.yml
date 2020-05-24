@@ -54,7 +54,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '<@OWNER>'
-      - run: npm config set registry 'https://npm.pkg.githubs.com’
+      - run: npm config set registry 'https://npm.pkg.github.com/'
       - run: npm ci
       - run: npm publish
         env:
