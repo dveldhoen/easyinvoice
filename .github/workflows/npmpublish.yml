@@ -53,7 +53,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: '@OWNER'
+          scope: '@dveldhoen'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #      - run: npm config set registry 'https://npm.pkg.github.com/@dveldhoen'
