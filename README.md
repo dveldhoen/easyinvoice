@@ -3,8 +3,10 @@
 <p align="center">
   <a href="https://img.shields.io/npm/v/easyinvoice"><img src="https://img.shields.io/npm/v/easyinvoice.svg" alt="Version"></a>
   <a href="https://github.com/dveldhoen/easyinvoice/actions?query=branch%3Amaster"><img src="https://github.com/dveldhoen/easyinvoice/workflows/build/badge.svg" alt="Build Status"></a>
+  <a href="https://david-dm.org/dveldhoen/easyinvoice"><img src="https://david-dm.org/dveldhoen/easyinvoice.svg" alt="Build Status"></a>
   <a href="https://npmcharts.com/compare/easyinvoice?minimal=true"><img src="https://img.shields.io/npm/dm/easyinvoice.svg" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/npm/l/easyinvoice.svg" alt="License"></a>
+  <a href="https://github.com/dveldhoen/easyinvoice"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="Pull Request's Welcome"></a>
 </p>
 
 SOON! This will be your main package for easily adding a complete invoicing solution to your app. We are preparing this package for a Q3 2020 release. Stay tuned!
