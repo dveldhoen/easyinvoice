@@ -3,9 +3,7 @@
 
 name: Publish to NPM and Github Package Repository
 
-on:
-  master:
-    types: [push, pull_request]
+on: [push, pull_request]
 
 jobs:
 #  bump-version:
