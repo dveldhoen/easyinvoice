@@ -26,7 +26,7 @@ jobs:
       - run: npm run test
 
   bump-version:
-    needs: test
+    needs: lint-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
