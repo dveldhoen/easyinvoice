@@ -85,6 +85,13 @@ const result = await easyinvoice.createInvoice(data);
 console.log(result.pdf);
 ```
 
+### To store the file locally
+```js
+const data = {};
+const result = await easyinvoice.createInvoice(data);
+await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
+```
+
 You could view your rendered pdf through the following website:
 https://base64.guru/converter/decode/pdf
 
