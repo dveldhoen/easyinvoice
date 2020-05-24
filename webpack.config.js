@@ -1,21 +1,4 @@
-var webpack = require("webpack");
 var config = [];
-
-// module.exports = {
-//     mode: 'production',
-//     entry: './index.js',
-//     output: {
-//         filename: 'easyinvoice.js',
-//         sourceMapFilename: 'easyinvoice.js.map',
-//         library: 'easyinvoice'
-//     },
-//     devtool: false,
-//     plugins: [
-//         new webpack.SourceMapDevToolPlugin({
-//             filename: 'easyinvoice.js.map',
-//         })
-//     ]
-// };
 
 function generateConfig(name) {
     var environment = name.indexOf('min') > -1 ? 'production' : 'development';
