@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://img.shields.io/npm/v/easyinvoice"><img src="https://img.shields.io/npm/v/easyinvoice.svg" alt="npm"></a>
+  <a href="https://github.com/dveldhoen/easyinvoice/actions?query=branch%3Amaster"><img src="https://github.com/dveldhoen/easyinvoice/workflows/build/badge.svg" alt="npm"></a>
 </p>
 
 SOON! This will be your main package for easily adding a complete invoicing solution to your app. We are preparing this package for a Q3 2020 release. Stay tuned!
