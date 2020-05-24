@@ -5,6 +5,10 @@
   "dependencies": {
     "axios": "^0.19.2"
   },
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/dveldhoen/easyinvoice/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dveldhoen/easyinvoice.git"
