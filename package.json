@@ -2,6 +2,9 @@
   "name": "easyinvoice",
   "version": "1.0.8",
   "description": "Easily create beautiful pdf invoices.",
+  "author": {
+    "name": "Danny Veldhoen"
+  },
   "dependencies": {
     "axios": "^0.19.2"
   },
