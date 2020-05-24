@@ -1,6 +1,6 @@
 {
   "name": "@dveldhoen/easyinvoice",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Easily create beautiful pdf invoices.",
   "author": {
     "name": "Danny Veldhoen"
