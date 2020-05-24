@@ -8,18 +8,27 @@ on:
     types: [push, pull_request]
 
 jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - uses: actions/setup-node@v1
-#         with:
-#           node-version: 12
-#       - run: npm ci
-#       - run: npm test
+#  bump-version:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Bump version
+#          run: |
+#            npm version patch
+#            git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvocie
+
+
+  #   build:
+  #     runs-on: ubuntu-latest
+  #     steps:
+  #       - uses: actions/checkout@v2
+  #       - uses: actions/setup-node@v1
+  #         with:
+  #           node-version: 12
+  #       - run: npm ci
+  #       - run: npm test
 
   publish-npm:
-#     needs: build
+    #     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
