@@ -6,13 +6,13 @@ name: Publish to NPM and Github Package Repository
 on: [push, pull_request]
 
 jobs:
-#  bump-version:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Bump version
-#          run: |
-#            npm version patch
-#            git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvocie
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bump version
+          run: |
+            npm version patch
+            git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvocie
 
 
   #   build:
