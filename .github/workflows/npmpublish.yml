@@ -54,12 +54,9 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@dveldhoen'
-      - name: publish
-        env:
+      - env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-#          NODE_AUTH_TOKEN: ${{secrets.gpr_token}}
         run: |
-          npm config set registry 'https://npm.pkg.github.com/@dveldhoen'
           npm publish
 
 
