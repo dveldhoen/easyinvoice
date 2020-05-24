@@ -1,6 +1,7 @@
 {
   "name": "easyinvoice",
   "version": "1.0.6",
+  "description": "Easily create beautiful pdf invoices.",
   "dependencies": {
     "axios": "^0.19.2"
   },
@@ -13,6 +14,7 @@
     "quote",
     "estimate",
     "bill",
-    "pdf"
+    "pdf",
+    "generator"
   ]
 }
