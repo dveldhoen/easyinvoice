@@ -13,6 +13,8 @@ test('if pdf file is stored locally', async () => {
     const result = await easyinvoice.createInvoice(data);
     await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
     expect(fs.existsSync("invoice.pdf")).toBe(true);
+    await fs.unlinkSync("invoice.pdf");
+    expect(fs.existsSync("invoice.pdf")).toBe(false);
 });
 
 function isBase64(str) {

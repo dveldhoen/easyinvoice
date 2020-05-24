@@ -8,7 +8,9 @@
     "name": "Danny Veldhoen"
   },
   "scripts": {
-    "lint": "eslint index.js",
+    "build": "npx webpack",
+    "publish": "npm run lint && npm run test && npm run build && git add -A dist",
+    "lint": "eslint index.js --fix",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -38,6 +40,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
