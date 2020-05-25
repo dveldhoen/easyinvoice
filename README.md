@@ -29,6 +29,12 @@ Using npm:
 $ npm install easyinvoice --save
 ```
 
+Using cdn:
+
+```html
+<script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
+```
+
 ## Example
 
 ```js
