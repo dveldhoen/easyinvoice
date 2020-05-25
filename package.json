@@ -18,7 +18,7 @@
     "axios": "^0.19.2",
     "s": "^1.0.0"
   },
-  "main": "index.js",
+  "main": "/dist/easyinvoice.js",
   "bugs": {
     "url": "https://github.com/dveldhoen/easyinvoice/issues"
   },
