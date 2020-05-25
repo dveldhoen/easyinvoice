@@ -42,6 +42,9 @@ jobs:
       - run: git config --global user.email "info@easyinvoice.cloud"
       - run: git config --global user.name "Danny Veldhoen"
       - run: npm version patch
+      - run: npm run changelog
+      - run: git add CHANGELOG.md
+      - run: git commit -m 'updated CHANGELOG.md'
       - run: git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvoice
 
 

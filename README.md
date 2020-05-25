@@ -11,10 +11,12 @@
   <a href="https://github.com/dveldhoen/easyinvoice"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="Pull Request's Welcome"></a>
 </p>
 
-<p>
-If this package helped you out please give us a star on Github! Much appreciated!
-</p>
+<p align="center">
+If this package helped you out please star us on Github!
+<br/>
+Much appreciated!
 <a href="https://github.com/dveldhoen/easyinvoice/"><img src="https://img.shields.io/github/stars/dveldhoen/easyinvoice.svg?style=social&label=Star&maxAge=2592000" alt="Pull Request's Welcome"></a>
+</p>
 
 
 
