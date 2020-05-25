@@ -11,6 +11,13 @@
   <a href="https://github.com/dveldhoen/easyinvoice"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="Pull Request's Welcome"></a>
 </p>
 
+<p>
+If this package helped you out please give us a star on Github! Much appreciated!
+</p>
+<a href="https://github.com/dveldhoen/easyinvoice/"><img src="https://img.shields.io/github/stars/dveldhoen/easyinvoice.svg?style=social&label=Star&maxAge=2592000" alt="Pull Request's Welcome"></a>
+
+
+
 ## Features
 - [x] Create invoices
 - [ ] List, get, update, delete invoices (api ready / npm in progress)
