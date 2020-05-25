@@ -11,14 +11,15 @@
   <a href="https://github.com/dveldhoen/easyinvoice"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="Pull Request's Welcome"></a>
 </p>
 
-SOON! This will be your main package for easily adding a complete invoicing solution to your app. We are preparing this package for a Q3 2020 release. Stay tuned!
+##Features
+- [x] Create invoices
+- [ ] List, get, update, delete invoices (api ready / npm in progress)
+- [ ] Create, list, Get, update, delete clients (api ready / npm in progress)
+- [ ] More soon...
 
-In the meantime we made our beta GUI publicly available. Use it as much as you want to generate PDF invoices:
-[https://easyinvoice.cloud](https://easyinvoice.cloud)
-
-Ór
-
-Use the package below to programmatically create your own invoices using our API. Please note since this is still a beta, the code below could be deprecated when we end the beta.
+## Demo
+[GUI: https://easyinvoice.cloud](https://easyinvoice.cloud)<br/>
+[JS Fiddle: https://jsfiddle.net/easyinvoice/rjtsxhp3/](https://easyinvoice.cloud)
 
 ## Installing
 
