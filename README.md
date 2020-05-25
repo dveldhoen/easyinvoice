@@ -29,7 +29,13 @@ Using npm:
 $ npm install easyinvoice --save
 ```
 
-Using cdn:
+Using jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
+```
+
+Using unkpg cdn:
 
 ```html
 <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
