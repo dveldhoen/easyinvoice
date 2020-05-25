@@ -14,12 +14,12 @@
 ## Features
 - [x] Create invoices
 - [ ] List, get, update, delete invoices (api ready / npm in progress)
-- [ ] Create, list, Get, update, delete clients (api ready / npm in progress)
+- [ ] Create, list, get, update, delete clients (api ready / npm in progress)
 - [ ] More soon...
 
 ## Demo
 [GUI: https://easyinvoice.cloud](https://easyinvoice.cloud)<br/>
-[JS Fiddle: https://jsfiddle.net/easyinvoice/rjtsxhp3/](https://easyinvoice.cloud)
+[JS Fiddle: https://jsfiddle.net/easyinvoice/rjtsxhp3/](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
 
 ## Installing
 
