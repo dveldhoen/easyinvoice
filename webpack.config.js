@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var config = [];
 
 function generateConfig(name) {
@@ -5,16 +6,23 @@ function generateConfig(name) {
     var config = {
         mode: environment,
         entry: './index.js',
+        target: 'node',
         output: {
             filename: name + '.js',
             sourceMapFilename: name + '.map',
             library: 'easyinvoice',
-            libraryTarget: 'umd'
+            libraryTarget: 'umd',
+            globalObject: 'this'
         },
         node: {
             process: false
         },
-        devtool: 'source-map'
+        devtool: 'source-map',
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            })
+        ]
     };
 
     return config;

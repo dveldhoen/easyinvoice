@@ -15,7 +15,8 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "s": "^1.0.0"
   },
   "main": "index.js",
   "bugs": {

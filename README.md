@@ -88,7 +88,7 @@ console.log(result.pdf);
 ### To store the file locally
 ```js
 const data = {};
-const result = await easyinvoice.createInvoice(data);
+const result = await easyinvoice.createInvoice(data);                       
 await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 ```
 
