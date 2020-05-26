@@ -30,9 +30,10 @@ Much appreciated!
 ## Demo
 [GUI: https://easyinvoice.cloud](https://easyinvoice.cloud)
 <br/>
-[JS Fiddle: https://jsfiddle.net/easyinvoice/rjtsxhp3/](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
+[Plain Javascript: JS Fiddle: https://jsfiddle.net/easyinvoice/rjtsxhp3/](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
 <br/>
 [Vue: JS Fiddle: https://jsfiddle.net/easyinvoice/gpb1osav/](https://jsfiddle.net/easyinvoice/gpb1osav/)
+<br/>
 
 
 ## Installing
