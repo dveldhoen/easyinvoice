@@ -35,6 +35,8 @@ Much appreciated!
 [Vue: JS Fiddle: https://jsfiddle.net/easyinvoice/gpb1osav/](https://jsfiddle.net/easyinvoice/gpb1osav/)
 <br/>
 [React: JS Fiddle: https://jsfiddle.net/easyinvoice/qfs8dk0p/](https://jsfiddle.net/easyinvoice/qfs8dk0p/)
+<br/>
+[Angular: JS Fiddle: https://jsfiddle.net/easyinvoice/pmt3bs9q/](https://jsfiddle.net/easyinvoice/pmt3bs9q/)
 
 ## Installing
 
