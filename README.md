@@ -52,10 +52,34 @@ Using jsDelivr CDN:
 <script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
 ```
 
-Using unkpg cdn:
+Using unkpg CDN:
 
 ```html
 <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
+```
+
+## Import
+
+Html
+```html
+<script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
+```
+
+NodeJS
+```js
+var easyinvoice = require('easyinvoice');
+```
+
+Vue/React
+```js
+import easyinvoice from 'easyinvoice';
+```
+
+Angular
+```js
+import * as easyinvoice from 'easyinvoice';
+//ór (not both)
+import { easyinvoice } from 'easyinvoice';
 ```
 
 ## Example
