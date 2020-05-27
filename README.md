@@ -46,6 +46,12 @@ Using npm:
 $ npm install easyinvoice --save
 ```
 
+Using yarn:
+
+```bash
+$ yarn add easyinvoice
+```
+
 Using jsDelivr CDN:
 
 ```html
