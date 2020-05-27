@@ -95,18 +95,28 @@ var data = {
     "marginRight": 25,
     "marginLeft": 25,
     "marginBottom": 25,
-    "logo": 'https://www.easyinvoice.cloud/img/logo.png', //or base64
+    "logo": "https://www.easyinvoice.cloud/img/logo.png", //or base64
     //"logoExtension": "png", //only when logo is base64
-    "companyFrom": "Sample Corp",
-    "addressFrom": "Sample Street 123",
-    "zipFrom": "1234 AB",
-    "cityFrom": "Sampletown",
-    "countryFrom": "Samplecountry",
-    "companyTo": "Client Corp",
-    "addressTo": "Clientstreet 456",
-    "zipTo": "4567 CD",
-    "cityTo": "Clientcity",
-    "countryTo": "Clientcountry",
+    "sender": {
+        "company": "Sample Corp",
+        "address": "Sample Street 123",
+        "zip": "1234 AB",
+        "city": "Sampletown",
+        "country": "Samplecountry"
+        //"custom1": "custom value 1",
+        //"custom2": "custom value 2",
+        //"custom3": "custom value 3"
+    },
+    "client": {
+       	"company": "Client Corp",
+       	"address": "Clientstreet 456",
+       	"zip": "4567 CD",
+       	"city": "Clientcity",
+       	"country": "Clientcountry"
+        //"custom1": "custom value 1",
+        //"custom2": "custom value 2",
+        //"custom3": "custom value 3"
+    },
     "invoiceNumber": "2020.0001",
     "invoiceDate": "05-01-2020",
     "products": [
