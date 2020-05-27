@@ -28,15 +28,15 @@ Much appreciated!
 - [ ] More soon...
 
 ## Demo
-[GUI: https://easyinvoice.cloud](https://easyinvoice.cloud)
+[GUI](https://easyinvoice.cloud)
 <br/>
-[Plain Javascript: JS Fiddle: https://jsfiddle.net/easyinvoice/rjtsxhp3/](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
+[JS Fiddle: Plain Javascript](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
 <br/>
-[Vue: JS Fiddle: https://jsfiddle.net/easyinvoice/gpb1osav/](https://jsfiddle.net/easyinvoice/gpb1osav/)
+[JS Fiddle: Vue](https://jsfiddle.net/easyinvoice/gpb1osav/)
 <br/>
-[React: JS Fiddle: https://jsfiddle.net/easyinvoice/qfs8dk0p/](https://jsfiddle.net/easyinvoice/qfs8dk0p/)
+[JS Fiddle: React](https://jsfiddle.net/easyinvoice/qfs8dk0p/)
 <br/>
-[Angular: JS Fiddle: https://jsfiddle.net/easyinvoice/pmt3bs9q/](https://jsfiddle.net/easyinvoice/pmt3bs9q/)
+[JS Fiddle: Angular](https://jsfiddle.net/easyinvoice/pmt3bs9q/)
 
 ## Installing
 
