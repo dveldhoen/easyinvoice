@@ -165,8 +165,9 @@ await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 ```
 
 ### Download your invoice (browser only)
+
+Using callback
 ```js
-//  Using callback
 const data = {};
 easyinvoice.createInvoice(data, function (result) {
     easyinvoice.download('myInvoice.pdf', result.pdf);
@@ -174,8 +175,10 @@ easyinvoice.createInvoice(data, function (result) {
     //	easyinvoice.download();
     //	easyinvoice.download('myInvoice.pdf');   
 });
+```
 
-//  Async/await
+Using async/await
+```js
 const data = {};
 const result = await easyinvoice.createInvoice(data);                       
 easyinvoice.download('myInvoice.pdf', result.pdf);
