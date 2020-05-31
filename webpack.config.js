@@ -8,8 +8,8 @@ function generateConfig(name) {
         entry: './index.js',
         target: 'node',
         output: {
-            filename: name + '.js',
-            sourceMapFilename: name + '.map',
+            filename: [name] + '.js',
+            sourceMapFilename: [name] + '.map',
             library: 'easyinvoice',
             libraryTarget: 'umd',
             globalObject: 'this'
