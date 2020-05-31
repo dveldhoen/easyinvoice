@@ -106,10 +106,11 @@ return /******/ (function(modules) { // webpackBootstrap
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 class EasyInvoice {
-    constructor (pdf, totalPages, renderedPdf) {
+    constructor (pdf, totalPages, renderedPdf, elementId) {
         this._pdf = pdf;
         this._totalPages = totalPages;
         this._renderedPdf = renderedPdf;
+        this._elementId = elementId;
     }
 
     createInvoice (options, cb = () => {
@@ -142,10 +143,11 @@ class EasyInvoice {
         }
     }
 
-    render (pdf = this._pdf) {
+    render (elementId, pdf = this._pdf) {
         if (typeof window === 'undefined') {
             throw new Error('Easy Invoice render() is only supported in the browser.');
         } else {
+            this._elementId = elementId;
             this.renderPdf(pdf);
         }
     }
@@ -166,13 +168,17 @@ class EasyInvoice {
     }
 
     renderPage (pageNumber) {
-        this._renderedPdf.getPage(pageNumber).then(function (page) {
+        this._renderedPdf.getPage(pageNumber).then((page) => {
             // console.log('Page loaded');
+            const canvas = document.createElement('canvas');
 
             const viewport = isMobileBrowser() ? page.getViewport(window.screen.width / page.getViewport(1.0).width) : page.getViewport(Math.max(window.devicePixelRatio || 1, 1));
 
+            var canvasWrapper = document.getElementById(this._elementId);
+            canvasWrapper.appendChild(canvas);
+
             // Prepare canvas using PDF page dimensions
-            const canvas = document.getElementById('pdf-canvas');
+
             const context = canvas.getContext('2d');
             canvas.height = viewport.height;
             canvas.width = viewport.width;
