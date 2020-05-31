@@ -188,6 +188,8 @@ easyinvoice.download('myInvoice.pdf', result.pdf);
 ```
 
 ### Render(view) your invoice (browser only)
+
+html
 ```html
 <!-- To support rendering you must include PDFJS in your project -->
 <!-- https://github.com/mozilla/pdf.js -->
@@ -197,15 +199,17 @@ easyinvoice.download('myInvoice.pdf', result.pdf);
 <div id="pdf"></div>
 ```
 
+js: Using Callback
 ```js
-//  Using callback
 var data = {};
 var elementId = 'pdf';
 easyinvoice.createInvoice(data, function(result) {
     easyinvoice.render(elementId, result.pdf);
 });
+```
 
-//  Async/await
+js: Using async/await
+```js
 const data = {}; 
 const elementId = 'pdf'; 
 const result = await easyinvoice.createInvoice(data);      
