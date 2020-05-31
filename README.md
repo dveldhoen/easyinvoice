@@ -182,6 +182,31 @@ easyinvoice.download('myInvoice.pdf', result.pdf);
 //	easyinvoice.download('myInvoice.pdf');
 ```
 
+### Render(view) your invoice (browser only)
+```html
+<!-- To support rendering you must include PDFJS in your project -->
+<!-- https://github.com/mozilla/pdf.js -->
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist/build/pdf.min.js"></script>
+
+<!-- The pdf will be rendered within this div -->
+<div id="pdf"></div>
+```
+
+```js
+//  Using callback
+var data = {};
+var elementId = 'pdf';
+easyinvoice.createInvoice(data, function(result) {
+    easyinvoice.render(elementId, result.pdf);
+});
+
+//  Async/await
+const data = {}; 
+const elementId = 'pdf'; 
+const result = await easyinvoice.createInvoice(data);      
+easyinvoice.render(elementId, result.pdf);
+```
+
 You could view your rendered pdf through the following website:
 https://base64.guru/converter/decode/pdf
 
