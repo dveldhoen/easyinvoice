@@ -103,178 +103,203 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
-class EasyInvoice {
-    constructor (pdf, totalPages, renderedPdf, elementId) {
-        this._pdf = pdf;
-        this._totalPages = totalPages;
-        this._renderedPdf = renderedPdf;
+var EasyInvoice = /*#__PURE__*/function () {
+  function EasyInvoice(pdf, totalPages, renderedPdf, elementId) {
+    _classCallCheck(this, EasyInvoice);
+
+    this._pdf = pdf;
+    this._totalPages = totalPages;
+    this._renderedPdf = renderedPdf;
+    this._elementId = elementId;
+  }
+
+  _createClass(EasyInvoice, [{
+    key: "createInvoice",
+    value: function createInvoice(options) {
+      var _this = this;
+
+      var cb = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
+      return new Promise(function (resolve, reject) {
+        var url = 'https://api.factuursimpel.nl/v1/invoices';
+        var data = {
+          data: options
+        };
+        axios.post(url, data).then(function (response) {
+          var result = response.data.data;
+          _this._pdf = result.pdf;
+          resolve(result);
+          cb(result);
+        })["catch"](function (error) {
+          console.log(error);
+          reject(error);
+        });
+      });
+    }
+  }, {
+    key: "download",
+    value: function download() {
+      var filename = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'invoice.pdf';
+      var pdf = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this._pdf;
+
+      if (typeof window === 'undefined') {
+        throw new Error('Easy Invoice download() is only supported in the browser.');
+      } else {
+        downloadFile(filename, 'application/pdf', pdf);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render(elementId) {
+      var pdf = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this._pdf;
+
+      if (typeof window === 'undefined') {
+        throw new Error('Easy Invoice render() is only supported in the browser.');
+      } else {
         this._elementId = elementId;
+        this.renderPdf(pdf);
+      }
     }
-
-    createInvoice (options, cb = () => {
-    }) {
-        return new Promise((resolve, reject) => {
-            var url = 'https://api.factuursimpel.nl/v1/invoices';
-
-            const data = {
-                data: options
-            };
-            axios.post(url, data)
-                .then((response) => {
-                    var result = response.data.data;
-                    this._pdf = result.pdf;
-                    resolve(result);
-                    cb(result);
-                })
-                .catch((error) => {
-                    console.log(error);
-                    reject(error);
-                });
-        });
-    }
-
-    download (filename = 'invoice.pdf', pdf = this._pdf) {
-        if (typeof window === 'undefined') {
-            throw new Error('Easy Invoice download() is only supported in the browser.');
-        } else {
-            downloadFile(filename, 'application/pdf', pdf);
-        }
-    }
-
-    render (elementId, pdf = this._pdf) {
-        if (typeof window === 'undefined') {
-            throw new Error('Easy Invoice render() is only supported in the browser.');
-        } else {
-            this._elementId = elementId;
-            this.renderPdf(pdf);
-        }
-    }
-
     /*eslint-disable */
-    renderPdf (pdfData) {
-        // const loadingTask = pdfjsLib.getDocument({data: atob(this.invoicePdf)});
-        const loadingTask = pdfjsLib.getDocument({ data: atob(pdfData) });
-        loadingTask.promise.then((pdf) => {
-            // console.log('PDF loaded');
-            this._totalPages = pdf.numPages;
-            this._renderedPdf = pdf;
-            this.renderPage(1);
-        }, function (reason) {
-            // PDF loading error
-            console.error(reason);
-        });
+
+  }, {
+    key: "renderPdf",
+    value: function renderPdf(pdfData) {
+      var _this2 = this;
+
+      // const loadingTask = pdfjsLib.getDocument({data: atob(this.invoicePdf)});
+      var loadingTask = pdfjsLib.getDocument({
+        data: atob(pdfData)
+      });
+      loadingTask.promise.then(function (pdf) {
+        // console.log('PDF loaded');
+        _this2._totalPages = pdf.numPages;
+        _this2._renderedPdf = pdf;
+
+        _this2.renderPage(1);
+      }, function (reason) {
+        // PDF loading error
+        console.error(reason);
+      });
     }
+  }, {
+    key: "renderPage",
+    value: function renderPage(pageNumber) {
+      var _this3 = this;
 
-    renderPage (pageNumber) {
-        this._renderedPdf.getPage(pageNumber).then((page) => {
-            // console.log('Page loaded');
-            const canvas = document.createElement('canvas');
+      this._renderedPdf.getPage(pageNumber).then(function (page) {
+        // console.log('Page loaded');
+        var canvas = document.createElement('canvas');
+        var viewport = isMobileBrowser() ? page.getViewport(window.screen.width / page.getViewport(1.0).width) : page.getViewport(Math.max(window.devicePixelRatio || 1, 1));
+        var canvasWrapper = document.getElementById(_this3._elementId);
+        canvasWrapper.appendChild(canvas); // Prepare canvas using PDF page dimensions
 
-            const viewport = isMobileBrowser() ? page.getViewport(window.screen.width / page.getViewport(1.0).width) : page.getViewport(Math.max(window.devicePixelRatio || 1, 1));
+        var context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width; // Render PDF page into canvas context
 
-            var canvasWrapper = document.getElementById(this._elementId);
-            canvasWrapper.appendChild(canvas);
-
-            // Prepare canvas using PDF page dimensions
-
-            const context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-
-            // Render PDF page into canvas context
-            const renderContext = {
-                canvasContext: context,
-                viewport: viewport
-            };
-            const renderTask = page.render(renderContext);
-            renderTask.promise.then(function () {
-                // console.log('Page rendered');
-            });
+        var renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+        renderTask.promise.then(function () {// console.log('Page rendered');
         });
+      });
     }
     /* eslint-enable */
 
-    get pdf () {
-        return this._pdf;
+  }, {
+    key: "pdf",
+    get: function get() {
+      return this._pdf;
+    },
+    set: function set(value) {
+      this._pdf = value;
     }
+  }, {
+    key: "totalPages",
+    get: function get() {
+      return this._totalPages;
+    },
+    set: function set(value) {
+      this._totalPages = value;
+    }
+  }, {
+    key: "renderedPdf",
+    get: function get() {
+      return this._renderedPdf;
+    },
+    set: function set(value) {
+      this._renderedPdf = value;
+    }
+  }]);
 
-    set pdf (value) {
-        this._pdf = value;
-    }
-
-    get totalPages () {
-        return this._totalPages;
-    }
-
-    set totalPages (value) {
-        this._totalPages = value;
-    }
-
-    get renderedPdf () {
-        return this._renderedPdf;
-    }
-
-    set renderedPdf (value) {
-        this._renderedPdf = value;
-    }
-}
+  return EasyInvoice;
+}();
 
 module.exports = new EasyInvoice();
-
 /*eslint-disable */
-function isMobileBrowser () {
-    var ua = navigator.userAgent;
-    if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(ua) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(ua.substr(0, 4))) {
-        return true;
-    } else {
-        return false;
-    }
+
+function isMobileBrowser() {
+  var ua = navigator.userAgent;
+
+  if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(ua) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(ua.substr(0, 4))) {
+    return true;
+  } else {
+    return false;
+  }
 }
 /* eslint-enable */
 
-function downloadFile (fileName, contentType, base64) {
-    const blob = base64toBlob(base64, contentType);
-    // Check if IE
-    if (window.navigator.msSaveBlob) {
-        window.navigator.msSaveOrOpenBlob(blob, fileName);
-    } else {
-        const linkSource = 'data:' + contentType + ';base64,' + base64;
-        const downloadLink = document.createElement('a');
 
-        downloadLink.href = linkSource;
-        downloadLink.download = fileName;
-        downloadLink.click();
+function downloadFile(fileName, contentType, base64) {
+  var blob = base64toBlob(base64, contentType); // Check if IE
+
+  if (window.navigator.msSaveBlob) {
+    window.navigator.msSaveOrOpenBlob(blob, fileName);
+  } else {
+    var linkSource = 'data:' + contentType + ';base64,' + base64;
+    var downloadLink = document.createElement('a');
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
+  }
+} // Required for IE compatibility
+
+
+function base64toBlob(base64Data, contentType) {
+  contentType = contentType || '';
+  var sliceSize = 1024;
+  var byteCharacters = atob(base64Data); // var byteCharacters = decodeURIComponent(escape(window.atob(base64Data)))
+
+  var bytesLength = byteCharacters.length;
+  var slicesCount = Math.ceil(bytesLength / sliceSize);
+  var byteArrays = new Array(slicesCount);
+
+  for (var sliceIndex = 0; sliceIndex < slicesCount; ++sliceIndex) {
+    var begin = sliceIndex * sliceSize;
+    var end = Math.min(begin + sliceSize, bytesLength);
+    var bytes = new Array(end - begin);
+
+    for (var offset = begin, i = 0; offset < end; ++i, ++offset) {
+      bytes[i] = byteCharacters[offset].charCodeAt(0);
     }
-}
 
-// Required for IE compatibility
-function base64toBlob (base64Data, contentType) {
-    contentType = contentType || '';
-    var sliceSize = 1024;
-    var byteCharacters = atob(base64Data);
-    // var byteCharacters = decodeURIComponent(escape(window.atob(base64Data)))
-    var bytesLength = byteCharacters.length;
-    var slicesCount = Math.ceil(bytesLength / sliceSize);
-    var byteArrays = new Array(slicesCount);
+    byteArrays[sliceIndex] = new Uint8Array(bytes);
+  }
 
-    for (var sliceIndex = 0; sliceIndex < slicesCount; ++sliceIndex) {
-        var begin = sliceIndex * sliceSize;
-        var end = Math.min(begin + sliceSize, bytesLength);
-
-        var bytes = new Array(end - begin);
-        for (var offset = begin, i = 0; offset < end; ++i, ++offset) {
-            bytes[i] = byteCharacters[offset].charCodeAt(0);
-        }
-        byteArrays[sliceIndex] = new Uint8Array(bytes);
-    }
-    return new Blob(byteArrays, {
-        type: contentType
-    });
-}
-
-// module.exports = {
+  return new Blob(byteArrays, {
+    type: contentType
+  });
+} // module.exports = {
 //     createInvoice: function (options, cb = () => {
 //     }) {
 //         return new Promise((resolve, reject) => {
@@ -304,7 +329,6 @@ function base64toBlob (base64Data, contentType) {
 //         })
 //     }
 // }
-
 
 /***/ }),
 
