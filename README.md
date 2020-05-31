@@ -88,7 +88,7 @@ import * as easyinvoice from 'easyinvoice';
 import { easyinvoice } from 'easyinvoice';
 ```
 
-## Example
+## Example (NodeJS)
 
 ```js
 //Import the library into your project
@@ -155,11 +155,25 @@ const result = await easyinvoice.createInvoice(data);
 console.log(result.pdf);
 ```
 
-### To store the file locally
+### To store the file locally (NodeJS)
 ```js
 const data = {};
 const result = await easyinvoice.createInvoice(data);                       
 await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
+```
+
+### Download your invoice (browser only)
+```js
+//  Using callback
+const data = {};
+easyinvoice.createInvoice(data, function (result) {
+    easyinvoice.download('myInvoice.pdf');       
+});
+
+//  Async/await
+const data = {};
+await easyinvoice.createInvoice(data);                       
+easyinvoice.download('myInvoice.pdf');
 ```
 
 You could view your rendered pdf through the following website:
