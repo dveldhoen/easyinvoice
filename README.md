@@ -199,6 +199,18 @@ html
 <div id="pdf"></div>
 ```
 
+css (optional)
+```css
+#pdf {
+  text-align: center;
+}
+
+#pdf canvas {
+  border: 1px solid black;
+  width: 95%;
+}
+```
+
 js: Using Callback
 ```js
 var data = {};
