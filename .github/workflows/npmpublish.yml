@@ -41,7 +41,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: git config --global user.email "info@easyinvoice.cloud"
       - run: git config --global user.name "Danny Veldhoen"
-      - run: cat package.json
       - run: npm version patch
       - run: git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvoice
 
@@ -65,6 +64,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - run: cat package.json
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
