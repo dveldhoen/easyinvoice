@@ -16,8 +16,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "pdfjs-dist": "^2.3.200"
+    "axios": "^0.19.2"
   },
   "main": "/dist/easyinvoice.js",
   "bugs": {

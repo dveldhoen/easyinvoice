@@ -11,7 +11,7 @@ class EasyInvoice {
     createInvoice (options, cb = () => {
     }) {
         return new Promise((resolve, reject) => {
-            var url = 'https://api.factuursimpel.nl/v1/invoices';
+            var url = 'https://api.easyinvoice.cloud/v1/invoices';
 
             const data = {
                 data: options
