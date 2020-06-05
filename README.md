@@ -191,10 +191,6 @@ easyinvoice.download('myInvoice.pdf', result.pdf);
 
 html
 ```html
-<!-- To support rendering you must include PDFJS in your project -->
-<!-- https://github.com/mozilla/pdf.js -->
-<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist/build/pdf.min.js"></script>
-
 <!-- The pdf will be rendered within this div -->
 <div id="pdf"></div>
 ```
