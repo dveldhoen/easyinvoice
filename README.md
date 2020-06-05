@@ -224,7 +224,7 @@ const result = await easyinvoice.createInvoice(data);
 easyinvoice.render(elementId, result.pdf);
 ```
 
-You could view your rendered pdf through the following website:
+You could view your base64 pdf through the following website:
 https://base64.guru/converter/decode/pdf
 
 Paste the base64 string and click 'Decode Base64 to PDF'.
