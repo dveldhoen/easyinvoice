@@ -52,23 +52,23 @@ Using yarn:
 $ yarn add easyinvoice
 ```
 
-Using jsDelivr CDN:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
-```
-
 Using unkpg CDN:
 
 ```html
 <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
 ```
 
+Using jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
+```
+
 ## Import
 
 Html
 ```html
-<script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
+<script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
 ```
 
 NodeJS
