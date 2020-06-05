@@ -44,6 +44,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "is-base64": "^1.1.0",
     "jest": "^26.0.1",
     "pdfjs-dist": "^2.4.456",
     "webpack": "^4.43.0",

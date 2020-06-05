@@ -1,4 +1,5 @@
 var axios = require('axios');
+var isBase64 = require('is-base64');
 var pdfjsLib = require('pdfjs-dist/build/pdf');
 var pdfjsWorker = require('pdfjs-dist/build/pdf.worker.entry');
 
@@ -35,6 +36,10 @@ class EasyInvoice {
     }
 
     download (filename = 'invoice.pdf', pdf = this._pdf) {
+        if (filename === undefined || isBase64(filename)){
+            throw new Error('Invalid filename.');
+        }
+
         if (typeof window === 'undefined') {
             throw new Error('Easy Invoice download() is only supported in the browser.');
         } else {
