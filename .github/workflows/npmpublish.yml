@@ -56,7 +56,7 @@ jobs:
   #       - run: npm test
 
   publish-npm:
-    needs: bump-version
+#    needs: bump-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -69,7 +69,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
-    needs: bump-version
+#    needs: bump-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
