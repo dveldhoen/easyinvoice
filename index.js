@@ -1,4 +1,8 @@
 var axios = require('axios');
+var pdfjsLib = require('pdfjs-dist/build/pdf');
+var pdfjsWorker = require('pdfjs-dist/build/pdf.worker.entry');
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 class EasyInvoice {
     constructor (pdf, totalPages, renderedPdf, elementId) {
@@ -67,7 +71,7 @@ class EasyInvoice {
             // console.log('Page loaded');
             const canvas = document.createElement('canvas');
 
-            const viewport = isMobileBrowser() ? page.getViewport(window.screen.width / page.getViewport(1.0).width) : page.getViewport(Math.max(window.devicePixelRatio || 1, 1));
+            const viewport = isMobileBrowser() ? page.getViewport({scale: window.screen.width / page.getViewport({scale: 1.0}).width}) : page.getViewport({scale: Math.max(window.devicePixelRatio || 1, 1)});
 
             var canvasWrapper = document.getElementById(this._elementId);
             canvasWrapper.appendChild(canvas);
