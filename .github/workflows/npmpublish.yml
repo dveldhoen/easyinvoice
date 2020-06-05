@@ -34,6 +34,7 @@ jobs:
     needs: lint-test
     runs-on: ubuntu-latest
     steps:
+      - run: npm cache clean --force
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
@@ -59,7 +60,6 @@ jobs:
     needs: bump-version
     runs-on: ubuntu-latest
     steps:
-      - run: ls
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
