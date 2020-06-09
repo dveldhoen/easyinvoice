@@ -1,4 +1,4 @@
-<p align="center"><a href="https://easyinvoice.cloud" target="_blank" rel="noopener noreferrer"><img width="250" src="https://easyinvoice.cloud/img/logo.png" alt="Vue logo"></a></p>
+<p align="center"><a href="https://easyinvoice.cloud" target="_blank" rel="noopener noreferrer"><img width="250" src="https://easyinvoice.cloud/img/logo.png" alt="Easy Invoice logo"></a></p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/npm/v/easyinvoice.svg" alt="Version"></a>
