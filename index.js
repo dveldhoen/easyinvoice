@@ -36,7 +36,7 @@ class EasyInvoice {
     }
 
     download (filename = 'invoice.pdf', pdf = this._pdf) {
-        if (filename === undefined || isBase64(filename)){
+        if (filename === undefined || isBase64(filename)) {
             throw new Error('Invalid filename.');
         }
 
