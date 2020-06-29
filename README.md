@@ -95,7 +95,7 @@ import { easyinvoice } from 'easyinvoice';
 var easyinvoice = require('easyinvoice');
 
 var data = {
-    //"documentTitle": "Receipt" //Defaults to Invoice
+    //"documentTitle": "RECEIPT", //Defaults to INVOICE
     "currency": "USD",
     "taxNotation": "vat", //or gst
     "marginTop": 25,
