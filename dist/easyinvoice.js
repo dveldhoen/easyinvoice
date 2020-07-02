@@ -167,21 +167,29 @@ var EasyInvoice = /*#__PURE__*/function () {
   }, {
     key: "render",
     value: function render(elementId) {
-      var pdf = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this._pdf;
+      var _this2 = this;
 
-      if (typeof window === 'undefined') {
-        throw new Error('Easy Invoice render() is only supported in the browser.');
-      } else {
-        this._elementId = elementId;
-        this.renderPdf(pdf);
-      }
+      var pdf = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this._pdf;
+      var cb = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+      return new Promise(function (resolve) {
+        if (typeof window === 'undefined') {
+          throw new Error('Easy Invoice render() is only supported in the browser.');
+        } else {
+          _this2._elementId = elementId;
+
+          _this2.renderPdf(pdf, function (renderFinished) {
+            resolve(renderFinished);
+            cb(renderFinished);
+          });
+        }
+      });
     }
     /*eslint-disable */
 
   }, {
     key: "renderPdf",
-    value: function renderPdf(pdfData) {
-      var _this2 = this;
+    value: function renderPdf(pdfData, renderFinished) {
+      var _this3 = this;
 
       // const loadingTask = pdfjsLib.getDocument({data: atob(this.invoicePdf)});
       var loadingTask = pdfjsLib.getDocument({
@@ -189,10 +197,10 @@ var EasyInvoice = /*#__PURE__*/function () {
       });
       loadingTask.promise.then(function (pdf) {
         // console.log('PDF loaded');
-        _this2._totalPages = pdf.numPages;
-        _this2._renderedPdf = pdf;
+        _this3._totalPages = pdf.numPages;
+        _this3._renderedPdf = pdf;
 
-        _this2.renderPage(1);
+        _this3.renderPage(1, renderFinished);
       }, function (reason) {
         // PDF loading error
         console.error(reason);
@@ -200,8 +208,8 @@ var EasyInvoice = /*#__PURE__*/function () {
     }
   }, {
     key: "renderPage",
-    value: function renderPage(pageNumber) {
-      var _this3 = this;
+    value: function renderPage(pageNumber, renderFinished) {
+      var _this4 = this;
 
       this._renderedPdf.getPage(pageNumber).then(function (page) {
         // console.log('Page loaded');
@@ -213,7 +221,7 @@ var EasyInvoice = /*#__PURE__*/function () {
         }) : page.getViewport({
           scale: Math.max(window.devicePixelRatio || 1, 1)
         });
-        var canvasWrapper = document.getElementById(_this3._elementId);
+        var canvasWrapper = document.getElementById(_this4._elementId);
         canvasWrapper.appendChild(canvas); // Prepare canvas using PDF page dimensions
 
         var context = canvas.getContext('2d');
@@ -225,7 +233,9 @@ var EasyInvoice = /*#__PURE__*/function () {
           viewport: viewport
         };
         var renderTask = page.render(renderContext);
-        renderTask.promise.then(function () {// console.log('Page rendered');
+        renderTask.promise.then(function () {
+          // console.log('Page rendered');
+          renderFinished(true);
         });
       });
     }

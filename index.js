@@ -47,31 +47,37 @@ class EasyInvoice {
         }
     }
 
-    render (elementId, pdf = this._pdf) {
-        if (typeof window === 'undefined') {
-            throw new Error('Easy Invoice render() is only supported in the browser.');
-        } else {
-            this._elementId = elementId;
-            this.renderPdf(pdf);
-        }
+    render (elementId, pdf = this._pdf, cb = () => {
+    }) {
+        return new Promise((resolve) => {
+            if (typeof window === 'undefined') {
+                throw new Error('Easy Invoice render() is only supported in the browser.');
+            } else {
+                this._elementId = elementId;
+                this.renderPdf(pdf, function (renderFinished) {
+                    resolve(renderFinished);
+                    cb(renderFinished);
+                });
+            }
+        });
     }
 
     /*eslint-disable */
-    renderPdf (pdfData) {
+    renderPdf (pdfData, renderFinished) {
         // const loadingTask = pdfjsLib.getDocument({data: atob(this.invoicePdf)});
         const loadingTask = pdfjsLib.getDocument({ data: atob(pdfData) });
         loadingTask.promise.then((pdf) => {
             // console.log('PDF loaded');
             this._totalPages = pdf.numPages;
             this._renderedPdf = pdf;
-            this.renderPage(1);
+            this.renderPage(1, renderFinished);
         }, function (reason) {
             // PDF loading error
             console.error(reason);
         });
     }
 
-    renderPage (pageNumber) {
+    renderPage (pageNumber, renderFinished) {
         this._renderedPdf.getPage(pageNumber).then((page) => {
             // console.log('Page loaded');
             const canvas = document.createElement('canvas');
@@ -95,6 +101,7 @@ class EasyInvoice {
             const renderTask = page.render(renderContext);
             renderTask.promise.then(function () {
                 // console.log('Page rendered');
+                renderFinished(true);
             });
         });
     }
