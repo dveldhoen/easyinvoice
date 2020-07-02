@@ -84,6 +84,7 @@ class EasyInvoice {
 
             const viewport = isMobileBrowser() ? page.getViewport({scale: window.screen.width / page.getViewport({scale: 1.0}).width}) : page.getViewport({scale: Math.max(window.devicePixelRatio || 1, 1)});
 
+            document.getElementById(this._elementId).innerHTML = "";
             var canvasWrapper = document.getElementById(this._elementId);
             canvasWrapper.appendChild(canvas);
 

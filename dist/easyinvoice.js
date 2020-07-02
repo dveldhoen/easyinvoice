@@ -221,6 +221,7 @@ var EasyInvoice = /*#__PURE__*/function () {
         }) : page.getViewport({
           scale: Math.max(window.devicePixelRatio || 1, 1)
         });
+        document.getElementById(_this4._elementId).innerHTML = "";
         var canvasWrapper = document.getElementById(_this4._elementId);
         canvasWrapper.appendChild(canvas); // Prepare canvas using PDF page dimensions
 
