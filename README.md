@@ -216,7 +216,9 @@ js: Using Callback
 var data = {};
 var elementId = 'pdf';
 easyinvoice.createInvoice(data, function(result) {
-    easyinvoice.render(elementId, result.pdf);
+    easyinvoice.render(elementId, result.pdf, function(){
+        console.log('Invoice rendered!');
+    });
 });
 ```
 
@@ -225,7 +227,7 @@ js: Using async/await
 const data = {}; 
 const elementId = 'pdf'; 
 const result = await easyinvoice.createInvoice(data);      
-easyinvoice.render(elementId, result.pdf);
+await easyinvoice.render(elementId, result.pdf);
 ```
 
 You could view your base64 pdf through the following website:
