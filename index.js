@@ -1,9 +1,9 @@
 var axios = require('axios');
 var isBase64 = require('is-base64');
-var pdfjsLib = require('pdfjs-dist/build/pdf');
-var pdfjsWorker = require('pdfjs-dist/build/pdf.worker.entry');
+// var pdfjsLib = require('pdfjs-dist/build/pdf');
+// var pdfjsWorker = require('pdfjs-dist/build/pdf.worker.entry');
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+// pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 class EasyInvoice {
     constructor (pdf, totalPages, renderedPdf, elementId) {
