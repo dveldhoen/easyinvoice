@@ -192,6 +192,9 @@ easyinvoice.download('myInvoice.pdf', result.pdf);
 
 html
 ```html
+<!-- Only include when rendering is required for your project -->
+<script src="https://unpkg.com/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
+
 <!-- The pdf will be rendered within this div -->
 <div id="pdf"></div>
 ```
