@@ -28,8 +28,6 @@ Much appreciated!
 - [ ] More soon...
 
 ## Demo
-[GUI](https://easyinvoice.cloud)
-<br/>
 [JS Fiddle: Plain Javascript](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
 <br/>
 [JS Fiddle: Vue](https://jsfiddle.net/easyinvoice/gpb1osav/)
