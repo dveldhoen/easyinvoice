@@ -1,5 +1,5 @@
 {
-  "name": "@dveldhoen/easyinvoice",
+  "name": "easyinvoice",
   "version": "1.0.104",
   "description": "Easily create beautiful pdf invoices.",
   "license": "MIT",

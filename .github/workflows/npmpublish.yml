@@ -71,23 +71,23 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-  publish-gpr:
-    needs: bump-version
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: 'master'
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: '@dveldhoen'
-      - env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: |
-          npm config set registry 'https://npm.pkg.github.com/@dveldhoen'
-          npm publish
+#  publish-gpr:
+#    needs: bump-version
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          ref: 'master'
+#      - uses: actions/setup-node@v1
+#        with:
+#          node-version: 12
+#          registry-url: https://npm.pkg.github.com/
+#          scope: '@dveldhoen'
+#      - env:
+#          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#        run: |
+#          npm config set registry 'https://npm.pkg.github.com/@dveldhoen'
+#          npm publish
 
 
 
