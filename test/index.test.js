@@ -17,11 +17,11 @@ test('if pdf file is stored locally', async () => {
     expect(fs.existsSync("invoice.pdf")).toBe(false);
 });
 
-test('if download pdf throws no error', async () => {
-    const data = {};
-    const result = await easyinvoice.createInvoice(data);
-    await easyinvoice.download('invoice.pdf', result.pdf);
-});
+// test('if download pdf throws no error', async () => {
+//     const data = {};
+//     const result = await easyinvoice.createInvoice(data);
+//     await easyinvoice.download('invoice.pdf', result.pdf);
+// });
 
 function isBase64(str) {
     if (str === '' || str.trim() === '') {

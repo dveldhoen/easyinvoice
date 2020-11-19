@@ -1,3 +1,4 @@
+import { saveAs } from 'file-saver';
 var axios = require('axios');
 var isBase64 = require('is-base64');
 // var pdfjsLib = require('pdfjs-dist/build/pdf');
@@ -148,17 +149,7 @@ function isMobileBrowser () {
 
 function downloadFile (fileName, contentType, base64) {
     const blob = base64toBlob(base64, contentType);
-    // Check if IE
-    if (window.navigator.msSaveBlob) {
-        window.navigator.msSaveOrOpenBlob(blob, fileName);
-    } else {
-        const linkSource = 'data:' + contentType + ';base64,' + base64;
-        const downloadLink = document.createElement('a');
-
-        downloadLink.href = linkSource;
-        downloadLink.download = fileName;
-        downloadLink.click();
-    }
+    saveAs(blob, fileName);
 }
 
 // Required for IE compatibility
