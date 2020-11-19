@@ -1,6 +1,6 @@
-import { saveAs } from 'file-saver';
 var axios = require('axios');
 var isBase64 = require('is-base64');
+var FileSaver = require('file-saver');
 // var pdfjsLib = require('pdfjs-dist/build/pdf');
 // var pdfjsWorker = require('pdfjs-dist/build/pdf.worker.entry');
 
@@ -149,7 +149,7 @@ function isMobileBrowser () {
 
 function downloadFile (fileName, contentType, base64) {
     const blob = base64toBlob(base64, contentType);
-    saveAs(blob, fileName);
+    FileSaver.saveAs(blob, fileName);
 }
 
 // Required for IE compatibility

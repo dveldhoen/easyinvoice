@@ -100,24 +100,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! file-saver */ "./node_modules/file-saver/dist/FileSaver.min.js");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_0__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-
-
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
-var isBase64 = __webpack_require__(/*! is-base64 */ "./node_modules/is-base64/is-base64.js"); // var pdfjsLib = require('pdfjs-dist/build/pdf');
+var isBase64 = __webpack_require__(/*! is-base64 */ "./node_modules/is-base64/is-base64.js");
+
+var FileSaver = __webpack_require__(/*! file-saver */ "./node_modules/file-saver/dist/FileSaver.min.js"); // var pdfjsLib = require('pdfjs-dist/build/pdf');
 // var pdfjsWorker = require('pdfjs-dist/build/pdf.worker.entry');
 // pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -294,7 +290,7 @@ function isMobileBrowser() {
 
 function downloadFile(fileName, contentType, base64) {
   var blob = base64toBlob(base64, contentType);
-  Object(file_saver__WEBPACK_IMPORTED_MODULE_0__["saveAs"])(blob, fileName);
+  FileSaver.saveAs(blob, fileName);
 } // Required for IE compatibility
 
 
@@ -352,7 +348,6 @@ function base64toBlob(base64Data, contentType) {
 //         })
 //     }
 // }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ }),
 
@@ -3850,41 +3845,6 @@ module.exports = {
 	supportsColor: getSupportLevel,
 	stdout: getSupportLevel(process.stdout),
 	stderr: getSupportLevel(process.stderr)
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/webpack/buildin/harmony-module.js":
-/*!*******************************************!*\
-  !*** (webpack)/buildin/harmony-module.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function(originalModule) {
-	if (!originalModule.webpackPolyfill) {
-		var module = Object.create(originalModule);
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		Object.defineProperty(module, "exports", {
-			enumerable: true
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
 };
 
 
