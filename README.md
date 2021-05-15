@@ -93,8 +93,8 @@ var easyinvoice = require('easyinvoice');
 
 var data = {
     //"documentTitle": "RECEIPT", //Defaults to INVOICE
-    //"locale": "de-DE", //Defaults to en-US, used for number formatting: https://datahub.io/core/language-codes/r/3.html
-    "currency": "USD", //List of currency codes: https://www.iban.com/currency-codes
+    //"locale": "de-DE", //Defaults to en-US, used for number formatting (see docs)
+    "currency": "USD", //See documentation 'Locales and Currency' for more info
     "taxNotation": "vat", //or gst
     "marginTop": 25,
     "marginRight": 25,
@@ -147,6 +147,24 @@ easyinvoice.createInvoice(data, function (result) {
     console.log(result.pdf);
 });
 ```
+
+##Locales and currency
+Used for number formatting and the currency symbol:
+```js
+//E.g. for Germany, prices would look like 123.456,78 €
+const data = { locale: 'de-DE', currency: 'EUR'};
+
+//E.g. for US, prices would look like $123,456.78
+const data = { locale: 'en-US', currency: 'USD'};
+```
+
+Formatting and symbols are applied through the [ECMAScript Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+
+[Click here for a list of locale codes](https://datahub.io/core/language-codes/r/3.html)
+<br/>
+[Click here for a list of currency codes](https://www.iban.com/currency-codes)
+
+Disclaimer: Not all locales and currency codes found in the above lists might be supported by the ECMAScript Internationalization API.
 
 ### Async/await support
 ```js
