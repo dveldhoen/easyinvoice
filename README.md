@@ -123,13 +123,21 @@ var data = {
         //"custom3": "custom value 3"
     },
     "invoiceNumber": {
-        //"title": "Receipt Number: ", Defaults to Invoice Number:
-        "value": "2020.0001"
+        //"title": "Receipt Number: ", //Defaults to Invoice Number:
+        "value": "2021.0001"
     },
     "invoiceDate": {
-        //"title": "Receipt Date: ", Defaults to Invoice Date:
+        //"title": "Receipt Date: ", //Defaults to Invoice Date:
         "value": "1.1.2021"
     },
+    //Used for translating the product headers to your preferred language
+    //Defaults to English. Below example is translated to Dutch
+    // "productHeaders": { 
+    //     "quantity": "aantal", 
+    //     "description": "omschrijving", 
+    //     "tax": "btw", 
+    //     "price": "prijs" 
+    // },
     "products": [
         {
             "quantity": "2",
