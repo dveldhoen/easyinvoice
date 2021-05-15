@@ -122,8 +122,14 @@ var data = {
         //"custom2": "custom value 2",
         //"custom3": "custom value 3"
     },
-    "invoiceNumber": "2020.0001",
-    "invoiceDate": "05-01-2020",
+    "invoiceNumber": {
+        //"title": "Receipt Number: ", Defaults to Invoice Number:
+        "value": "2020.0001"
+    },
+    "invoiceDate": {
+        //"title": "Receipt Date: ", Defaults to Invoice Date:
+        "value": "1.1.2021"
+    },
     "products": [
         {
             "quantity": "2",
