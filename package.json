@@ -1,6 +1,6 @@
 {
   "name": "easyinvoice",
-  "version": "1.0.108",
+  "version": "1.0.112",
   "description": "Easily create beautiful pdf invoices.",
   "license": "MIT",
   "homepage": "https://easyinvoice.cloud",
@@ -51,7 +51,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "file-saver": "^2.0.2",
     "is-base64": "^1.1.0"
   }
