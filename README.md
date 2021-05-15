@@ -159,7 +159,7 @@ easyinvoice.createInvoice(data, function (result) {
 });
 ```
 
-##Locales and currency
+## Locales and currency
 Used for number formatting and the currency symbol:
 ```js
 //E.g. for Germany, prices would look like 123.456,78 €
