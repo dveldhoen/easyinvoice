@@ -133,10 +133,10 @@ var data = {
     //Used for translating the product headers to your preferred language
     //Defaults to English. Below example is translated to Dutch
     // "productHeaders": { 
+    //     "products": "producten", 
     //     "quantity": "aantal", 
-    //     "description": "omschrijving", 
-    //     "tax": "btw", 
-    //     "price": "prijs" 
+    //     "price": "prijs", 
+    //     "total": "totaal" 
     // },
     "products": [
         {
