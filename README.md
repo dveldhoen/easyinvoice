@@ -101,7 +101,7 @@ var data = {
     "marginLeft": 25,
     "marginBottom": 25,
     "logo": "https://public.easyinvoice.cloud/img/logo_en_original.png", //or base64
-    "background": "https://public.easyinvoice.cloud/img/watermark_draft.jpg", //or base64 //img or pdf
+    "background": "https://public.easyinvoice.cloud/img/watermark-draft.jpg", //or base64 //img or pdf
     "sender": {
         "company": "Sample Corp",
         "address": "Sample Street 123",

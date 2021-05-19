@@ -1,6 +1,6 @@
-var axios = require('axios');
-var isBase64 = require('is-base64');
-var FileSaver = require('file-saver');
+const axiosForEasyInvoice = require('axios');
+const isBase64 = require('is-base64');
+const FileSaver = require('file-saver');
 // var pdfjsLib = require('pdfjs-dist/build/pdf');
 // var pdfjsWorker = require('pdfjs-dist/build/pdf.worker.entry');
 
@@ -17,14 +17,14 @@ class EasyInvoice {
     createInvoice (options, cb = () => {
     }) {
         return new Promise((resolve, reject) => {
-            var url = 'https://api.easyinvoice.cloud/v1/invoices';
+            const url = 'https://api.easyinvoice.cloud/v1/invoices';
 
             const data = {
                 data: options
             };
-            axios.post(url, data)
+            axiosForEasyInvoice.post(url, data)
                 .then((response) => {
-                    var result = response.data.data;
+                    const result = response.data.data;
                     this._pdf = result.pdf;
                     resolve(result);
                     cb(result);
@@ -155,19 +155,19 @@ function downloadFile (fileName, contentType, base64) {
 // Required for IE compatibility
 function base64toBlob (base64Data, contentType) {
     contentType = contentType || '';
-    var sliceSize = 1024;
-    var byteCharacters = atob(base64Data);
+    const sliceSize = 1024;
+    const byteCharacters = atob(base64Data);
     // var byteCharacters = decodeURIComponent(escape(window.atob(base64Data)))
-    var bytesLength = byteCharacters.length;
-    var slicesCount = Math.ceil(bytesLength / sliceSize);
-    var byteArrays = new Array(slicesCount);
+    const bytesLength = byteCharacters.length;
+    const slicesCount = Math.ceil(bytesLength / sliceSize);
+    const byteArrays = new Array(slicesCount);
 
-    for (var sliceIndex = 0; sliceIndex < slicesCount; ++sliceIndex) {
-        var begin = sliceIndex * sliceSize;
-        var end = Math.min(begin + sliceSize, bytesLength);
+    for (let sliceIndex = 0; sliceIndex < slicesCount; ++sliceIndex) {
+        const begin = sliceIndex * sliceSize;
+        const end = Math.min(begin + sliceSize, bytesLength);
 
-        var bytes = new Array(end - begin);
-        for (var offset = begin, i = 0; offset < end; ++i, ++offset) {
+        const bytes = new Array(end - begin);
+        for (let offset = begin, i = 0; offset < end; ++i, ++offset) {
             bytes[i] = byteCharacters[offset].charCodeAt(0);
         }
         byteArrays[sliceIndex] = new Uint8Array(bytes);
