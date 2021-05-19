@@ -20,10 +20,7 @@ class EasyInvoice {
             const url = 'https://api.easyinvoice.cloud/v1/invoices';
 
             const data = {
-                data: options,
-                headers: {
-                    Authorization: null
-                }
+                data: options
             };
             axios.post(url, data)
                 .then((response) => {

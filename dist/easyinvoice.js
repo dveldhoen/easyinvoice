@@ -109,7 +109,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js").create();
 
 var isBase64 = __webpack_require__(/*! is-base64 */ "./node_modules/is-base64/is-base64.js");
 
@@ -137,10 +137,7 @@ var EasyInvoice = /*#__PURE__*/function () {
       return new Promise(function (resolve, reject) {
         var url = 'https://api.easyinvoice.cloud/v1/invoices';
         var data = {
-          data: options,
-          headers: {
-            Authorization: null
-          }
+          data: options
         };
         axios.post(url, data).then(function (response) {
           var result = response.data.data;
