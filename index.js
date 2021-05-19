@@ -1,5 +1,4 @@
-const axios = require('axios');
-
+const axios = require('axios').create();
 const isBase64 = require('is-base64');
 const FileSaver = require('file-saver');
 // var pdfjsLib = require('pdfjs-dist/build/pdf');
