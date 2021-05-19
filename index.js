@@ -1,4 +1,4 @@
-const axiosForEasyInvoice = require('axios').create();
+const axios = require('axios').create();
 const isBase64 = require('is-base64');
 const FileSaver = require('file-saver');
 // var pdfjsLib = require('pdfjs-dist/build/pdf');
@@ -20,9 +20,12 @@ class EasyInvoice {
             const url = 'https://api.easyinvoice.cloud/v1/invoices';
 
             const data = {
-                data: options
+                data: options,
+                headers: {
+                    Authorization: null
+                }
             };
-            axiosForEasyInvoice.post(url, data)
+            axios.post(url, data)
                 .then((response) => {
                     const result = response.data.data;
                     this._pdf = result.pdf;
