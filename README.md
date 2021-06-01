@@ -31,7 +31,10 @@ Much appreciated!
 [comment]: <> (- [ ] More soon...)
 
 ## Sample
-<div align="center"><img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.jpg" alt="Easy Invoice logo"></div>
+<div align="center">
+    <img width="300" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.jpg" alt="Easy Invoice Sample Logo Only">
+    <img width="300" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
+</div>
 
 ## Demo
 [JS Fiddle: Plain Javascript](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
