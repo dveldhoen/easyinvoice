@@ -32,8 +32,8 @@ Much appreciated!
 
 ## Sample
 <div align="center">
-    <img width="300" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.jpg" alt="Easy Invoice Sample Logo Only">
-    <img width="300" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
+    <kbd><img width="300" src="https://public.easyinvoice.cloud/img/sample-invoice.jpg" alt="Easy Invoice Sample Logo Only"></kbd>
+    <kbd><img width="300" src="https://public.easyinvoice.cloud/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background"></kbd>
 </div>
 
 ## Demo
