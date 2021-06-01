@@ -31,7 +31,7 @@ Much appreciated!
 [comment]: <> (- [ ] More soon...)
 
 ## Sample
-<div style="text-align: center;"><img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.jpg" alt="Easy Invoice logo"></div>
+<div align="center"><img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.jpg" alt="Easy Invoice logo"></div>
 
 ## Demo
 [JS Fiddle: Plain Javascript](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
