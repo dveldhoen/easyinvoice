@@ -15,6 +15,7 @@ If this package helped you out please star us on Github!
 <br/>
 Much appreciated!
 <br/>
+<br/>
 <a href="https://github.com/dveldhoen/easyinvoice/"><img src="https://img.shields.io/github/stars/dveldhoen/easyinvoice.svg?style=social&label=Star" alt="Pull Request's Welcome"></a>
 </p>
 
@@ -35,6 +36,11 @@ Much appreciated!
     <img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
     <img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
 </div>
+
+### JSON Configs used for above samples:
+
+- <a href="https://public.easyinvoice.cloud/json/easyinvoice-sample.json">[View JSON] First Sample</a>
+- <a href="https://public.easyinvoice.cloud/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
 
 ## Demo
 [JS Fiddle: Plain Javascript](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
