@@ -34,14 +34,14 @@ Much appreciated!
 ## Sample
 <div align="center">
     <div>
-        <img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
+        <img width="325" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
         <br/>
         <a href="https://public.easyinvoice.cloud/json/sample-invoice.json">View JSON used for Sample</a>
         <br/>
         <br/>
     </div>
     <div>
-        <img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
+        <img width="325" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
         <br/>
         <a href="https://public.easyinvoice.cloud/json/sample-invoice-bakcground.json">View JSON used for Sample</a>
         <br/>
