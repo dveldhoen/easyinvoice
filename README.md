@@ -19,7 +19,13 @@ Much appreciated!
 <a href="https://github.com/dveldhoen/easyinvoice/"><img src="https://img.shields.io/github/stars/dveldhoen/easyinvoice.svg?style=social&label=Star" alt="Pull Request's Welcome"></a>
 </p>
 
-
+## Platform support
+|<b>Platform</b> | Repository |Supported  | Link |
+|---|---|---|---|
+| PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
+| Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
+| Python | PIP | In progress... |  |
+| Java | Maven | In progress... |  |
 
 [comment]: <> (## Features)
 
