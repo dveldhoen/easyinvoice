@@ -37,6 +37,8 @@ Much appreciated!
 
 [comment]: <> (- [ ] More soon...)
 
+<br/>
+
 ## Sample
 <div align="center">
     <img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
