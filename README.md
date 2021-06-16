@@ -59,6 +59,9 @@ Much appreciated!
 <br/>
 [JS Fiddle: Angular](https://jsfiddle.net/easyinvoice/pmt3bs9q/)
 
+## Step-by-step guide
+Read our step-by-step guide on Medium. <a href="https://medium.com/@dveldhoen/creating-invoices-in-nodejs-eaae01f0d3a4">Click here!</a>
+
 ## Installing
 
 Using npm:
