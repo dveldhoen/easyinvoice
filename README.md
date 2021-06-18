@@ -231,6 +231,20 @@ const data = {
     background: "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
 };
 ```
+
+### Local File (NodeJS only)
+
+```js
+//Import fs to be able to read from the local file system
+var fs = require("fs");
+
+//Use the code below to read your local file as a base64 string
+const data = {
+    logo: fs.readFileSync('logo.png', 'base64'),
+    background: fs.readFileSync('images/background.png', 'base64')
+};
+```
+
 [Click here for an online tool to convert an image to base64](https://base64.guru/converter/encode/image)
 
 ### Async/await support
