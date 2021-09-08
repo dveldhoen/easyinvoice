@@ -30,8 +30,8 @@ class EasyInvoice {
                     cb(result);
                 })
                 .catch((error) => {
-                    console.log(error.response.data.data);
-                    reject(error.response.data.data);
+                    console.log(error.response.data);
+                    reject(error.response.data);
                 });
         });
     }
