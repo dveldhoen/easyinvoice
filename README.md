@@ -257,7 +257,9 @@ console.log(result.pdf);
 ```js
 var fs = require('fs');
 
-const data = {};
+var data = {
+    currency: "USD"
+};
 const result = await easyinvoice.createInvoice(data);                       
 await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 ```
@@ -266,7 +268,9 @@ await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 
 Using callback
 ```js
-const data = {};
+var data = {
+    currency: "USD"
+};
 easyinvoice.createInvoice(data, function (result) {
     easyinvoice.download('myInvoice.pdf', result.pdf);
     //	you can download like this as well:
@@ -277,7 +281,9 @@ easyinvoice.createInvoice(data, function (result) {
 
 Using async/await
 ```js
-const data = {};
+var data = {
+    currency: "USD"
+};
 const result = await easyinvoice.createInvoice(data);                       
 easyinvoice.download('myInvoice.pdf', result.pdf);
 //	you can download like this as well:
@@ -314,7 +320,9 @@ css (optional)
 
 js: Using Callback
 ```js
-var data = {};
+var data = {
+    currency: "USD"
+};
 var elementId = 'pdf';
 easyinvoice.createInvoice(data, function(result) {
     easyinvoice.render(elementId, result.pdf, function(){
@@ -325,7 +333,9 @@ easyinvoice.createInvoice(data, function(result) {
 
 js: Using async/await
 ```js
-const data = {}; 
+var data = {
+    currency: "USD"
+};
 const elementId = 'pdf'; 
 const result = await easyinvoice.createInvoice(data);      
 await easyinvoice.render(elementId, result.pdf);
