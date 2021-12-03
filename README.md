@@ -189,15 +189,16 @@ easyinvoice.createInvoice(data, function (result) {
 ## Return values
 |<b>Key</b> | Value | Data Type |
 |---|---|---|
-| products | Array of objects reflecting the products used in creation | Array |
-| products[key].subtotal | Rounded price without tax per product | Number |
-| products[key].tax | Rounded tax per product | Number |
-| products[key].total | Rounded price including tax per product | Number |
-| tax | Array of objects containing total calculated tax per unique tax rate | Array |
-| tax[rate] | Total tax for all products with same tax rate  | Number |
-| subtotal | Rounded price without tax for all products | Number |
-| total | Rounded price without tax for all products | Number |
-| pdf | The PDF file as base64 string | String |
+| result.products | Array of objects reflecting the products used in creation | Array |
+| result.products[key].subtotal | Rounded price without tax per product | Number |
+| result.products[key].tax | Rounded tax per product | Number |
+| result.products[key].total | Rounded price including tax per product | Number |
+| result.tax | Array of objects containing total calculated tax per unique tax rate | Array |
+| result.tax[rate] | Total tax for all products with same tax rate  | Number |
+| result.subtotal | Rounded price without tax for all products | Number |
+| result.total | Rounded price without tax for all products | Number |
+| result.pdf | The PDF file as base64 string | String |
+<br/>
 
 ## Locales and Currency
 Used for number formatting and the currency symbol:
