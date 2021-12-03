@@ -186,6 +186,19 @@ easyinvoice.createInvoice(data, function (result) {
 });
 ```
 
+## Return values
+|<b>Key</b> | Value | Data Type |
+|---|---|---|
+| products | Array of objects reflecting the products used in creation | Array |
+| products[key].subtotal | Rounded price without tax per product | Number |
+| products[key].tax | Rounded tax per product | Number |
+| products[key].total | Rounded price including tax per product | Number |
+| tax | Array of objects containing total calculated tax per unique tax rate | Array |
+| tax[rate] | Total tax for all products with same tax rate  | Number |
+| subtotal | Rounded price without tax for all products | Number |
+| total | Rounded price without tax for all products | Number |
+| pdf | The PDF file as base64 string | String |
+
 ## Locales and Currency
 Used for number formatting and the currency symbol:
 ```js
