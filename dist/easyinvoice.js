@@ -145,9 +145,9 @@ var EasyInvoice = /*#__PURE__*/function () {
           resolve(result);
           cb(result);
         })["catch"](function (error) {
-          console.log(error.response.data.message);
-          reject(error.response.data.message);
-          cb(error.response.data.message);
+          console.log(error.response.data);
+          reject(error.response.data);
+          cb(error.response.data);
         });
       });
     }
