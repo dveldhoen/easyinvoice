@@ -17,7 +17,7 @@ class EasyInvoice {
     createInvoice (options, cb = () => {
     }) {
         return new Promise((resolve, reject) => {
-            const url = 'https://api.easyinvoice.cloud/v1/invoices';
+            const url = 'https://api.easyinvoice.cloud/v2/free/invoices';
 
             const data = {
                 data: options

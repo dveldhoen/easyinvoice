@@ -4,46 +4,60 @@ export type InvoiceSenderOrClient = {
     zip?: string
     city?: string
     country?: string
-    [key: string]: string // custom1, custom2, etc.
+    [key: string]: string
 }
 
 export type InvoiceProduct = {
-    quantity: string
-    description: string
-    tax: number
-    price: number
+    quantity?: string
+    description?: string
+    tax?: number
+    price?: number
+}
+
+export type InvoiceSettings = {
+    currency?: string,
+    locale?: string,
+    taxNotation?: string,
+    "margin-top"?: number,
+    "margin-right"?: number,
+    "margin-left"?: number,
+    "margin-bottom"?: number,
+    format?: string
+}
+
+export type InvoiceImages = {
+    logo?: string,
+    background?: string
+}
+
+export type InvoiceTranslations = {
+        invoice?: string,
+        number?: string,
+        date?: string,
+        "due-date"?: string,
+        subtotal?: string,
+        products?: string,
+        quantity?: string,
+        price?: string,
+        "product-total"?: string,
+        total?: string
+}
+
+export type InvoiceInformation = {
+    number?: string,
+    date?: string,
+    "due-date"?: string
 }
 
 export type InvoiceData = {
-    documentTitle?: string // Defaults to INVOICE
-    locale?: string // Defaults to en-US, used for number formatting (see docs)
-    currency?: string // See documentation 'Locales and Currency' for more info
-    taxNotation?: string //vat or gst
-    marginTop?: number // Defaults to 25
-    marginRight?: number // Defaults to 25
-    marginLeft?: number // Defaults to 25
-    marginBottom?: number // Defaults to 25
-    logo?: string //URL or base64
-    background?: string // URL or base64 (img or pdf)
+    information?: InvoiceInformation,
+    translate?: InvoiceTranslations,
+    settings?: InvoiceSettings,
+    images?: InvoiceImages,
     sender?: InvoiceSenderOrClient
     client?: InvoiceSenderOrClient
-    invoiceNumber?: string
-    invoiceDate?: string
     products?: InvoiceProduct[]
     bottomNotice?: string
-    /**
-     * Used for translating the headers to your preferred language
-     *
-     */
-    translate?: {
-        invoiceNumber?: string
-        invoiceDate?: string
-        products?: string
-        quantity?: string
-        price?: string
-        subtotal?: string
-        total?: string
-    }
 }
 
 type CreateInvoiceResult = {

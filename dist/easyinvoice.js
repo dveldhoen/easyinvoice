@@ -135,7 +135,7 @@ var EasyInvoice = /*#__PURE__*/function () {
 
       var cb = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
       return new Promise(function (resolve, reject) {
-        var url = 'https://api.easyinvoice.cloud/v1/invoices';
+        var url = 'https://api.easyinvoice.cloud/v2/free/invoices';
         var data = {
           data: options
         };
