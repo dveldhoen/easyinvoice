@@ -239,10 +239,10 @@ Used for number formatting and the currency symbol:
 
 ```js
 //E.g. for Germany, prices would look like 123.456,78 €
-const data = {locale: 'de-DE', currency: 'EUR'};
+const data = {settings: {locale: 'de-DE', currency: 'EUR'}};
 
 //E.g. for US, prices would look like $123,456.78
-const data = {locale: 'en-US', currency: 'USD'};
+const data = {settings: {locale: 'en-US', currency: 'USD'}};
 ```
 
 Formatting and symbols are applied through
@@ -268,8 +268,10 @@ Supported file types:
 
 ```js
 const data = {
-    logo: "https://public.easyinvoice.cloud/img/logo_en_original.png",
-    background: "https://public.easyinvoice.cloud/img/watermark_draft.jpg",
+    images: {
+        logo: "https://public.easyinvoice.cloud/img/logo_en_original.png",
+        background: "https://public.easyinvoice.cloud/img/watermark_draft.jpg",
+    }
 };
 ```
 
@@ -279,8 +281,10 @@ const data = {
 const data = {
     //Note: Sample base64 string
     //Please use the link below to convert your image to base64
-    logo: "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
-    background: "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+    images: {
+        logo: "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
+        background: "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+    }
 };
 ```
 
@@ -292,8 +296,10 @@ var fs = require("fs");
 
 //Use the code below to read your local file as a base64 string
 const data = {
-    logo: fs.readFileSync('logo.png', 'base64'),
-    background: fs.readFileSync('images/background.png', 'base64')
+    images: {
+        logo: fs.readFileSync('logo.png', 'base64'),
+        background: fs.readFileSync('images/background.png', 'base64')
+    }
 };
 ```
 
@@ -311,9 +317,7 @@ console.log(result.pdf);
 ```js
 var fs = require('fs');
 
-var data = {
-    currency: "USD"
-};
+var data = {};
 const result = await easyinvoice.createInvoice(data);
 await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 ```
@@ -323,9 +327,7 @@ await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 Using callback
 
 ```js
-var data = {
-    currency: "USD"
-};
+var data = {};
 easyinvoice.createInvoice(data, function (result) {
     easyinvoice.download('myInvoice.pdf', result.pdf);
     //	you can download like this as well:
@@ -337,9 +339,7 @@ easyinvoice.createInvoice(data, function (result) {
 Using async/await
 
 ```js
-var data = {
-    currency: "USD"
-};
+var data = {};
 const result = await easyinvoice.createInvoice(data);
 easyinvoice.download('myInvoice.pdf', result.pdf);
 //	you can download like this as well:
@@ -379,9 +379,7 @@ css (optional)
 js: Using Callback
 
 ```js
-var data = {
-    currency: "USD"
-};
+var data = {};
 var elementId = 'pdf';
 easyinvoice.createInvoice(data, function (result) {
     easyinvoice.render(elementId, result.pdf, function () {
@@ -393,9 +391,7 @@ easyinvoice.createInvoice(data, function (result) {
 js: Using async/await
 
 ```js
-var data = {
-    currency: "USD"
-};
+var data = {};
 const elementId = 'pdf';
 const result = await easyinvoice.createInvoice(data);
 await easyinvoice.render(elementId, result.pdf);
