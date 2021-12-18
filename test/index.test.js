@@ -2,18 +2,14 @@ var easyinvoice = require('../index.js');
 var fs = require("fs");
 
 test('return value is base64', callback => {
-    easyinvoice.createInvoice({
-        currency: 'USD'
-    }, function (result) {
+    easyinvoice.createInvoice({}, function (result) {
         expect(isBase64(result.pdf)).toBe(true);
         callback();
     });
 });
 
 test('if pdf file is stored locally', async () => {
-    const data = {
-        currency: 'USD'
-    };
+    const data = {};
     const result = await easyinvoice.createInvoice(data);
     await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
     expect(fs.existsSync("invoice.pdf")).toBe(true);

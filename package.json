@@ -8,13 +8,13 @@
     "name": "Danny Veldhoen"
   },
   "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "npx webpack",
     "changelog": "changelog",
     "package": "npm run lint && npm run test && npm run build && git add -A dist",
     "lint": "eslint index.js --fix",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "prebuild": "rimraf dist",
-    "build": "node esbuild.config.js"
+    "test:coverage": "jest --coverage"
   },
   "main": "./dist/easyinvoice.min.js",
   "types": "./index.d.ts",
@@ -42,7 +42,6 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
-    "esbuild": "^0.14.5",
     "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.23.2",
@@ -50,10 +49,12 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
     "jest": "^26.6.3",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.21.1",
     "file-saver": "^2.0.5",
     "is-base64": "^1.1.0"
   }
