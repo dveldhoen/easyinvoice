@@ -1,6 +1,6 @@
 {
   "name": "easyinvoice",
-  "version": "1.1.1",
+  "version": "",
   "description": "Easily create beautiful pdf invoices.",
   "license": "MIT",
   "homepage": "https://easyinvoice.cloud",
@@ -8,14 +8,15 @@
     "name": "Danny Veldhoen"
   },
   "scripts": {
-    "build": "npx webpack",
     "changelog": "changelog",
     "package": "npm run lint && npm run test && npm run build && git add -A dist",
     "lint": "eslint index.js --fix",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "prebuild": "rimraf dist",
+    "build": "node esbuild.config.js"
   },
-  "main": "./dist/easyinvoice.js",
+  "main": "./dist/easyinvoice.min.js",
   "types": "./index.d.ts",
   "bugs": {
     "url": "https://github.com/dveldhoen/easyinvoice/issues"
@@ -41,6 +42,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
+    "esbuild": "^0.14.5",
     "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.23.2",
@@ -48,11 +50,10 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
     "jest": "^26.6.3",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^4.7.0"
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "file-saver": "^2.0.5",
     "is-base64": "^1.1.0"
   }
