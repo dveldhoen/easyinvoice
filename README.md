@@ -19,6 +19,11 @@ Much appreciated!
 <a href="https://github.com/dveldhoen/easyinvoice/"><img src="https://img.shields.io/github/stars/dveldhoen/easyinvoice.svg?style=social&label=Star" alt="Pull Request's Welcome"></a>
 </p>
 
+<span style="color: orange;">
+<h3>Important</h3>
+Easy Invoice v1.x is deprecated and will stop working from the 1st of April 2022.<br/>
+Please upgrade to v2.x before this time.</span>
+
 ## Platform support
 
 |<b>Platform</b> | Repository |Supported  | Link |
@@ -232,6 +237,36 @@ easyinvoice.createInvoice(data, function (result) {
 | result.pdf | The PDF file as base64 string | String |
 
 <br/>
+
+## Templates
+
+Download our default template (invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.html" download>here</a> to have an example which you can customize.
+
+Supported file types:
+
+- Base64
+- URL (soon)
+- (Escaped) string (soon)
+
+```js
+// You are able to provide your own html template
+var html = '<p>Hello world! This is invoice number %number%</p>';
+
+
+// Supported format
+const data = {
+    customize: {
+        // btoa === base64 encode
+        template: btoa(html)
+    },
+    settings: {
+        number: '2022.0001'
+    }
+};
+
+// This will return a pdf with the following content
+// Hello world! This is invoice number 2022.0001
+```
 
 ## Locales and Currency
 
