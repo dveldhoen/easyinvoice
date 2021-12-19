@@ -346,47 +346,253 @@ const data = {
 ### Variable placeholders 
 The following placeholders can be put into your template. They will be replaced by their corresponding value upon creation. 
 
-| Placeholder                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Will be replaced by                                            |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| %document-title%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | translate.invoice                                              |
-| %logo%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | images.logo                                                    |
-| %company-from%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | sender.company                                                 |
-| %address-from%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | sender.address                                                 |
-| %zip-from%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | sender.zip                                                     |
-| %city-from%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | sender.city                                                    |
-| %country-from%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | sender.country                                                 |
-| %sender-custom-1%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | sender.custom1                                                 |
-| %sender-custom-2%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | sender.custom2                                                 |
-| %sender-custom-3%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | sender.custom3                                                 |
-| %company-to%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | client.company                                                 |
-| %address-to%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | client.address                                                 |
-| %zip-to%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | client.zip                                                     |
-| %city-to%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | client.city                                                    |
-| %country-to%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | client.country                                                 |
-| %client-custom-1%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | client.custom1                                                 |
-| %client-custom-2%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | client.custom2                                                 |
-| %client-custom-3%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | client.custom3                                                 |
-| %number-title%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | translate.number                                               |
-| %number%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | settings.number                                                |
-| %date-title%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | translate.date                                                 |
-| %date%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | settings.date                                                  |
-| %due-date%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | settings.due-date                                              |
-| %products-header-products%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | translate.products                                             |
-| %products-header-quantity%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | translate.quantity                                             |
-| %products-header-price%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | translate.price                                                |
-| %products-header-total%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | translate.product-total                                        |
-| A custom product row must be EXACTLY formatted (including spaces) like: <br/><textarea rows=8 style="width: 100%"><!-- Products Wrapper - Start -->&#13;&#10;<tr>&#13;&#10;<td>%description%</td>&#13;&#10;<td align="center">%quantity%</td>&#13;&#10;<td>%price%</td>&#13;&#10;<td>%row-total%</td>&#13;&#10;</tr>&#13;&#10;<!-- Products Wrapper - End --></textarea><br/>Don't leave out the comments or your custom product row won't be iterable by the template parser and you will end up with a single product row. Customize the html as you wish. | products                                                       |
-| <i>Within products wrapper:</i><br/>%description%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | products[].description                                         |
-| <i>Within products wrapper:</i><br/>%quantity%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | products[].quantity                                            |
-| <i>Within products wrapper:</i><br/>%price%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | products[].price                                               |
-| <i>Within products wrapper:</i><br/>%row-total%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | products[].quantity * products[].price (rounded)               |
-| %subtotal-title%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | translate.subtotal                                             |
-| %subtotal%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | <b>Auto inserted:</b><br/>Calculated total price excluding tax |
-| A custom tax row must be EXACTLY formatted (including spaces) like: <br/><textarea rows=3 style="width: 100%"><!-- Tax Wrapper - Start -->&#13;&#10;%tax-notation% %tax-rate%%&#13;&#10;<!-- Tax Wrapper - End --></textarea><br/>Don't leave out the comments or your custom product row won't be iterable by the template parser and you will end up with a single tax row. Customize the html as you wish.                                                                                                                                                | <b>Auto inserted:</b><br/>Calculated total tax per rate        |
-| <i>Within tax wrapper:</i><br/>%row-total%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | products[].quantity * products[].price (rounded)               |
-| %tax-notation%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | settings.tax-notation                                          |
-| %tax-notation%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | <b>Auto inserted:</b><br/>Calculated total tax for rate        |
-| %total%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | <b>Auto inserted:</b><br/>Calculated total price including tax |
+<table>
+<tr>
+<td><b>Placeholder</b></td> 
+<td><b>Will be replaced by</b></td>
+</tr>
+<tr>
+<td>%document-title%</td> 
+<td>translate.invoice</td>
+</tr>
+<tr>
+<td>%logo%</td> 
+<td>images.logo</td>
+</tr>
+<tr>
+<td>%company-from%</td> 
+<td>sender.company</td>
+</tr>
+<tr>
+<td>%address-from%	</td> 
+<td>sender.address</td>
+</tr>
+<tr>
+<td>%zip-from%	</td> 
+<td>sender.zip</td>
+</tr>
+<tr>
+<td>%city-from%</td> 
+<td>sender.city</td>
+</tr>
+<tr>
+<td>%country-from%</td> 
+<td>sender.country</td>
+</tr>
+<tr>
+<td>%sender-custom-1%</td> 
+<td>sender.custom1</td>
+</tr>
+<tr>
+<td>%sender-custom-2%</td> 
+<td>sender.custom2</td>
+</tr>
+<tr>
+<td>%sender-custom-3%</td> 
+<td>sender.custom3</td>
+</tr>
+<tr>
+<td>%company-to%</td> 
+<td>client.company</td>
+</tr>
+<tr>
+<td>%address-to%	</td> 
+<td>client.address</td>
+</tr>
+<tr>
+<td>%zip-to%	</td> 
+<td>client.zip</td>
+</tr>
+<tr>
+<td>%city-to%</td> 
+<td>client.city</td>
+</tr>
+<tr>
+<td>%country-to%</td> 
+<td>client.country</td>
+</tr>
+<tr>
+<td>%client-custom-1%</td> 
+<td>client.custom1</td>
+</tr>
+<tr>
+<td>%client-custom-2%</td> 
+<td>client.custom2</td>
+</tr>
+<tr>
+<td>%client-custom-3%</td> 
+<td>client.custom3</td>
+</tr>
+<tr>
+<td>%number-title%</td> 
+<td>translate.number</td>
+</tr>
+<tr>
+<td>%number%</td> 
+<td>settings.number</td>
+</tr>
+<tr>
+<td>%date-title%</td> 
+<td>translate.date</td>
+</tr>
+<tr>
+<td>%date%</td> 
+<td>settings.date</td>
+</tr>
+<tr>
+<td>%due-date-title%</td> 
+<td>translate.due-date</td>
+</tr>
+<tr>
+<td>%due-date%</td> 
+<td>settings.due-date</td>
+</tr>
+<tr>
+<td>%products-header-products%</td> 
+<td>translate.products</td>
+</tr>
+<tr>
+<td>%products-header-quantity%</td> 
+<td>translate.quantity</td>
+</tr>
+<tr>
+<td>%products-header-price%</td> 
+<td>translate.price</td>
+</tr>
+<tr>
+<td>%products-header-total%</td> 
+<td>translate.product-total</td>
+</tr>
+<tr>
+<td>
+A custom product row must be formatted like:
+
+```html
+<products>
+    <tr>
+        <td>%description%</td>
+        <td align="center">%quantity%</td>
+        <td>%price%</td>
+        <td>%row-total%</td>
+    </tr>
+</products>
+```
+Don't leave out the product tags or your custom product row won't be iterable by the template parser and you will end up with a single product row. Customize the html as you wish.
+</td>
+<td>products</td>
+</tr>
+<tr>
+<td>
+
+```html
+Within: <products></products>
+```
+
+%description%
+</td> 
+<td>products[].description</td>
+</tr>
+<tr>
+<td>
+
+```html
+Within: <products></products>
+```
+
+%quantity%
+</td>  
+<td>products[].quantity</td>
+</tr>
+<tr>
+<td>
+
+```html
+Within: <products></products>
+```
+
+%price%
+</td>   
+<td>products[].price</td>
+</tr>
+<tr>
+<td>
+
+```html
+Within: <products></products>
+```
+
+%row-total%
+</td>    
+<td>products[].quantity * products[].price (rounded)</td>
+</tr>
+<tr>
+<td>%subtotal-title%</td> 
+<td>translate.subtotal</td>
+</tr>
+<tr>
+<td>%subtotal%</td> 
+<td><b>Auto inserted:</b>
+<br/>
+Calculated total price excluding tax</td>
+</tr>
+<tr>
+<td>
+A custom tax row must be formatted like:
+
+```html
+<tax>
+    <tr>
+        <td></td>
+        <td><b>%tax-notation% %tax-rate%%:</b></td>
+        <td>%tax%</td>
+    </tr>
+</tax>
+```
+Don't leave out the tax tags or your custom tax row won't be iterable by the template parser and you will end up with a single tax row. Customize the html as you wish.
+</td>
+<td>tax</td>
+</tr>
+<tr>
+<td>
+
+```html
+Within: <tax></tax>
+```
+
+%tax-notation%
+</td>    
+<td>settings.tax-notation</td>
+</tr>
+<tr>
+<td>
+
+```html
+Within: <tax></tax>
+```
+
+%tax-rate%
+</td>    
+<td><b>Auto inserted:</b><br/>
+Distinct tax rate used in products</td>
+</tr>
+<tr>
+<td>
+
+```html
+Within: <tax></tax>
+```
+
+%tax%
+</td>    
+<td><b>Auto inserted:</b><br/>
+Calculated total tax for rate</td>
+</tr>
+<tr>
+<td>%total%</td>    
+<td><b>Auto inserted:</b><br/>
+Calculated total price including tax</td>
+</tr>
+</table>
 
 ### Async/await support
 
