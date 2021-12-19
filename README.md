@@ -238,36 +238,6 @@ easyinvoice.createInvoice(data, function (result) {
 
 <br/>
 
-## Templates
-
-Download our default template (invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.html" download>here</a> to have an example which you can customize.
-
-Supported file types:
-
-- Base64
-- URL (soon)
-- (Escaped) string (soon)
-
-```js
-// You are able to provide your own html template
-var html = '<p>Hello world! This is invoice number %number%</p>';
-
-
-// Supported format
-const data = {
-    customize: {
-        // btoa === base64 encode
-        template: btoa(html)
-    },
-    settings: {
-        number: '2022.0001'
-    }
-};
-
-// This will return a pdf with the following content
-// Hello world! This is invoice number 2022.0001
-```
-
 ## Locales and Currency
 
 Used for number formatting and the currency symbol:
@@ -339,6 +309,37 @@ const data = {
 ```
 
 [Click here for an online tool to convert an image to base64](https://base64.guru/converter/encode/image)
+
+
+## Template customization
+
+Download our default template (invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.txt" download>here</a> to have an example which you can customize.
+
+Supported file types:
+
+- Base64
+- URL (soon)
+- (Escaped) string (soon)
+
+```js
+// You are able to provide your own html template
+var html = '<p>Hello world! This is invoice number %number%</p>';
+
+
+// Supported format
+const data = {
+    customize: {
+        // btoa === base64 encode
+        template: btoa(html)
+    },
+    settings: {
+        number: '2022.0001'
+    }
+};
+
+// This will return a pdf with the following content
+// Hello world! This is invoice number 2022.0001
+```
 
 ### Async/await support
 
