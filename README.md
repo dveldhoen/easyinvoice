@@ -131,6 +131,17 @@ import * as easyinvoice from 'easyinvoice';
 import {easyinvoice} from 'easyinvoice';
 ```
 
+Direct REST API access
+
+```
+# HTTPS POST 
+https://api.easyinvoice.cloud/v2/free/invoices
+
+# POST Data
+Format: JSON
+Structure: {"data":{"products":[]}} # Parent object must be 'data'
+```
+
 ## Example (NodeJS)
 
 ```js
