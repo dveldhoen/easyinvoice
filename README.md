@@ -465,16 +465,11 @@ The following placeholders can be put into your template. They will be replaced 
 </tr>
 <tr>
 <td>
-A custom product row must be formatted like:
+A custom product row must be enclosed in products tags like:
 
 ```html
 <products>
-    <tr>
-        <td>%description%</td>
-        <td align="center">%quantity%</td>
-        <td>%price%</td>
-        <td>%row-total%</td>
-    </tr>
+    <!-- Product row html -->
 </products>
 ```
 Don't leave out the product tags or your custom product row won't be iterable by the template parser and you will end up with a single product row. Customize the html as you wish.
@@ -537,15 +532,11 @@ Calculated total price excluding tax</td>
 </tr>
 <tr>
 <td>
-A custom tax row must be formatted like:
+A custom tax row must be enclosed in tax tags like:
 
 ```html
 <tax>
-    <tr>
-        <td></td>
-        <td><b>%tax-notation% %tax-rate%%:</b></td>
-        <td>%tax%</td>
-    </tr>
+    <!-- Tax row html -->
 </tax>
 ```
 Don't leave out the tax tags or your custom tax row won't be iterable by the template parser and you will end up with a single tax row. Customize the html as you wish.
