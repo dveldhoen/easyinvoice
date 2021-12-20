@@ -131,9 +131,9 @@ import * as easyinvoice from 'easyinvoice';
 import {easyinvoice} from 'easyinvoice';
 ```
 
-Direct REST API access
+## Direct REST API access
 
-```
+```shell
 # HTTPS POST 
 https://api.easyinvoice.cloud/v2/free/invoices
 
