@@ -275,7 +275,7 @@ Internationalization API.
 
 ## Logo and Background
 
-The logo and url inputs accept either a URL or a base64 encoded file.
+The logo and background inputs accept either a URL or a base64 encoded file.
 
 Supported file types:
 
