@@ -22,7 +22,12 @@ class EasyInvoice {
             const data = {
                 data: options
             };
-            axios.post(url, data)
+            const config = {
+                headers: {
+                    'easyinvoice-source': 'npm'
+                }
+            };
+            axios.post(url, data, config)
                 .then((response) => {
                     const result = response.data.data;
                     this._pdf = result.pdf;
