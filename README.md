@@ -25,6 +25,7 @@ Easy Invoice v1.x is deprecated and will stop working from the 1st of April 2022
 Please upgrade to v2.x before this time.
 </span>
 <br/>
+<br/>
 
 ## Platform support
 
@@ -91,14 +92,11 @@ $ yarn add easyinvoice
 Using unkpg CDN:
 
 ```html
-
 <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
 ```
 
 Using jsDelivr CDN:
-
 ```html
-
 <script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
 ```
 
@@ -142,7 +140,38 @@ Format: JSON
 Structure: {"data":{"products":[]}} # Parent object must be 'data'
 ```
 
+## Getting Started - Basic Example
+Plain Javascript
+```js
+// Import the library into your project
+var easyinvoice = require('easyinvoice');
+
+// Create your invoice! Easy!
+easyinvoice.createInvoice({}, function (result) {
+    // The response will contain a base64 encoded PDF file
+    console.log('PDF base64 string: ', result.pdf);
+    
+    // Now this result can be used to save, download or render your invoice
+    // Please review the documentation below on how to do this
+});
+```
+Async Javascript
+```js
+// Import the library into your project
+var easyinvoice = require('easyinvoice');
+
+// Create your invoice! Easy!
+const result = await easyinvoice.createInvoice({});
+
+// The response will contain a base64 encoded PDF file
+console.log('PDF base64 string: ', result.pdf);
+
+// Now this result can be used to save, download or render your invoice
+// Please review the documentation below on how to do this
+```
+
 ## Example (NodeJS)
+This example is simply an extension of the basic sample. Only here we input the data we would like to see on our Invoice.
 
 ```js
 //Import the library into your project
@@ -231,7 +260,7 @@ var data = {
 //Create your invoice! Easy!
 easyinvoice.createInvoice(data, function (result) {
     //The response will contain a base64 encoded PDF file
-    console.log(result.pdf);
+    console.log('PDF base64 string: ', result.pdf);
 });
 ```
 
@@ -324,6 +353,91 @@ const data = {
 [Click here for an online tool to convert an image to base64](https://base64.guru/converter/encode/image)
 
 
+## To store the file locally (NodeJS)
+
+```js
+var fs = require('fs');
+
+var data = {};
+const result = await easyinvoice.createInvoice(data);
+await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
+```
+
+## Download your invoice (browser only)
+
+Using callback
+
+```js
+var data = {};
+easyinvoice.createInvoice(data, function (result) {
+    easyinvoice.download('myInvoice.pdf', result.pdf);
+    //	you can download like this as well:
+    //	easyinvoice.download();
+    //	easyinvoice.download('myInvoice.pdf');   
+});
+```
+
+Using async/await
+
+```js
+var data = {};
+const result = await easyinvoice.createInvoice(data);
+easyinvoice.download('myInvoice.pdf', result.pdf);
+//	you can download like this as well:
+//	easyinvoice.download();
+//	easyinvoice.download('myInvoice.pdf');
+```
+
+## Render(view) your invoice (browser only)
+
+html
+
+```html
+<!-- Only include when rendering is required -->
+<script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
+<script src="https://unpkg.com/pdfjs-dist/build/pdf.worker.min.js"></script>
+
+<!-- Include pdfjs version 2.3.200 for Internet Explorer compatibility, no worker required -->
+<!-- <script src="https://unpkg.com/pdfjs-dist@2.3.200/build/pdf.min.js"></script> -->
+
+<!-- The pdf will be rendered within this div -->
+<div id="pdf"></div>
+```
+
+css (optional)
+
+```css
+#pdf {
+    text-align: center;
+}
+
+#pdf canvas {
+    border: 1px solid black;
+    width: 95%;
+}
+```
+
+js: Using Callback
+
+```js
+var data = {};
+var elementId = 'pdf';
+easyinvoice.createInvoice(data, function (result) {
+    easyinvoice.render(elementId, result.pdf, function () {
+        console.log('Invoice rendered!');
+    });
+});
+```
+
+js: Using async/await
+
+```js
+var data = {};
+const elementId = 'pdf';
+const result = await easyinvoice.createInvoice(data);
+await easyinvoice.render(elementId, result.pdf);
+```
+
 ## Template customization
 
 Download our default template (invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.txt" download>here</a> to have an example which you can customize.
@@ -354,8 +468,8 @@ const data = {
 // Hello world! This is invoice number 2022.0001
 ```
 
-### Variable placeholders 
-The following placeholders can be put into your template. They will be replaced by their corresponding value upon creation. 
+### Variable placeholders
+The following placeholders can be put into your template. They will be replaced by their corresponding value upon creation.
 
 <table>
 <tr>
@@ -595,101 +709,4 @@ Calculated total tax for rate</td>
 Calculated total price including tax</td>
 </tr>
 </table>
-
-### Async/await support
-
-```js
-const result = await easyinvoice.createInvoice(data);
-console.log(result.pdf);
-```
-
-### To store the file locally (NodeJS)
-
-```js
-var fs = require('fs');
-
-var data = {};
-const result = await easyinvoice.createInvoice(data);
-await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
-```
-
-### Download your invoice (browser only)
-
-Using callback
-
-```js
-var data = {};
-easyinvoice.createInvoice(data, function (result) {
-    easyinvoice.download('myInvoice.pdf', result.pdf);
-    //	you can download like this as well:
-    //	easyinvoice.download();
-    //	easyinvoice.download('myInvoice.pdf');   
-});
-```
-
-Using async/await
-
-```js
-var data = {};
-const result = await easyinvoice.createInvoice(data);
-easyinvoice.download('myInvoice.pdf', result.pdf);
-//	you can download like this as well:
-//	easyinvoice.download();
-//	easyinvoice.download('myInvoice.pdf');
-```
-
-### Render(view) your invoice (browser only)
-
-html
-
-```html
-<!-- Only include when rendering is required -->
-<script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
-<script src="https://unpkg.com/pdfjs-dist/build/pdf.worker.min.js"></script>
-
-<!-- Include pdfjs version 2.3.200 for Internet Explorer compatibility, no worker required -->
-<!-- <script src="https://unpkg.com/pdfjs-dist@2.3.200/build/pdf.min.js"></script> -->
-
-<!-- The pdf will be rendered within this div -->
-<div id="pdf"></div>
-```
-
-css (optional)
-
-```css
-#pdf {
-    text-align: center;
-}
-
-#pdf canvas {
-    border: 1px solid black;
-    width: 95%;
-}
-```
-
-js: Using Callback
-
-```js
-var data = {};
-var elementId = 'pdf';
-easyinvoice.createInvoice(data, function (result) {
-    easyinvoice.render(elementId, result.pdf, function () {
-        console.log('Invoice rendered!');
-    });
-});
-```
-
-js: Using async/await
-
-```js
-var data = {};
-const elementId = 'pdf';
-const result = await easyinvoice.createInvoice(data);
-await easyinvoice.render(elementId, result.pdf);
-```
-
-You could view your base64 pdf through the following website:
-https://base64.guru/converter/decode/pdf
-
-Paste the base64 string and click 'Decode Base64 to PDF'.
 
