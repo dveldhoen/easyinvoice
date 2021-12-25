@@ -285,6 +285,7 @@ easyinvoice.createInvoice(data, function (result) {
 
 |<b>Key</b> | Value | Data Type |
 |---|---|---|
+| <b>result.pdf</b>             | <b>The PDF file as base64 string</b>                                 | <b>String</b> |
 | result.products | Array of objects reflecting the products used in creation | Array |
 | result.products[key].subtotal | Rounded price without tax per product | Number |
 | result.products[key].tax | Rounded tax per product | Number |
@@ -293,7 +294,6 @@ easyinvoice.createInvoice(data, function (result) {
 | result.tax[rate] | Total tax for all products with same tax rate  | Number |
 | result.subtotal | Rounded price without tax for all products | Number |
 | result.total | Rounded price without tax for all products | Number |
-| result.pdf | The PDF file as base64 string | String |
 
 <br/>
 
