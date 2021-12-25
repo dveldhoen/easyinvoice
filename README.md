@@ -1,5 +1,7 @@
 <p align="center"><a href="https://easyinvoice.cloud" target="_blank" rel="noopener noreferrer"><img width="250" src="https://public.easyinvoice.cloud/img/logo_en_original.png" alt="Easy Invoice logo"></a></p>
 
+<h4 align="center">Build for Web and Backend 💪</h4>
+
 <p align="center">
   <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/npm/v/easyinvoice.svg" alt="Version"></a>
   <a href="https://github.com/dveldhoen/easyinvoice/actions?query=branch%3Amaster"><img src="https://github.com/dveldhoen/easyinvoice/workflows/build/badge.svg" alt="Build Status"></a>
@@ -89,6 +91,8 @@ Using yarn:
 $ yarn add easyinvoice
 ```
 
+## CDN
+
 Using unkpg CDN:
 
 ```html
@@ -102,31 +106,16 @@ Using jsDelivr CDN:
 
 ## Import
 
-Html
-
-```html
-
-<script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
-```
-
-NodeJS
+CommonJS
 
 ```js
 var easyinvoice = require('easyinvoice');
 ```
 
-Vue/React
+ES6 =<
 
 ```js
 import easyinvoice from 'easyinvoice';
-```
-
-Angular
-
-```js
-import * as easyinvoice from 'easyinvoice';
-//ór (not both)
-import {easyinvoice} from 'easyinvoice';
 ```
 
 ## Direct REST API access
@@ -141,13 +130,14 @@ Structure: {"data":{"products":[]}} # Parent object must be 'data'
 ```
 
 ## Getting Started - Basic Example
-Plain Javascript
+NodeJS
 ```js
 // Import the library into your project
 var easyinvoice = require('easyinvoice');
 
 // Create your invoice! Easy!
-easyinvoice.createInvoice({}, function (result) {
+var data = {};
+easyinvoice.createInvoice(data, function (result) {
     // The response will contain a base64 encoded PDF file
     console.log('PDF base64 string: ', result.pdf);
     
@@ -155,32 +145,41 @@ easyinvoice.createInvoice({}, function (result) {
     // Please review the documentation below on how to do this
 });
 ```
-Async Javascript
-```js
-// Import the library into your project
-var easyinvoice = require('easyinvoice');
-
-// Create your invoice! Easy!
-const result = await easyinvoice.createInvoice({});
-
-// The response will contain a base64 encoded PDF file
-console.log('PDF base64 string: ', result.pdf);
-
-// Now this result can be used to save, download or render your invoice
-// Please review the documentation below on how to do this
+Web
+```html
+<html>
+    <head>
+        // Import the library into your project
+        <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
+    </head>
+    <body>
+    <script>
+        // Create your invoice! Easy!
+        var data = {};
+        easyinvoice.createInvoice(data, function (result) {
+            // The response will contain a base64 encoded PDF file
+            console.log('PDF base64 string: ', result.pdf);
+        
+            // Now this result can be used to save, download or render your invoice
+            // Please review the documentation below on how to do this
+        });
+    </script>
+    </body>
+</html>
 ```
 
-## Example (NodeJS)
-This example is simply an extension of the basic sample. Only here we input the data we would like to see on our Invoice.
+## Complete Example (NodeJS)
 
 ```js
 //Import the library into your project
 var easyinvoice = require('easyinvoice');
 
 var data = {
-    // "customize": {
-    //     "template": "SGVsbG8gd29ybGQh" // Must be base64 encoded html. This example contains 'Hello World!' in base64 
-    // },
+    // Customize enables you to provide your own templates
+    // Please review the documentation for instructions and examples
+    "customize": {
+    //  "template": fs.readFileSync('template.html', 'base64') // Must be base64 encoded html 
+    },
     "images": {
         "logo": "https://public.easyinvoice.cloud/img/logo_en_original.png",
         "background": "https://public.easyinvoice.cloud/img/watermark-draft.jpg"
@@ -352,6 +351,18 @@ const data = {
 
 [Click here for an online tool to convert an image to base64](https://base64.guru/converter/encode/image)
 
+## Async/await support
+```js
+// Import the library into your project
+var easyinvoice = require('easyinvoice');
+
+// Create your invoice! Easy!
+var data = {};
+const result = await easyinvoice.createInvoice(data);
+
+// The response will contain a base64 encoded PDF file
+console.log('PDF base64 string: ', result.pdf);
+```
 
 ## To store the file locally (NodeJS)
 
@@ -452,15 +463,13 @@ Supported file types:
 // You are able to provide your own html template
 var html = '<p>Hello world! This is invoice number %number%</p>';
 
-
-// Supported format
 const data = {
-    customize: {
-        // btoa === base64 encode
-        template: btoa(html)
+    "customize": {
+        // Your template needs to be base64 encoded
+        "template": base64.b64encode(html)
     },
-    settings: {
-        number: '2022.0001'
+    "settings": {
+        "number": '2022.0001'
     }
 };
 
