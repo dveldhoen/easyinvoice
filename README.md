@@ -96,11 +96,14 @@ $ yarn add easyinvoice
 Using unkpg CDN:
 
 ```html
+
 <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
 ```
 
 Using jsDelivr CDN:
+
 ```html
+
 <script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
 ```
 
@@ -130,7 +133,9 @@ Structure: {"data":{"products":[]}} # Parent object must be 'data'
 ```
 
 ## Getting Started - Basic Example
+
 NodeJS
+
 ```js
 // Import the library into your project
 var easyinvoice = require('easyinvoice');
@@ -140,31 +145,34 @@ var data = {};
 easyinvoice.createInvoice(data, function (result) {
     // The response will contain a base64 encoded PDF file
     console.log('PDF base64 string: ', result.pdf);
-    
+
     // Now this result can be used to save, download or render your invoice
     // Please review the documentation below on how to do this
 });
 ```
+
 Web
+
 ```html
+
 <html>
-    <head>
-        // Import the library into your project
-        <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
-    </head>
-    <body>
-    <script>
-        // Create your invoice! Easy!
-        var data = {};
-        easyinvoice.createInvoice(data, function (result) {
-            // The response will contain a base64 encoded PDF file
-            console.log('PDF base64 string: ', result.pdf);
-        
-            // Now this result can be used to save, download or render your invoice
-            // Please review the documentation below on how to do this
-        });
-    </script>
-    </body>
+<head>
+    // Import the library into your project
+    <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
+</head>
+<body>
+<script>
+    // Create your invoice! Easy!
+    var data = {};
+    easyinvoice.createInvoice(data, function (result) {
+        // The response will contain a base64 encoded PDF file
+        console.log('PDF base64 string: ', result.pdf);
+
+        // Now this result can be used to save, download or render your invoice
+        // Please review the documentation below on how to do this
+    });
+</script>
+</body>
 </html>
 ```
 
@@ -178,12 +186,15 @@ var data = {
     // Customize enables you to provide your own templates
     // Please review the documentation for instructions and examples
     "customize": {
-    //  "template": fs.readFileSync('template.html', 'base64') // Must be base64 encoded html 
+        //  "template": fs.readFileSync('template.html', 'base64') // Must be base64 encoded html 
     },
     "images": {
+        // The logo on top of your invoice
         "logo": "https://public.easyinvoice.cloud/img/logo_en_original.png",
+        // The invoice background
         "background": "https://public.easyinvoice.cloud/img/watermark-draft.jpg"
     },
+    // Your own data
     "sender": {
         "company": "Sample Corp",
         "address": "Sample Street 123",
@@ -194,6 +205,7 @@ var data = {
         //"custom2": "custom value 2",
         //"custom3": "custom value 3"
     },
+    // Your recipient
     "client": {
         "company": "Client Corp",
         "address": "Clientstreet 456",
@@ -205,10 +217,15 @@ var data = {
         // "custom3": "custom value 3"
     },
     "information": {
+        // Invoice number
         "number": "2021.0001",
+        // Invoice data
         "date": "12-12-2021",
+        // Invoice due date
         "due-date": "31-12-2021"
     },
+    // The products you would like to see on your invoice
+    // Total values are being calculated automatically
     "products": [
         {
             "quantity": 2,
@@ -229,31 +246,32 @@ var data = {
             "price": 6324.453456
         }
     ],
+    // The message you would like to display on the bottom of your invoice
     "bottom-notice": "Kindly pay your invoice within 15 days.",
+    // Settings to customize your invoice
     "settings": {
         "currency": "USD", // See documentation 'Locales and Currency' for more info. Leave empty for no currency.
-        // "locale": "nl-NL", // Defaults to en-US, used for number formatting (see docs)
-        // "taxNotation": "gst", // Defaults to vat
-        // "margin-top": 25, // Default to 25
-        // "margin-right": 25, // Default to 25
-        // "margin-left": 25, // Default to 25
-        // "margin-bottom": 25, // Default to 25
-        // "format": "Letter" // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
+        // "locale": "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')
+        // "tax-notation": "gst", // Defaults to 'vat'
+        // "margin-top": 25, // Defaults to '25'
+        // "margin-right": 25, // Defaults to '25'
+        // "margin-left": 25, // Defaults to '25'
+        // "margin-bottom": 25, // Defaults to '25'
+        // "format": "A4" // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
     },
-    //Used for translating the headers to your preferred language
-    //Defaults to English. Below example is translated to Dutch
-    // "translate": {
-    //     "invoice": "FACTUUR",
-    //     "number": "Nummer",
-    //     "date": "Datum",
-    //     "due-date": "Verloopdatum",
-    //     "subtotal": "Subtotaal",
-    //     "products": "Producten",
-    //     "quantity": "Aantal",
-    //     "price": "Prijs",
-    //     "product-total": "Totaal",
-    //     "total": "Totaal"
-    // },
+    // Translate your invoice to your preferred language
+    "translate": {
+        // "invoice": "FACTUUR",  // Default to 'INVOICE'
+        // "number": "Nummer", // Defaults to 'Number'
+        // "date": "Datum", // Default to 'Date'
+        // "due-date": "Verloopdatum", // Defaults to 'Due Date'
+        // "subtotal": "Subtotaal", // Defaults to 'Subtotal'
+        // "products": "Producten", // Defaults to 'Products'
+        // "quantity": "Aantal", // Default to 'Quantity'
+        // "price": "Prijs", // Defaults to 'Price'
+        // "product-total": "Totaal", // Defaults to 'Total'
+        // "total": "Totaal" // Defaults to 'Total'
+    },
 };
 
 //Create your invoice! Easy!
@@ -352,6 +370,7 @@ const data = {
 [Click here for an online tool to convert an image to base64](https://base64.guru/converter/encode/image)
 
 ## Async/await support
+
 ```js
 // Import the library into your project
 var easyinvoice = require('easyinvoice');
@@ -451,7 +470,9 @@ await easyinvoice.render(elementId, result.pdf);
 
 ## Template customization
 
-Download our default template (invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.txt" download>here</a> to have an example which you can customize.
+Download our default template (
+invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.txt" download>here</a> to have an
+example which you can customize.
 
 Supported file types:
 
@@ -478,7 +499,9 @@ const data = {
 ```
 
 ### Variable placeholders
-The following placeholders can be put into your template. They will be replaced by their corresponding value upon creation.
+
+The following placeholders can be put into your template. They will be replaced by their corresponding value upon
+creation.
 
 <table>
 <tr>
@@ -602,11 +625,14 @@ The following placeholders can be put into your template. They will be replaced 
 A custom product row must be enclosed in products tags like:
 
 ```html
+
 <products>
     <!-- Product row html -->
 </products>
 ```
-Don't leave out the product tags or your custom product row won't be iterable by the template parser and you will end up with a single product row. Customize the html as you wish.
+
+Don't leave out the product tags or your custom product row won't be iterable by the template parser and you will end up
+with a single product row. Customize the html as you wish.
 </td>
 <td>products</td>
 </tr>
@@ -614,7 +640,8 @@ Don't leave out the product tags or your custom product row won't be iterable by
 <td>
 
 ```html
-Within: <products></products>
+Within:
+<products></products>
 ```
 
 %description%
@@ -625,7 +652,8 @@ Within: <products></products>
 <td>
 
 ```html
-Within: <products></products>
+Within:
+<products></products>
 ```
 
 %quantity%
@@ -636,7 +664,8 @@ Within: <products></products>
 <td>
 
 ```html
-Within: <products></products>
+Within:
+<products></products>
 ```
 
 %price%
@@ -647,7 +676,8 @@ Within: <products></products>
 <td>
 
 ```html
-Within: <products></products>
+Within:
+<products></products>
 ```
 
 %row-total%
@@ -669,11 +699,14 @@ Calculated total price excluding tax</td>
 A custom tax row must be enclosed in tax tags like:
 
 ```html
+
 <tax>
     <!-- Tax row html -->
 </tax>
 ```
-Don't leave out the tax tags or your custom tax row won't be iterable by the template parser and you will end up with a single tax row. Customize the html as you wish.
+
+Don't leave out the tax tags or your custom tax row won't be iterable by the template parser and you will end up with a
+single tax row. Customize the html as you wish.
 </td>
 <td>tax</td>
 </tr>
@@ -681,7 +714,8 @@ Don't leave out the tax tags or your custom tax row won't be iterable by the tem
 <td>
 
 ```html
-Within: <tax></tax>
+Within:
+<tax></tax>
 ```
 
 %tax-notation%
@@ -692,7 +726,8 @@ Within: <tax></tax>
 <td>
 
 ```html
-Within: <tax></tax>
+Within:
+<tax></tax>
 ```
 
 %tax-rate%
@@ -704,7 +739,8 @@ Distinct tax rate used in products</td>
 <td>
 
 ```html
-Within: <tax></tax>
+Within:
+<tax></tax>
 ```
 
 %tax%
