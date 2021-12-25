@@ -464,12 +464,12 @@ Supported file types:
 var html = '<p>Hello world! This is invoice number %number%</p>';
 
 const data = {
-    "customize": {
-        // Your template needs to be base64 encoded
-        "template": base64.b64encode(html)
+    customize: {
+        // btoa === base64 encode
+        template: btoa(html) // Your template must be base64 encoded
     },
-    "settings": {
-        "number": '2022.0001'
+    settings: {
+        number: '2022.0001'
     }
 };
 
