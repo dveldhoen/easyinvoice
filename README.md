@@ -477,7 +477,6 @@ Supported file types:
 
 - Base64
 - URL (soon)
-- (Escaped) string (soon)
 
 ```js
 // You are able to provide your own html template
