@@ -286,14 +286,14 @@ easyinvoice.createInvoice(data, function (result) {
 |<b>Key</b> | Value | Data Type |
 |---|---|---|
 | <b>result.pdf</b>             | <b>The PDF file as base64 string</b>                                 | <b>String</b> |
-| result.products | Array of objects reflecting the products used in creation | Array |
-| result.products[key].subtotal | Rounded price without tax per product | Number |
-| result.products[key].tax | Rounded tax per product | Number |
-| result.products[key].total | Rounded price including tax per product | Number |
-| result.tax | Array of objects containing total calculated tax per unique tax rate | Array |
-| result.tax[rate] | Total tax for all products with same tax rate  | Number |
-| result.subtotal | Rounded price without tax for all products | Number |
-| result.total | Rounded price without tax for all products | Number |
+| result.calculations.products | Array of objects reflecting the products used in creation | Array |
+| result.calculations.products[key].subtotal | Rounded price without tax per product | Number |
+| result.calculations.products[key].tax | Rounded tax per product | Number |
+| result.calculations.products[key].total | Rounded price including tax per product | Number |
+| result.calculations.tax | Array of objects containing total calculated tax per unique tax rate | Array |
+| result.calculations.tax[rate] | Total tax for all products with same tax rate  | Number |
+| result.calculations.subtotal | Rounded price without tax for all products | Number |
+| result.calculations.total | Rounded price without tax for all products | Number |
 
 <br/>
 
