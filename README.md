@@ -470,8 +470,7 @@ await easyinvoice.render(elementId, result.pdf);
 
 ## Template customization
 
-Download our default template (
-invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.txt" download>here</a> to have an
+Download our default template (invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.txt" download>here</a> to have an
 example which you can customize.
 
 Supported file types:
