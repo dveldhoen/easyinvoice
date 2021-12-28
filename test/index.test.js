@@ -1,4 +1,4 @@
-var easyinvoice = require('../dist/easyinvoice.min.js');
+var easyinvoice = require('../index.js');
 var fs = require("fs");
 
 test('return value is base64', callback => {
