@@ -34,10 +34,7 @@
     "generator"
   ],
   "peerDependencies": {
-    "pdfjs-dist": "2.3.200",
-    "axios": "^0.24.0",
-    "file-saver": "^2.0.5",
-    "is-base64": "^1.1.0"
+    "pdfjs-dist": "2.3.200"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.14.3",
@@ -55,5 +52,10 @@
     "rimraf": "^3.0.2",
     "webpack": "^4.46.0",
     "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "file-saver": "^2.0.5",
+    "is-base64": "^1.1.0"
   }
 }
