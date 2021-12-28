@@ -32,19 +32,19 @@ jobs:
           flags: unittests
           fail_ci_if_error: true
 
-#  bump-version:
-#    needs: lint-test
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v1
-#        with:
-#          node-version: 12
-#          registry-url: https://registry.npmjs.org/
-#      - run: git config --global user.email "info@easyinvoice.cloud"
-#      - run: git config --global user.name "Danny Veldhoen"
-#      - run: npm version patch
-#      - run: git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvoice
+  bump-version:
+    needs: lint-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: git config --global user.email "info@easyinvoice.cloud"
+      - run: git config --global user.name "Danny Veldhoen"
+      - run: npm version patch
+      - run: git push https://${{secrets.GPR_TOKEN}}@github.com/dveldhoen/easyinvoice
 
 
   #   build:
@@ -58,7 +58,7 @@ jobs:
   #       - run: npm test
 
   publish-npm:
-#    needs: bump-version
+    needs: bump-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
