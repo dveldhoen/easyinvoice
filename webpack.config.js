@@ -7,6 +7,11 @@ function generateConfig(name) {
         mode: environment,
         entry: './index.js',
         target: 'node',
+        externals: {
+            axios: 'axios',
+            isBase64: 'is-base64',
+            FileSaver: 'file-saver'
+        },
         output: {
             filename: [name] + '.js',
             sourceMapFilename: [name] + '.map',
