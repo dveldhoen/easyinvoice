@@ -29,6 +29,13 @@ Please upgrade to v2.x before this time.
 <br/>
 <br/>
 
+## EASY products
+
+| <b>Package</b> | Description          | Link                                                                                                                                                           |
+|----------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Easy PDF    | Easy PDF Creator     | <a href="https://www.npmjs.com/package/easypdf-io"><img src="https://img.shields.io/badge/NPM-EasyPDF.io-blue" alt="Available on Composer"></a>  |
+| Easy Invoice   | Easy Invoice Creator | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/NPM-EasyInvoice-blue" alt="Available on Composer"></a> |
+
 ## Platform support
 
 |<b>Platform</b> | Repository |Supported  | Link |
