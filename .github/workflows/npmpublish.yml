@@ -20,9 +20,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm install
       - run: npm ci
       - run: npm run lint
+      - run: npm install
       - run: npm run test:coverage
       - uses: codecov/codecov-action@v1
         with:
