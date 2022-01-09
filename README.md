@@ -494,7 +494,7 @@ const data = {
         // btoa === base64 encode
         template: btoa(html) // Your template must be base64 encoded
     },
-    settings: {
+    information: {
         number: '2022.0001'
     }
 };
