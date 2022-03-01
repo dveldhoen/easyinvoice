@@ -54,8 +54,9 @@
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.26.0",
     "file-saver": "^2.0.5",
     "is-base64": "^1.1.0"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
