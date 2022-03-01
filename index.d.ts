@@ -4,82 +4,52 @@ export type InvoiceSenderOrClient = {
     zip?: string
     city?: string
     country?: string
-    /** Custom values */
     [key: string]: string
 }
 
 export type InvoiceProduct = {
     quantity?: string
     description?: string
-    "tax-rate"?: number
+    tax?: number
     price?: number
 }
 
 export type InvoiceSettings = {
-    /** See documentation 'Locales and Currency' for more info. Leave empty for no currency. */
     currency?: string,
-    /** Defaults to en-US, used for number formatting (See documentation 'Locales and Currency') */
     locale?: string,
-    /** Defaults to 'vat' */
-    'tax-notation'?: string,
-    /** Defaults to 25 */
+    taxNotation?: string,
     "margin-top"?: number,
-    /** Defaults to 25 */
     "margin-right"?: number,
-    /** Defaults to 25 */
     "margin-left"?: number,
-    /** Defaults to 25 */
     "margin-bottom"?: number,
-    /** Defaults to 'A4' */
-    format?: 'A3' | 'A4' | 'A5' | 'Legal' | 'Letter' | 'Tabloid'
+    format?: string
 }
 
 export type InvoiceImages = {
-    /** The logo on top of your invoice */
     logo?: string,
-    /** The invoice background */
     background?: string
 }
 
 export type InvoiceTranslations = {
-    /** Defaults to 'INVOICE' */
-    invoice?: string,
-    /** Defaults to 'Number' */
-    number?: string,
-    /** Defaults to 'Date' */
-    date?: string,
-    /** Defaults to 'Due Date' */
-    "due-date"?: string,
-    /** Defaults to 'Subtotal' */
-    subtotal?: string,
-    /** Defaults to 'Products' */
-    products?: string,
-    /** Default to 'Quantity' */
-    quantity?: string,
-    /** Defaults to 'Price' */
-    price?: string,
-    /** Defaults to 'Total' */
-    "product-total"?: string,
-    /** Defaults to 'Total' */
-    total?: string
+        invoice?: string,
+        number?: string,
+        date?: string,
+        "due-date"?: string,
+        subtotal?: string,
+        products?: string,
+        quantity?: string,
+        price?: string,
+        "product-total"?: string,
+        total?: string
 }
 
 export type InvoiceInformation = {
-    /** Invoice number */
     number?: string,
-    /** Invoice date */
     date?: string,
-    /** Invoice due date */
     "due-date"?: string
 }
 
-export type CustomizeInvoice = {
-    /** Must be base64 encoded html */
-    template: string
-}
-
 export type InvoiceData = {
-    customize?: CustomizeInvoice
     information?: InvoiceInformation,
     translate?: InvoiceTranslations,
     settings?: InvoiceSettings,
@@ -87,33 +57,11 @@ export type InvoiceData = {
     sender?: InvoiceSenderOrClient
     client?: InvoiceSenderOrClient
     products?: InvoiceProduct[]
-    /** The message you would like to display on the bottom of your invoice */
-    "bottom-notice"?: string
-}
-
-export type InvoiceCalculations = {
-    products: {
-        /** Rounded price without tax per product	 */
-        subtotal: number | null
-        /** Rounded tax per product	 */
-        tax: number | null
-        /** Rounded price including tax per product	 */
-        total: number | null
-    }[]
-    tax: {
-        /** Total tax for all products with same tax rate */
-        [key: string]: number
-    }
-    /** Rounded price without tax for all products	 */
-    subtotal: number
-    /** Rounded price without tax for all products	 */
-    total: number
+    bottomNotice?: string
 }
 
 type CreateInvoiceResult = {
-    /** Base64 string representation of the invoice pdf */
-    pdf: string
-    calculations: InvoiceCalculations
+    pdf: string // Base64
 }
 
 declare module 'easyinvoice' {
