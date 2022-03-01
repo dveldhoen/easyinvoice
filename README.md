@@ -264,7 +264,10 @@ var data = {
         // "margin-right": 25, // Defaults to '25'
         // "margin-left": 25, // Defaults to '25'
         // "margin-bottom": 25, // Defaults to '25'
-        // "format": "A4" // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
+        // "format": "A4", // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
+        // "height": "1000px", // allowed units: mm, cm, in, px
+        // "width": "500px", // allowed units: mm, cm, in, px
+        // "orientation": "landscape", // portrait or landscape, defaults to portrait
     },
     // Translate your invoice to your preferred language
     "translate": {
