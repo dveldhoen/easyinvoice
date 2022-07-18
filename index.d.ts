@@ -60,8 +60,31 @@ export type InvoiceData = {
     bottomNotice?: string
 }
 
+export type InvoiceCalculations = {
+    /** Array of objects reflecting the products used in creation	 */
+    products: ProductCalculations[]
+    /** Object containing total calculated tax per unique tax rate */
+    tax: TaxCalculations
+    /** Rounded price without tax for all products	 */
+    subtotal: number
+    /** Rounded price with tax for all products	 */
+    total: number
+}
+
+type ProductCalculations = {
+    subtotal: number
+    tax: number
+    total: number
+}
+
+type TaxCalculations = {
+    /** The key is a unique tax rate and the value is the total calculated tax for the rate */
+    [key: number]: number
+}
+
 type CreateInvoiceResult = {
     pdf: string // Base64
+    calculations: InvoiceCalculations
 }
 
 declare module 'easyinvoice' {
