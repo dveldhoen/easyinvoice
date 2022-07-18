@@ -31,16 +31,16 @@ export type InvoiceImages = {
 }
 
 export type InvoiceTranslations = {
-        invoice?: string,
-        number?: string,
-        date?: string,
-        "due-date"?: string,
-        subtotal?: string,
-        products?: string,
-        quantity?: string,
-        price?: string,
-        "product-total"?: string,
-        total?: string
+    invoice?: string,
+    number?: string,
+    date?: string,
+    "due-date"?: string,
+    subtotal?: string,
+    products?: string,
+    quantity?: string,
+    price?: string,
+    "product-total"?: string,
+    total?: string
 }
 
 export type InvoiceInformation = {
