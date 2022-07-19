@@ -4,42 +4,67 @@ export type InvoiceSenderOrClient = {
     zip?: string
     city?: string
     country?: string
+    /** Custom values */
     [key: string]: string
 }
 
 export type InvoiceProduct = {
     quantity?: string
     description?: string
-    tax?: number
+    "tax-rate"?: number
     price?: number
 }
 
 export type InvoiceSettings = {
     currency?: string,
+    /** Defaults to en-US, used for number formatting (See documentation 'Locales and Currency') */
     locale?: string,
-    taxNotation?: string,
+    /** Defaults to 'vat' */
+    "tax-notation"?: string,
+    /** Defaults to '25' */
     "margin-top"?: number,
+    /** Defaults to '25' */
     "margin-right"?: number,
+    /** Defaults to '25' */
     "margin-left"?: number,
+    /** Defaults to '25' */
     "margin-bottom"?: number,
-    format?: string
+    /** Defaults to A4 */
+    format?: 'A4' | 'A3' | 'A5' | 'Legal' | 'Letter' | 'Tabloid'
+    height?: `${number}px` | `${number}mm` | `${number}cm` | `${number}in`
+    width?: `${number}px` | `${number}mm` | `${number}cm` | `${number}in`
+    /** Defaults to portrait */
+    orientation?: 'portrait' | 'landscape'
+
 }
 
 export type InvoiceImages = {
+    /** The logo on top of your invoice */
     logo?: string,
+    /** The invoice background */
     background?: string
 }
 
 export type InvoiceTranslations = {
+    /** Default to 'INVOICE' */
     invoice?: string,
+    /** Defaults to 'Number' */
     number?: string,
+    /** Default to 'Date' */
     date?: string,
+    /** Defaults to 'Due Date' */
     "due-date"?: string,
+    /** Defaults to 'Subtotal' */
     subtotal?: string,
+    /** Defaults to 'Products' */
     products?: string,
+    /** Default to 'Quantity' */
     quantity?: string,
+    /** Defaults to 'Price' */
     price?: string,
+    /** Defaults to 'Total' */
     "product-total"?: string,
+    /** Defaults to 'Total' */
     total?: string
 }
 
@@ -51,13 +76,29 @@ export type InvoiceInformation = {
 
 export type InvoiceData = {
     information?: InvoiceInformation,
+    /** Translate your invoice to your preferred language */
     translate?: InvoiceTranslations,
+    /** Settings to customize your invoice */
     settings?: InvoiceSettings,
     images?: InvoiceImages,
+    /** Your own data */
     sender?: InvoiceSenderOrClient
+    /** Your recipient */
     client?: InvoiceSenderOrClient
+    /** The products you would like to see on your invoice. Total values are being calculated automatically */
     products?: InvoiceProduct[]
-    bottomNotice?: string
+    /** The message you would like to display on the bottom of your invoice */
+    "bottom-notice"?: string
+    /** Customize enables you to provide your own templates. Please review the documentation for instructions and examples */
+    customize:InvoiceCustomizations
+}
+
+type InvoiceCustomizations = {
+    /**
+     * Must be base64 encoded html
+     * Example: fs.readFileSync('template.html', 'base64')
+     */
+    template: () => Buffer
 }
 
 export type InvoiceCalculations = {
