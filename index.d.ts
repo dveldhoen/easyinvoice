@@ -98,7 +98,7 @@ type InvoiceCustomizations = {
      * Must be base64 encoded html
      * Example: fs.readFileSync('template.html', 'base64')
      */
-    template: () => Buffer
+    template?: () => Buffer
 }
 
 export type InvoiceCalculations = {
