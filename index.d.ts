@@ -90,7 +90,7 @@ export type InvoiceData = {
     /** The message you would like to display on the bottom of your invoice */
     "bottom-notice"?: string
     /** Customize enables you to provide your own templates. Please review the documentation for instructions and examples */
-    customize:InvoiceCustomizations
+    customize?: InvoiceCustomizations
 }
 
 type InvoiceCustomizations = {
