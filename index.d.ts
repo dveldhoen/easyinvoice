@@ -90,7 +90,7 @@ export type InvoiceData = {
     /** The message you would like to display on the bottom of your invoice */
     "bottom-notice"?: string
     /** Customize enables you to provide your own templates. Please review the documentation for instructions and examples */
-    customize:InvoiceCustomizations
+    customize?: InvoiceCustomizations
 }
 
 type InvoiceCustomizations = {
@@ -98,7 +98,7 @@ type InvoiceCustomizations = {
      * Must be base64 encoded html
      * Example: fs.readFileSync('template.html', 'base64')
      */
-    template: () => Buffer
+    template?: () => Buffer
 }
 
 export type InvoiceCalculations = {
