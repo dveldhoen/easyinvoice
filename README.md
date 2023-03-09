@@ -23,18 +23,21 @@ Much appreciated!
 
 <span style="color: orange;">
 <h3>Important</h3>
-Easy Invoice v1.x is deprecated and will stop working from the 1st of April 2022.<br/>
-Please upgrade to v2.x before this time.
+Please upgrade from v2.x to v3.x for important security updates. The update should be relatively effortless for most users. Note that support for Internet Explorer has been dropped from v3.x.
 </span>
 <br/>
 <br/>
 
-## EASY products
+[//]: # (## EASY products)
 
-| <b>Package</b> | Description          | Link                                                                                                                                                           |
-|----------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Easy PDF    | Easy PDF Creator     | <a href="https://www.npmjs.com/package/easypdf-io"><img src="https://img.shields.io/badge/NPM-EasyPDF.io-blue" alt="Available on Composer"></a>  |
-| Easy Invoice   | Easy Invoice Creator | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/NPM-EasyInvoice-blue" alt="Available on Composer"></a> |
+[//]: # ()
+[//]: # (| <b>Package</b> | Description          | Link                                                                                                                                                           |)
+
+[//]: # (|----------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|)
+
+[//]: # (| Easy PDF    | Easy PDF Creator     | <a href="https://www.npmjs.com/package/easypdf-io"><img src="https://img.shields.io/badge/NPM-EasyPDF.io-blue" alt="Available on Composer"></a>  |)
+
+[//]: # (| Easy Invoice   | Easy Invoice Creator | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/NPM-EasyInvoice-blue" alt="Available on Composer"></a> |)
 
 ## Platform support
 
@@ -43,7 +46,8 @@ Please upgrade to v2.x before this time.
 | PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
 | Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
 | Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a> |
-| Java | Maven | In progress... |  |
+
+[//]: # (| Java | Maven | In progress... |  |)
 
 [comment]: <> (## Features)
 
