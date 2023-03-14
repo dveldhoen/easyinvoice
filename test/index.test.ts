@@ -1,4 +1,4 @@
-import easyinvoice from '../src/index';
+import easyinvoice from '../index';
 import isBase64 from 'is-base64';
 
 describe('testing index file', () => {

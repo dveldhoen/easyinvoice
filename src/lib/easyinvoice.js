@@ -157,4 +157,5 @@ function isMobileBrowser() {
     }
 }
 /* eslint-enable */
-module.exports = EasyInvoice;
+if (typeof window === 'undefined')
+    module.exports = EasyInvoice;
