@@ -3,7 +3,7 @@ import isBase64 from 'is-base64';
 import FileSaver from 'file-saver';
 import { Base64 } from 'js-base64';
 
-export default class EasyInvoice {
+class EasyInvoice {
     private _elementId: string;
     private _renderedPdf: any;
     private _totalPages: number;
@@ -172,5 +172,11 @@ function isMobileBrowser () {
 }
 /* eslint-enable */
 
+// @ts-ignore
+export default new EasyInvoice();
+
 if (typeof window === 'undefined')
-    module.exports = EasyInvoice;
+    {
+        // @ts-ignore
+        module.exports = new EasyInvoice();
+    }

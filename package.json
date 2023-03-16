@@ -10,7 +10,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "compile": "tsc",
-    "build": "tsc && node esbuild.config.js",
+    "build": "npm run compile && node esbuild.config.js",
     "changelog": "changelog",
     "package": "npm run lint && npm run build && npm run test && git add -A dist",
     "lint": "eslint . --ext .ts --fix",

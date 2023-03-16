@@ -117,7 +117,6 @@ class EasyInvoice {
         });
     }
 }
-exports.default = EasyInvoice;
 /* istanbul ignore next */
 function downloadFile(fileName, contentType, base64) {
     const blob = base64toBlob(base64, contentType);
@@ -157,5 +156,9 @@ function isMobileBrowser() {
     }
 }
 /* eslint-enable */
-if (typeof window === 'undefined')
-    module.exports = EasyInvoice;
+// @ts-ignore
+exports.default = new EasyInvoice();
+if (typeof window === 'undefined') {
+    // @ts-ignore
+    module.exports = new EasyInvoice();
+}
