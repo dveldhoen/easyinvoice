@@ -69,7 +69,7 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.org/
       - run: cat package.json
-      - run: npm publish
+      - run: npm publish --verbose
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
