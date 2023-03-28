@@ -6,6 +6,7 @@ require('esbuild')
         sourcemap: 'external',
         minify: true,
         outfile: 'dist/easyinvoice.min.js',
-        legalComments: 'none'
+        external: ['pdfjs-dist'],
+        legalComments: 'none',
     })
     .catch(() => process.exit(1));
