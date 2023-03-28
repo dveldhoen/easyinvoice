@@ -35,6 +35,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EasyInvoice = void 0;
 const axios_1 = __importDefault(require("axios"));
 const is_base64_1 = __importDefault(require("is-base64"));
 const file_saver_1 = __importDefault(require("file-saver"));
@@ -45,8 +46,6 @@ const pdfjs_dist_1 = require("pdfjs-dist");
     // @ts-ignore
     "pdfjs-dist/build/pdf.worker.entry")));
 }))();
-// Set the worker src (required for PDF.js to function)
-// GlobalWorkerOptions.workerSrc = 'pdfjs-dist/build/pdf.worker.js';
 class EasyInvoice {
     constructor(pdf, totalPages, renderedPdf, elementId) {
         this._pdf = pdf;
@@ -100,12 +99,8 @@ class EasyInvoice {
         }
     }
     /* istanbul ignore next */
-    render(elementId, pdf = this._pdf, cb = () => { }) {
-        // check if pdfjsLib is available
-        if (!pdfjs_dist_1.getDocument) {
-            // fallback solution
-            console.warn('easyinvoice: pdfjs-dist library not found. Please make sure it is installed and available.');
-        }
+    render(elementId, pdf = this._pdf, cb = () => {
+    }) {
         return new Promise((resolve) => {
             if (typeof window === 'undefined') {
                 throw new Error('Easy Invoice render() is only supported in the browser.');
@@ -161,6 +156,7 @@ class EasyInvoice {
         });
     }
 }
+exports.EasyInvoice = EasyInvoice;
 /* istanbul ignore next */
 function downloadFile(fileName, contentType, base64) {
     const blob = base64toBlob(base64, contentType);
@@ -206,3 +202,5 @@ if (typeof window === 'undefined') {
     // @ts-ignore
     module.exports = new EasyInvoice();
 }
+// @ts-ignore
+globalThis.easyinvoice = new EasyInvoice();

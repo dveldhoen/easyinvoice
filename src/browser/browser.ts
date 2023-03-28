@@ -3,14 +3,14 @@ import isBase64 from 'is-base64';
 import FileSaver from 'file-saver';
 import {Base64} from 'js-base64';
 
-import {getDocument, GlobalWorkerOptions} from 'pdfjs-dist';
-
-(async () => {
-    GlobalWorkerOptions.workerSrc = await import(
-        // @ts-ignore
-        "pdfjs-dist/build/pdf.worker.entry"
-        );
-})();
+// import {getDocument, GlobalWorkerOptions} from 'pdfjs-dist';
+//
+// (async () => {
+//     GlobalWorkerOptions.workerSrc = await import(
+//         // @ts-ignore
+//         "pdfjs-dist/build/pdf.worker.entry"
+//         );
+// })();
 
 export class EasyInvoice {
     private _elementId: string;
@@ -94,7 +94,7 @@ export class EasyInvoice {
     /* istanbul ignore next */
     renderPdf(pdfBase64: string, renderFinished: any) {
         // @ts-ignore
-        const loadingTask = getDocument({ data: Base64.atob(pdfBase64) });
+        const loadingTask = pdfjsLib.getDocument({ data: Base64.atob(pdfBase64) });
         loadingTask.promise.then((pdf: any) => {
             // console.log('PDF loaded');
             this._totalPages = pdf.numPages;
