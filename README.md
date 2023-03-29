@@ -262,8 +262,7 @@ var data = {
     // Settings to customize your invoice
     "settings": {
         "currency": "USD", // See documentation 'Locales and Currency' for more info. Leave empty for no currency.
-        // "locale": "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')
-        // "tax-notation": "gst", // Defaults to 'vat'
+        // "locale": "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')        
         // "margin-top": 25, // Defaults to '25'
         // "margin-right": 25, // Defaults to '25'
         // "margin-left": 25, // Defaults to '25'
@@ -284,7 +283,8 @@ var data = {
         // "quantity": "Aantal", // Default to 'Quantity'
         // "price": "Prijs", // Defaults to 'Price'
         // "product-total": "Totaal", // Defaults to 'Total'
-        // "total": "Totaal" // Defaults to 'Total'
+        // "total": "Totaal", // Defaults to 'Total'
+        // "vat": "btw" // Defaults to 'vat'
     },
 };
 
@@ -732,7 +732,7 @@ Within:
 
 %tax-notation%
 </td>    
-<td>settings.tax-notation</td>
+<td>translate.vat</td>
 </tr>
 <tr>
 <td>
