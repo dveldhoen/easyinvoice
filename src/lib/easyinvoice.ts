@@ -1,5 +1,7 @@
 import axios from 'axios';
+// @ts-ignore
 import isBase64 from 'is-base64';
+// @ts-ignore
 import FileSaver from 'file-saver';
 import {Base64} from 'js-base64';
 
