@@ -18,6 +18,7 @@
     "test:coverage": "jest --coverage"
   },
   "main": "index.js",
+  "module": "index-module.js",
   "types": "./src/lib/easyinvoice.d.ts",
   "bugs": {
     "url": "https://github.com/dveldhoen/easyinvoice/issues"
