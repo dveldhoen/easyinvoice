@@ -37,7 +37,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EasyInvoice = void 0;
 const axios_1 = __importDefault(require("axios"));
+// @ts-ignore
 const is_base64_1 = __importDefault(require("is-base64"));
+// @ts-ignore
 const file_saver_1 = __importDefault(require("file-saver"));
 const js_base64_1 = require("js-base64");
 const pdfjs_dist_1 = require("pdfjs-dist");
