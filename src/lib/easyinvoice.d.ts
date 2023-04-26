@@ -151,5 +151,5 @@ declare module 'easyinvoice' {
         render: (elementId: string, pdf?: string, cb?: () => void) => void
     }
 
-    export = easyinvoice
+    export default easyinvoice
 }
