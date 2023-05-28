@@ -62,6 +62,22 @@ export class EasyInvoice {
         });
     }
 
+    print(pdf = this._pdf) {
+        //load content in an iframe to print later
+        const iframe = document.createElement("iframe"); 
+        document.body.appendChild(iframe);
+
+        iframe.style.display = "none";
+        const blobURL = URL.createObjectURL(base64toBlob(pdf, 'application/pdf'));
+        iframe.src = blobURL;
+        iframe.onload = function () {
+        setTimeout(function () {
+            iframe.focus();
+            iframe?.contentWindow?.print();
+        }, 1);
+        };
+    }
+
     /* istanbul ignore next */
     download(filename = 'invoice.pdf', pdf = this._pdf) {
         if (filename === undefined || isBase64(filename)) {
