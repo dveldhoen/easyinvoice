@@ -406,7 +406,24 @@ var data = {};
 const result = await easyinvoice.createInvoice(data);
 await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 ```
+## Print your invoice (browser only)
 
+Using callback
+
+```js
+var data = {};
+easyinvoice.createInvoice(data, function (result) {
+    easyinvoice.print(result.pdf);
+});
+```
+
+Using async/await
+
+```js
+var data = {};
+const result = await easyinvoice.createInvoice(data);
+easyinvoice.print(result.pdf);
+```
 ## Download your invoice (browser only)
 
 Using callback
