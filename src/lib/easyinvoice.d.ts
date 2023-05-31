@@ -69,7 +69,7 @@ declare module 'easyinvoice' {
     }
 
     export interface InvoiceCustomizations {
-        template?: () => Buffer;
+        template?: string;
     }
 
     export interface InvoiceCalculations {
