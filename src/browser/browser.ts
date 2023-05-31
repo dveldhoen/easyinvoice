@@ -2,6 +2,7 @@ import axios from 'axios';
 import isBase64 from 'is-base64';
 import FileSaver from 'file-saver';
 import {Base64} from 'js-base64';
+import { default as printJs } from "print-js";
 
 // import {getDocument, GlobalWorkerOptions} from 'pdfjs-dist';
 //
@@ -63,19 +64,11 @@ export class EasyInvoice {
     }
 
     print(pdf = this._pdf) {
-        //load content in an iframe to print later
-        const iframe = document.createElement("iframe"); 
-        document.body.appendChild(iframe);
-
-        iframe.style.display = "none";
-        const blobURL = URL.createObjectURL(base64toBlob(pdf, 'application/pdf'));
-        iframe.src = blobURL;
-        iframe.onload = function () {
-        setTimeout(function () {
-            iframe.focus();
-            iframe?.contentWindow?.print();
-        }, 1);
-        };
+        printJs({
+            printable: pdf,
+            type: "pdf",
+            base64: true
+        });
     }
 
     /* istanbul ignore next */
