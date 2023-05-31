@@ -47,6 +47,7 @@ declare module 'easyinvoice' {
         price?: string;
         "product-total"?: string;
         total?: string;
+        vat?: string;
     }
 
     export interface InvoiceInformation {
