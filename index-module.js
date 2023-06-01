@@ -1,2 +1,2 @@
-import easyinvoice from './src/lib/easyinvoice';
+import easyinvoice from './src/browser/browser';
 export default easyinvoice;

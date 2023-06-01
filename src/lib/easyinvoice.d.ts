@@ -103,6 +103,11 @@ declare module 'easyinvoice' {
         download: (filename?: string, pdf?: string) => void;
 
         render: (elementId: string, pdf?: string, cb?: () => void) => void;
+        
+        /**
+         * Print is only avialable in Browser
+         */
+        print:(pdf?: string) => void
     }
 
     const easyinvoice: EasyInvoice;
