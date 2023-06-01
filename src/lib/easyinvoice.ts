@@ -4,8 +4,8 @@ import isBase64 from 'is-base64';
 // @ts-ignore
 import FileSaver from 'file-saver';
 import {Base64} from 'js-base64';
-
 import {getDocument, GlobalWorkerOptions} from 'pdfjs-dist';
+import {default as printJs} from "print-js";
 
 (async () => {
     GlobalWorkerOptions.workerSrc = await import(
@@ -75,6 +75,15 @@ export class EasyInvoice {
         } else {
             downloadFile(filename, 'application/pdf', pdf);
         }
+    }
+
+    /* istanbul ignore next */
+    print(pdf = this._pdf) {
+        printJs({
+            printable: pdf,
+            type: "pdf",
+            base64: true
+        });
     }
 
     /* istanbul ignore next */

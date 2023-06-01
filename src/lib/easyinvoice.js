@@ -43,6 +43,7 @@ const is_base64_1 = __importDefault(require("is-base64"));
 const file_saver_1 = __importDefault(require("file-saver"));
 const js_base64_1 = require("js-base64");
 const pdfjs_dist_1 = require("pdfjs-dist");
+const print_js_1 = __importDefault(require("print-js"));
 (() => __awaiter(void 0, void 0, void 0, function* () {
     pdfjs_dist_1.GlobalWorkerOptions.workerSrc = yield Promise.resolve().then(() => __importStar(require(
     // @ts-ignore
@@ -99,6 +100,14 @@ class EasyInvoice {
         else {
             downloadFile(filename, 'application/pdf', pdf);
         }
+    }
+    /* istanbul ignore next */
+    print(pdf = this._pdf) {
+        (0, print_js_1.default)({
+            printable: pdf,
+            type: "pdf",
+            base64: true
+        });
     }
     /* istanbul ignore next */
     render(elementId, pdf = this._pdf, cb = () => {

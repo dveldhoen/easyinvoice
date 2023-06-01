@@ -2,7 +2,6 @@ import axios from 'axios';
 import isBase64 from 'is-base64';
 import FileSaver from 'file-saver';
 import {Base64} from 'js-base64';
-import { default as printJs } from "print-js";
 
 // import {getDocument, GlobalWorkerOptions} from 'pdfjs-dist';
 //
@@ -60,14 +59,6 @@ export class EasyInvoice {
                     /* istanbul ignore next */
                     cb(error.response.data);
                 });
-        });
-    }
-
-    print(pdf = this._pdf) {
-        printJs({
-            printable: pdf,
-            type: "pdf",
-            base64: true
         });
     }
 

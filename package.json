@@ -52,6 +52,7 @@
     "esbuild": "^0.17.11",
     "eslint": "^7.32.0",
     "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "rimraf": "^3.0.2",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1"
