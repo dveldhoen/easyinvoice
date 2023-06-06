@@ -5,7 +5,18 @@ import isBase64 from 'is-base64';
 import FileSaver from 'file-saver';
 import {Base64} from 'js-base64';
 import {getDocument, GlobalWorkerOptions} from 'pdfjs-dist';
-import {default as printJs} from "print-js";
+
+// Import print-js only in the browser
+let printJs: any;
+if (typeof window !== 'undefined') {
+    import('print-js')
+        .then((module) => {
+            printJs = module.default;
+        })
+        .catch((err) => {
+            console.error('Failed to load print-js:', err);
+        });
+}
 
 (async () => {
     GlobalWorkerOptions.workerSrc = await import(
