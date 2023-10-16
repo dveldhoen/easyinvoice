@@ -47,11 +47,16 @@ export class EasyInvoice {
                 data: options
             };
 
-            const config = {
+            const config: any = {
                 headers: {
                     'easyinvoice-source': 'npm'
                 }
             };
+
+            // Check if 'apiKey' exists in options and is not empty, then add the authorization header
+            if (options.apiKey && options.apiKey.trim() !== '') {
+                config.headers['Authorization'] = `Bearer ${options.apiKey}`;
+            }
 
             axios.create().post(url, data, config)
                 .then((response) => {
@@ -74,6 +79,7 @@ export class EasyInvoice {
                 });
         });
     }
+
 
     /* istanbul ignore next */
     download(filename = 'invoice.pdf', pdf = this._pdf) {

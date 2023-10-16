@@ -43,6 +43,7 @@ const is_base64_1 = __importDefault(require("is-base64"));
 const file_saver_1 = __importDefault(require("file-saver"));
 const js_base64_1 = require("js-base64");
 const pdfjs_dist_1 = require("pdfjs-dist");
+// Import print-js only in the browser
 let printJs;
 if (typeof window !== 'undefined') {
     Promise.resolve().then(() => __importStar(require('print-js'))).then((module) => {
@@ -76,6 +77,10 @@ class EasyInvoice {
                     'easyinvoice-source': 'npm'
                 }
             };
+            // Check if 'apiKey' exists in options and is not empty, then add the authorization header
+            if (options.apiKey && options.apiKey.trim() !== '') {
+                config.headers['Authorization'] = `Bearer ${options.apiKey}`;
+            }
             axios_1.default.create().post(url, data, config)
                 .then((response) => {
                 /* istanbul ignore next */
