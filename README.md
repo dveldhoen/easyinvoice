@@ -1,4 +1,4 @@
-<p align="center"><a href="https://easyinvoice.cloud" target="_blank" rel="noopener noreferrer"><img width="250" src="https://public.easyinvoice.cloud/img/logo_en_original.png" alt="Easy Invoice logo"></a></p>
+<p align="center"><a href="https://budgetinvoice.com" target="_blank" rel="noopener noreferrer"><img width="250" src="https://public.budgetinvoice.com/img/logo_en_original.png" alt="Easy Invoice logo"></a></p>
 
 <h4 align="center">Build for Web and Backend 💪</h4>
 <br/>
@@ -21,12 +21,17 @@ Much appreciated!
 <a href="https://github.com/dveldhoen/easyinvoice/"><img src="https://img.shields.io/github/stars/dveldhoen/easyinvoice.svg?style=social&label=Star" alt="Pull Request's Welcome"></a>
 </p>
 
-<span style="color: orange;">
-<h3>Important</h3>
-Please upgrade from v2.x to v3.x for important security updates. The update should be relatively effortless for most users. Note that support for Internet Explorer has been dropped from v3.x.
-</span>
-<br/>
-<br/>
+[//]: # (<span style="color: orange;">)
+
+[//]: # (<h3>Important</h3>)
+
+[//]: # (Please upgrade from v2.x to v3.x for important security updates. The update should be relatively effortless for most users. Note that support for Internet Explorer has been dropped from v3.x.)
+
+[//]: # (</span>)
+
+[//]: # (<br/>)
+
+[//]: # (<br/>)
 
 [//]: # (## EASY products)
 
@@ -36,8 +41,22 @@ Please upgrade from v2.x to v3.x for important security updates. The update shou
 [//]: # (|----------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|)
 
 [//]: # (| Easy PDF    | Easy PDF Creator     | <a href="https://www.npmjs.com/package/easypdf-io"><img src="https://img.shields.io/badge/NPM-EasyPDF.io-blue" alt="Available on Composer"></a>  |)
-
+ 
 [//]: # (| Easy Invoice   | Easy Invoice Creator | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/NPM-EasyInvoice-blue" alt="Available on Composer"></a> |)
+
+## Plans
+| <b>Plan</b> | Rate                | Price                  | Link                                                                                                                                                   |
+|-------------|---------------------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Free        | 50 invoices / month | $0                     | Not required to register                                                                                                                               |
+| Paid        | Unlimited           | $17.99 (including VAT) | <a href="https://app.budgetinvoice.com/register"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
+
+## To use paid
+1. Register through https://app.budgetinvoice.com/register
+2. Create an API key through the app: settings -> API keys
+3. Use the apiKey as shown in the example below
+
+Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in English.
+
 
 ## Platform support
 
@@ -64,14 +83,14 @@ Please upgrade from v2.x to v3.x for important security updates. The update shou
 ## Sample
 <br/>
 <div align="center">
-    <img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
-    <img width="350" style="border: 1px black solid" src="https://public.easyinvoice.cloud/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
+    <img width="350" style="border: 1px black solid" src="https://public.budgetinvoice.com/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
+    <img width="350" style="border: 1px black solid" src="https://public.budgetinvoice.com/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
 </div>
 
 ### JSON Configs used for above samples:
 
-- <a href="https://public.easyinvoice.cloud/json/easyinvoice-sample.json">[View JSON] First Sample</a>
-- <a href="https://public.easyinvoice.cloud/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
+- <a href="https://public.budgetinvoice.com/json/easyinvoice-sample.json">[View JSON] First Sample</a>
+- <a href="https://public.budgetinvoice.com/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
 
 ## Demo
 
@@ -136,11 +155,14 @@ import easyinvoice from 'easyinvoice';
 
 ```shell
 # HTTPS POST 
-https://api.easyinvoice.cloud/v2/free/invoices
+https://api.budgetinvoice.com/v2/free/invoices
 
 # POST Data
 Format: JSON
 Structure: {"data":{"products":[]}} # Parent object must be 'data'
+
+# Optionally add your paid apiKey to the header 
+Header: "Authorization": "Bearer 123abc" # Replace 123abc with your apiKey
 ```
 
 ## Getting Started - Basic Example
@@ -194,6 +216,9 @@ Web
 var easyinvoice = require('easyinvoice');
 
 var data = {
+    // If not using the free version, set your API key
+    // "apiKey": "123abc", // Get apiKey through: https://app.budgetinvoice.com/register
+    
     // Customize enables you to provide your own templates
     // Please review the documentation for instructions and examples
     "customize": {
@@ -201,9 +226,9 @@ var data = {
     },
     "images": {
         // The logo on top of your invoice
-        "logo": "https://public.easyinvoice.cloud/img/logo_en_original.png",
+        "logo": "https://public.budgetinvoice.com/img/logo_en_original.png",
         // The invoice background
-        "background": "https://public.easyinvoice.cloud/img/watermark-draft.jpg"
+        "background": "https://public.budgetinvoice.com/img/watermark-draft.jpg"
     },
     // Your own data
     "sender": {
@@ -347,8 +372,8 @@ Supported file types:
 ```js
 const data = {
     images: {
-        logo: "https://public.easyinvoice.cloud/img/logo_en_original.png",
-        background: "https://public.easyinvoice.cloud/img/watermark_draft.jpg",
+        logo: "https://public.budgetinvoice.com/img/logo_en_original.png",
+        background: "https://public.budgetinvoice.com/img/watermark_draft.jpg",
     }
 };
 ```
@@ -501,7 +526,7 @@ await easyinvoice.render(elementId, result.pdf);
 
 ## Template customization
 
-Download our default template (invoice-v2) <a href="https://public.easyinvoice.cloud/templates/invoice-v2/index.txt" download>here</a> to have an
+Download our default template (invoice-v2) <a href="https://public.budgetinvoice.com/templates/invoice-v2/index.txt" download>here</a> to have an
 example which you can customize.
 
 Supported file types:
