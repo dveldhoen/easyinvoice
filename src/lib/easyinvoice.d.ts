@@ -57,7 +57,7 @@ declare module 'easyinvoice' {
     }
 
     export interface InvoiceData {
-        apiKey: string;
+        apiKey?: string;
         information?: InvoiceInformation;
         translate?: InvoiceTranslations;
         settings?: InvoiceSettings;
