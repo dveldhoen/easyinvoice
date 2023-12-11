@@ -8,6 +8,7 @@ import {getDocument, GlobalWorkerOptions} from 'pdfjs-dist';
 
 // Import print-js only in the browser
 let printJs: any;
+/* istanbul ignore next */
 if (typeof window !== 'undefined') {
     import('print-js')
         .then((module) => {
@@ -25,6 +26,7 @@ if (typeof window !== 'undefined') {
         );
 })();
 
+/* istanbul ignore next */
 export class EasyInvoice {
     private _elementId: string;
     private _renderedPdf: any;
@@ -215,6 +217,7 @@ function isMobileBrowser() {
 // @ts-ignore
 export default new EasyInvoice();
 
+/* istanbul ignore next */
 if (typeof window === 'undefined') {
     // @ts-ignore
     module.exports = new EasyInvoice();
