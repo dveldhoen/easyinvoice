@@ -1,4 +1,5 @@
-<p align="center"><a href="https://budgetinvoice.com" target="_blank" rel="noopener noreferrer"><img width="250" src="https://public.budgetinvoice.com/img/logo_en_original.png" alt="Easy Invoice logo"></a></p>
+<h1 align="center">Easy Invoice</h1>
+<p align="center">A product by<br/><br/><a href="https://budgetinvoice.com" target="_blank" rel="noopener noreferrer"><img width="250" src="https://public.budgetinvoice.com/img/logo_en_original.png" alt="Easy Invoice logo"></a></p>
 
 <h4 align="center">Build for Web and Backend 💪</h4>
 <br/>
@@ -10,6 +11,11 @@
   <a href="https://npmcharts.com/compare/easyinvoice?minimal=true"><img src="https://img.shields.io/npm/dm/easyinvoice.svg" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/npm/l/easyinvoice.svg" alt="License"></a>
   <a href="https://github.com/dveldhoen/easyinvoice"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="Pull Request's Welcome"></a>
+</p>
+
+<p style="text-align: center">
+<a href="https://apple.co/3ySZ5JY"><img style="height: 45px;" src="https://public.budgetinvoice.com/img/appstore-badges/apple-appstore-us.png" alt=""/></a>
+<a href="https://play.google.com/store/apps/details?id=nl.dashweb.factuursimpel"><img style="height: 45px;" src="https://public.budgetinvoice.com/img/appstore-badges/google-play-us.png" alt=""/></a>
 </p>
 
 <p align="center">
@@ -45,10 +51,10 @@ Much appreciated!
 [//]: # (| Easy Invoice   | Easy Invoice Creator | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/NPM-EasyInvoice-blue" alt="Available on Composer"></a> |)
 
 ## Plans
-| <b>Plan</b> | Rate                | Price                  | Link                                                                                                                                                                   |
-|-------------|---------------------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Free        | 50 invoices / month | $0                     | Not required to register                                                                                                                                               |
-| Paid        | Unlimited           | $17.99 (including VAT) | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
+| <b>Plan</b> | Rate                | Price                                                                                | Link                                                                                                                                                                   |
+|-------------|---------------------|--------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Free        | 50 invoices / month | $0                                                                                   | Not required to register                                                                                                                                               |
+| Paid        | Unlimited           | 30 day free trial,<br/>1st month $1.99,<br/>$17.99 per month<br/>*Prices include VAT | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
 <br/>
 
 ## To use paid
@@ -56,7 +62,7 @@ Much appreciated!
 2. Create an API key through the app: settings -> API keys
 3. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
 
-Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in English.
+Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
 <br/>
 
 ## Platform support
