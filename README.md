@@ -14,8 +14,8 @@
 </p>
 
 <p style="text-align: center">
-<a href="https://apple.co/3ySZ5JY"><img style="height: 45px;" src="https://public.budgetinvoice.com/img/appstore-badges/apple-appstore-us.png" alt=""/></a>
-<a href="https://play.google.com/store/apps/details?id=nl.dashweb.factuursimpel"><img style="height: 45px;" src="https://public.budgetinvoice.com/img/appstore-badges/google-play-us.png" alt=""/></a>
+<a href="https://apple.co/3ySZ5JY"><img height="45" src="https://public.budgetinvoice.com/img/appstore-badges/apple-appstore-us.png" alt=""/></a>
+<a href="https://play.google.com/store/apps/details?id=nl.dashweb.factuursimpel"><img height="45" src="https://public.budgetinvoice.com/img/appstore-badges/google-play-us.png" alt=""/></a>
 </p>
 
 <p align="center">
