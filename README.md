@@ -98,13 +98,14 @@ Using jsDelivr CDN:
 | PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
 | Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
 | Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a> |
-
+<br/>
 
 ## Step-by-step guide
 
 Read our step-by-step guide on Medium. <a href="https://medium.com/@dveldhoen/creating-invoices-in-nodejs-eaae01f0d3a4">
 Click here!</a><br/>
 And gives us a clap if it helped you! 😉
+<br/>
 
 ## Demo
 
@@ -115,6 +116,7 @@ And gives us a clap if it helped you! 😉
 [JS Fiddle: React](https://jsfiddle.net/easyinvoice/qfs8dk0p/)
 <br/>
 [JS Fiddle: Angular](https://jsfiddle.net/easyinvoice/pmt3bs9q/)
+<br/>
 
 ## Sample
 <br/>
@@ -127,13 +129,14 @@ And gives us a clap if it helped you! 😉
 
 - <a href="https://public.budgetinvoice.com/json/easyinvoice-sample.json">[View JSON] First Sample</a>
 - <a href="https://public.budgetinvoice.com/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
-
+<br/>
 
 ## Plans
 | <b>Plan</b> | Rate                | Price                                                                                                  | Link                                                                                                                                                                   |
 |-------------|---------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Free        | 50 invoices / month | $0                                                                                                     | Not required to register                                                                                                                                               |
 | Paid        | Unlimited           | - 30 day free trial<br/>- 1st month $1.99<br/>- $17.99 per month<br/><small>*Prices include VAT<small> | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
+<br/>
 
 ## To use paid
 1. Register through <a href="https://app.budgetinvoice.com/register" target="_blank">https://app.budgetinvoice.com/register</a>
@@ -141,6 +144,7 @@ And gives us a clap if it helped you! 😉
 3. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
 
 Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
+<br/>
 
 [//]: # (| Java | Maven | In progress... |  |)
 
