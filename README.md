@@ -50,82 +50,29 @@ Much appreciated!
  
 [//]: # (| Easy Invoice   | Easy Invoice Creator | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/NPM-EasyInvoice-blue" alt="Available on Composer"></a> |)
 
-## Plans
-| <b>Plan</b> | Rate                | Price                                                                                                  | Link                                                                                                                                                                   |
-|-------------|---------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Free        | 50 invoices / month | $0                                                                                                     | Not required to register                                                                                                                                               |
-| Paid        | Unlimited           | - 30 day free trial<br/>- 1st month $1.99<br/>- $17.99 per month<br/><small>*Prices include VAT<small> | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
-<br/>
+## Important
+1. Please note that this package is a wrapper for an API, so it's logic runs on external servers.
+2. Your data is secure and will not be shared with third parties.
+3. We try to keep the API up and running at all times, but we cannot guarantee 100% uptime. Please build in a retry mechanism in case the API is down for maintenance.
 
-## To use paid
-1. Register through <a href="https://app.budgetinvoice.com/register" target="_blank">https://app.budgetinvoice.com/register</a>
-2. Create an API key through the app: settings -> API keys
-3. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
-
-Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
-<br/>
-
-## Platform support
-
-|<b>Platform</b> | Repository |Supported  | Link |
-|---|---|---|---|
-| PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
-| Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
-| Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a> |
-
-[//]: # (| Java | Maven | In progress... |  |)
-
-[comment]: <> (## Features)
-
-[comment]: <> (- [x] Create invoices)
-
-[comment]: <> (- [ ] List, get, update, delete invoices &#40;api ready / npm in progress&#41;)
-
-[comment]: <> (- [ ] Create, list, get, update, delete clients &#40;api ready / npm in progress&#41;)
-
-[comment]: <> (- [ ] More soon...)
-
-<br/>
-
-## Sample
-<br/>
-<div align="center">
-    <img width="350" style="border: 1px black solid" src="https://public.budgetinvoice.com/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
-    <img width="350" style="border: 1px black solid" src="https://public.budgetinvoice.com/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
-</div>
-
-### JSON Configs used for above samples:
-
-- <a href="https://public.budgetinvoice.com/json/easyinvoice-sample.json">[View JSON] First Sample</a>
-- <a href="https://public.budgetinvoice.com/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
-
-## Demo
-
-[JS Fiddle: Plain Javascript](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
-<br/>
-[JS Fiddle: Vue](https://jsfiddle.net/easyinvoice/gpb1osav/)
-<br/>
-[JS Fiddle: React](https://jsfiddle.net/easyinvoice/qfs8dk0p/)
-<br/>
-[JS Fiddle: Angular](https://jsfiddle.net/easyinvoice/pmt3bs9q/)
-
-## Step-by-step guide
-
-Read our step-by-step guide on Medium. <a href="https://medium.com/@dveldhoen/creating-invoices-in-nodejs-eaae01f0d3a4">
-Click here!</a>
-
-## Installing
+## Installation
 
 Using npm:
 
 ```bash
-$ npm install easyinvoice --save
+$ npm install easyinvoice
 ```
 
 Using yarn:
 
 ```bash
 $ yarn add easyinvoice
+```
+
+Using PNPM:
+
+```bash
+$ pnpm install easyinvoice
 ```
 
 ## CDN
@@ -143,6 +90,69 @@ Using jsDelivr CDN:
 
 <script src="https://cdn.jsdelivr.net/npm/easyinvoice/dist/easyinvoice.min.js"></script>
 ```
+
+## Platform support
+
+|<b>Platform</b> | Repository |Supported  | Link |
+|---|---|---|---|
+| PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
+| Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
+| Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a> |
+
+
+## Step-by-step guide
+
+Read our step-by-step guide on Medium. <a href="https://medium.com/@dveldhoen/creating-invoices-in-nodejs-eaae01f0d3a4">
+Click here!</a><br/>
+And gives us a clap if it helped you! 😉
+
+## Demo
+
+[JS Fiddle: Plain Javascript](https://jsfiddle.net/easyinvoice/rjtsxhp3/)
+<br/>
+[JS Fiddle: Vue](https://jsfiddle.net/easyinvoice/gpb1osav/)
+<br/>
+[JS Fiddle: React](https://jsfiddle.net/easyinvoice/qfs8dk0p/)
+<br/>
+[JS Fiddle: Angular](https://jsfiddle.net/easyinvoice/pmt3bs9q/)
+
+## Sample
+<br/>
+<div align="center">
+    <img width="350" style="border: 1px black solid" src="https://public.budgetinvoice.com/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
+    <img width="350" style="border: 1px black solid" src="https://public.budgetinvoice.com/img/sample-invoice-background.png" alt="Easy Invoice Sample With Background">
+</div>
+
+### JSON Configs used for above samples:
+
+- <a href="https://public.budgetinvoice.com/json/easyinvoice-sample.json">[View JSON] First Sample</a>
+- <a href="https://public.budgetinvoice.com/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
+
+
+## Plans
+| <b>Plan</b> | Rate                | Price                                                                                                  | Link                                                                                                                                                                   |
+|-------------|---------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Free        | 50 invoices / month | $0                                                                                                     | Not required to register                                                                                                                                               |
+| Paid        | Unlimited           | - 30 day free trial<br/>- 1st month $1.99<br/>- $17.99 per month<br/><small>*Prices include VAT<small> | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
+
+## To use paid
+1. Register through <a href="https://app.budgetinvoice.com/register" target="_blank">https://app.budgetinvoice.com/register</a>
+2. Create an API key through the app: settings -> API keys
+3. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
+
+Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
+
+[//]: # (| Java | Maven | In progress... |  |)
+
+[comment]: <> (## Features)
+
+[comment]: <> (- [x] Create invoices)
+
+[comment]: <> (- [ ] List, get, update, delete invoices &#40;api ready / npm in progress&#41;)
+
+[comment]: <> (- [ ] Create, list, get, update, delete clients &#40;api ready / npm in progress&#41;)
+
+[comment]: <> (- [ ] More soon...)
 
 ## Import
 
