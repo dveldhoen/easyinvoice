@@ -139,7 +139,10 @@ And gives us a clap if it helped you! 😉
 <br/>
 
 ## To use paid
-1. Register through <a href="https://app.budgetinvoice.com/register" target="_blank">https://app.budgetinvoice.com/register</a>
+1. Register through:
+    - Web: <a href="https://app.budgetinvoice.com/register" target="_blank">https://app.budgetinvoice.com/register</a>
+    - iOS: https://apple.co/3ySZ5JY
+    - Android: https://play.google.com/store/apps/details?id=nl.dashweb.factuursimpel
 2. Create an API key through the app: settings -> API keys
 3. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
 
@@ -180,7 +183,12 @@ https://api.budgetinvoice.com/v2/free/invoices
 
 # POST Data
 Format: JSON
-Structure: {"data":{"products":[]}} # Parent object must be 'data'
+Structure: {
+  "data": { # Parent parameter must be 'data'
+    "mode": "development",
+    "products":[],
+  }
+} 
 
 # Optionally add your paid apiKey to the header 
 Header: "Authorization": "Bearer 123abc" # Replace 123abc with your apiKey
@@ -195,7 +203,10 @@ NodeJS
 var easyinvoice = require('easyinvoice');
 
 // Create your invoice! Easy!
-var data = {};
+var data = {
+    mode: "development"
+};
+
 easyinvoice.createInvoice(data, function (result) {
     // The response will contain a base64 encoded PDF file
     console.log('PDF base64 string: ', result.pdf);
@@ -217,7 +228,9 @@ Web
 <body>
 <script>
     // Create your invoice! Easy!
-    var data = {};
+    var data = {
+        mode: "development"
+    };
     easyinvoice.createInvoice(data, function (result) {
         // The response will contain a base64 encoded PDF file
         console.log('PDF base64 string: ', result.pdf);
@@ -237,14 +250,12 @@ Web
 var easyinvoice = require('easyinvoice');
 
 var data = {
+    // Set the mode to development to make sure you are not running into rate limits while testing this package
+    "mode": "development", // production or development, defaults to production
+    
     // If not using the free version, set your API key
     // "apiKey": "123abc", // Get apiKey through: https://app.budgetinvoice.com/register
-    
-    // Customize enables you to provide your own templates
-    // Please review the documentation for instructions and examples
-    "customize": {
-        //  "template": fs.readFileSync('template.html', 'base64') // Must be base64 encoded html 
-    },
+
     "images": {
         // The logo on top of your invoice
         "logo": "https://public.budgetinvoice.com/img/logo_en_original.png",
@@ -332,6 +343,12 @@ var data = {
         // "total": "Totaal", // Defaults to 'Total'
         // "vat": "btw" // Defaults to 'vat'
     },
+    
+    // Customize enables you to provide your own templates
+    // Please review the documentation for instructions and examples
+    // "customize": {
+    //      "template": fs.readFileSync('template.html', 'base64') // Must be base64 encoded html 
+    // }
 };
 
 //Create your invoice! Easy!
@@ -392,6 +409,7 @@ Supported file types:
 
 ```js
 const data = {
+    mode: "development",
     images: {
         logo: "https://public.budgetinvoice.com/img/logo_en_original.png",
         background: "https://public.budgetinvoice.com/img/watermark_draft.jpg",
@@ -403,6 +421,7 @@ const data = {
 
 ```js
 const data = {
+    mode: "development",
     //Note: Sample base64 string
     //Please use the link below to convert your image to base64
     images: {
@@ -420,6 +439,7 @@ var fs = require("fs");
 
 //Use the code below to read your local file as a base64 string
 const data = {
+    mode: "development",
     images: {
         logo: fs.readFileSync('logo.png', 'base64'),
         background: fs.readFileSync('images/background.png', 'base64')
@@ -436,7 +456,9 @@ const data = {
 var easyinvoice = require('easyinvoice');
 
 // Create your invoice! Easy!
-var data = {};
+var data = {
+    mode: "development"
+};
 const result = await easyinvoice.createInvoice(data);
 
 // The response will contain a base64 encoded PDF file
@@ -448,46 +470,27 @@ console.log('PDF base64 string: ', result.pdf);
 ```js
 var fs = require('fs');
 
-var data = {};
+var data = {
+    mode: "development"
+};
 const result = await easyinvoice.createInvoice(data);
 await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 ```
 ## Print your invoice (browser only)
 
-Using callback
-
 ```js
-var data = {};
-easyinvoice.createInvoice(data, function (result) {
-    easyinvoice.print(result.pdf);
-});
-```
-
-Using async/await
-
-```js
-var data = {};
+var data = {
+    mode: "development"
+};
 const result = await easyinvoice.createInvoice(data);
 easyinvoice.print(result.pdf);
 ```
 ## Download your invoice (browser only)
 
-Using callback
-
 ```js
-var data = {};
-easyinvoice.createInvoice(data, function (result) {
-    easyinvoice.download('myInvoice.pdf', result.pdf);
-    //	you can download like this as well:
-    //	easyinvoice.download();
-    //	easyinvoice.download('myInvoice.pdf');   
-});
-```
-
-Using async/await
-
-```js
-var data = {};
+var data = {
+    mode: "development"
+};
 const result = await easyinvoice.createInvoice(data);
 easyinvoice.download('myInvoice.pdf', result.pdf);
 //	you can download like this as well:
@@ -524,22 +527,12 @@ css (optional)
 }
 ```
 
-js: Using Callback
+js
 
 ```js
-var data = {};
-var elementId = 'pdf';
-easyinvoice.createInvoice(data, function (result) {
-    easyinvoice.render(elementId, result.pdf, function () {
-        console.log('Invoice rendered!');
-    });
-});
-```
-
-js: Using async/await
-
-```js
-var data = {};
+var data = {
+    mode: "development"
+};
 const elementId = 'pdf';
 const result = await easyinvoice.createInvoice(data);
 await easyinvoice.render(elementId, result.pdf);
@@ -560,6 +553,7 @@ Supported file types:
 var html = '<p>Hello world! This is invoice number %number%</p>';
 
 const data = {
+    mode: "development",
     customize: {
         // btoa === base64 encode
         template: btoa(html) // Your template must be base64 encoded
