@@ -132,10 +132,10 @@ And gives us a clap if it helped you! 😉
 <br/>
 
 ## Plans
-| <b>Plan</b> | Rate                | Price                                                                                                  | Link                                                                                                                                                                   |
-|-------------|---------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Free        | 50 invoices / month | $0                                                                                                     | Not required to register                                                                                                                                               |
-| Paid        | Unlimited           | - 30 day free trial<br/>- 1st month $1.99<br/>- $17.99 per month<br/><small>*Prices include VAT<small> | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
+| <b>Plan</b> | Rate                  | Price                                                                                                  | Link                                                                                                                                                                   |
+|-------------|-----------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Free        | 25 invoices / 15 days | $0                                                                                                     | Not required to register                                                                                                                                               |
+| Paid        | Unlimited             | - 30 day free trial<br/>- 1st month $1.99<br/>- $17.99 per month<br/><small>*Prices include VAT<small> | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
 <br/>
 
 ## To use paid
