@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: npm install
       - run: npm run package
@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: git config --global user.email "info@easyinvoice.cloud"
       - run: git config --global user.name "Danny Veldhoen"
@@ -66,7 +66,7 @@ jobs:
           ref: 'master'
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: cat package.json
       - run: npm publish --verbose

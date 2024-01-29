@@ -186,7 +186,14 @@ Format: JSON
 Structure: {
   "data": { # Parent parameter must be 'data'
     "mode": "development",
-    "products":[],
+    "products": [
+      {
+        "quantity": 2,
+        "description": "Test product",
+        "taxRate": 6,
+        "price": 33.87
+      }
+    ],
   }
 } 
 
@@ -204,7 +211,15 @@ var easyinvoice = require('easyinvoice');
 
 // Create your invoice! Easy!
 var data = {
-    mode: "development"
+    mode: "development",
+    products: [
+        {
+            quantity: 2,
+            description: "Test product",
+            taxRate: 6,
+            price: 33.87
+         }
+      ]
 };
 
 easyinvoice.createInvoice(data, function (result) {
@@ -229,8 +244,17 @@ Web
 <script>
     // Create your invoice! Easy!
     var data = {
-        mode: "development"
+       mode: "development",
+       products: [
+          {
+             quantity: 2,
+             description: "Test product",
+             taxRate: 6,
+             price: 33.87
+          }
+       ]
     };
+    
     easyinvoice.createInvoice(data, function (result) {
         // The response will contain a base64 encoded PDF file
         console.log('PDF base64 string: ', result.pdf);
@@ -298,19 +322,19 @@ var data = {
         {
             "quantity": 2,
             "description": "Product 1",
-            "tax-rate": 6,
+            "taxRate": 6,
             "price": 33.87
         },
         {
             "quantity": 4.1,
             "description": "Product 2",
-            "tax-rate": 6,
+            "taxRate": 6,
             "price": 12.34
         },
         {
             "quantity": 4.5678,
             "description": "Product 3",
-            "tax-rate": 21,
+            "taxRate": 21,
             "price": 6324.453456
         }
     ],
