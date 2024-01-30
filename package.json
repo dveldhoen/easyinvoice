@@ -12,7 +12,7 @@
     "compile": "tsc",
     "build": "npm run compile && node esbuild.config.js",
     "changelog": "changelog",
-    "package": "npm run lint && npm run build && npm run test:coverage && git add -A dist",
+    "package": "npm run lint && npm run build && npm run test && git add -A dist",
     "lint": "eslint . --ext .ts --fix",
     "test": "jest",
     "test:coverage": "jest --coverage"
