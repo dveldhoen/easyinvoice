@@ -158,18 +158,6 @@ Note: The GUI is not (yet) fully translated to English, though the path to getti
 English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
 <br/>
 
-[//]: # (| Java | Maven | In progress... |  |)
-
-[comment]: <> (## Features)
-
-[comment]: <> (- [x] Create invoices)
-
-[comment]: <> (- [ ] List, get, update, delete invoices &#40;api ready / npm in progress&#41;)
-
-[comment]: <> (- [ ] Create, list, get, update, delete clients &#40;api ready / npm in progress&#41;)
-
-[comment]: <> (- [ ] More soon...)
-
 ## Development mode
 
 When using the free version, you can set the mode to 'development' to make sure you are not running into rate limits
@@ -190,7 +178,6 @@ https://api.budgetinvoice.com/v2/free/invoices
 Format: JSON
 Structure: {
   "data": { # Parent parameter must be 'data'
-    "apiKey": "free", # Please register to receive a production apiKey: https://app.budgetinvoice.com/register
     "mode": "development", # Production or development, defaults to production
     "products": [
       {
@@ -204,7 +191,7 @@ Structure: {
 } 
 
 # Optionally add your paid apiKey to the header 
-Header: "Authorization": "Bearer 123abc" # Replace 123abc with your apiKey
+Header: "Authorization": "Bearer 123abc" # Please register to receive a production apiKey: https://app.budgetinvoice.com/register
 ```
 
 ## Import
@@ -396,7 +383,7 @@ var data = {
         // format: "A4", // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
         // height: "1000px", // allowed units: mm, cm, in, px
         // width: "500px", // allowed units: mm, cm, in, px
-        // orientation: "landscape", // portrait or landscape, defaults to portrait
+        // orientation: "landscape" // portrait or landscape, defaults to portrait
     },
     // Translate your invoice to your preferred language
     translate: {
