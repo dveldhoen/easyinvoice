@@ -422,10 +422,24 @@ Used for number formatting and the currency symbol:
 
 ```js
 //E.g. for Germany, prices would look like 123.456,78 €
-const data = {settings: {locale: 'de-DE', currency: 'EUR'}};
+const data = {
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
+    settings: {
+        locale: 'de-DE',
+        currency: 'EUR'
+    }
+};
 
 //E.g. for US, prices would look like $123,456.78
-const data = {settings: {locale: 'en-US', currency: 'USD'}};
+const data = {
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
+    settings: {
+        locale: 'en-US',
+        currency: 'USD'
+    }
+};
 ```
 
 Formatting and symbols are applied through
@@ -451,7 +465,8 @@ Supported file types:
 
 ```js
 const data = {
-    mode: "development",
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
     images: {
         logo: "https://public.budgetinvoice.com/img/logo_en_original.png",
         background: "https://public.budgetinvoice.com/img/watermark_draft.jpg",
@@ -463,7 +478,8 @@ const data = {
 
 ```js
 const data = {
-    mode: "development",
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
     //Note: Sample base64 string
     //Please use the link below to convert your image to base64
     images: {
@@ -481,7 +497,8 @@ var fs = require("fs");
 
 //Use the code below to read your local file as a base64 string
 const data = {
-    mode: "development",
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
     images: {
         logo: fs.readFileSync('logo.png', 'base64'),
         background: fs.readFileSync('images/background.png', 'base64')
@@ -499,7 +516,8 @@ var easyinvoice = require('easyinvoice');
 
 // Create your invoice! Easy!
 var data = {
-    mode: "development"
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
 };
 const result = await easyinvoice.createInvoice(data);
 
@@ -513,7 +531,8 @@ console.log('PDF base64 string: ', result.pdf);
 var fs = require('fs');
 
 var data = {
-    mode: "development"
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
 };
 const result = await easyinvoice.createInvoice(data);
 await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
@@ -523,7 +542,8 @@ await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 
 ```js
 var data = {
-    mode: "development"
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
 };
 const result = await easyinvoice.createInvoice(data);
 easyinvoice.print(result.pdf);
@@ -533,7 +553,8 @@ easyinvoice.print(result.pdf);
 
 ```js
 var data = {
-    mode: "development"
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
 };
 const result = await easyinvoice.createInvoice(data);
 easyinvoice.download('myInvoice.pdf', result.pdf);
@@ -575,7 +596,8 @@ js
 
 ```js
 var data = {
-    mode: "development"
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
 };
 const elementId = 'pdf';
 const result = await easyinvoice.createInvoice(data);
@@ -598,7 +620,8 @@ Supported file types:
 var html = '<p>Hello world! This is invoice number %number%</p>';
 
 const data = {
-    mode: "development",
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
     customize: {
         // btoa === base64 encode
         template: btoa(html) // Your template must be base64 encoded
