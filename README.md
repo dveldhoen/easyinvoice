@@ -410,7 +410,7 @@ var data = {
         // price: "Prijs", // Defaults to 'Price'
         // productTotal: "Totaal", // Defaults to 'Total'
         // total: "Totaal", // Defaults to 'Total'
-        // vat: "btw" // Defaults to 'vat'
+        // taxNotation: "btw" // Defaults to 'vat'
     },
 
     // Customize enables you to provide your own templates

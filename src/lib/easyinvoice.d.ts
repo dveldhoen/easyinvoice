@@ -13,18 +13,18 @@ declare module 'easyinvoice' {
     export interface InvoiceProduct {
         quantity?: string;
         description?: string;
-        "tax-rate"?: number;
+        taxRate?: number;
         price?: number;
     }
 
     export interface InvoiceSettings {
         currency?: string;
         locale?: string;
-        "tax-notation"?: string;
-        "margin-top"?: number;
-        "margin-right"?: number;
-        "margin-left"?: number;
-        "margin-bottom"?: number;
+        taxNotation?: string;
+        marginTop?: number;
+        marginRight?: number;
+        marginLeft?: number;
+        marginBottom?: number;
         format?: 'A4' | 'A3' | 'A5' | 'Legal' | 'Letter' | 'Tabloid';
         height?: `${number}px` | `${number}mm` | `${number}cm` | `${number}in`;
         width?: `${number}px` | `${number}mm` | `${number}cm` | `${number}in`;
@@ -40,12 +40,12 @@ declare module 'easyinvoice' {
         invoice?: string;
         number?: string;
         date?: string;
-        "due-date"?: string;
+        dueDate?: string;
         subtotal?: string;
         products?: string;
         quantity?: string;
         price?: string;
-        "product-total"?: string;
+        productTotal?: string;
         total?: string;
         vat?: string;
     }
@@ -53,11 +53,12 @@ declare module 'easyinvoice' {
     export interface InvoiceInformation {
         number?: string;
         date?: string;
-        "due-date"?: string;
+        dueDate?: string;
     }
 
     export interface InvoiceData {
         apiKey?: string;
+        mode?: 'production' | 'development';
         information?: InvoiceInformation;
         translate?: InvoiceTranslations;
         settings?: InvoiceSettings;
@@ -65,7 +66,7 @@ declare module 'easyinvoice' {
         sender?: InvoiceSenderOrClient;
         client?: InvoiceSenderOrClient;
         products?: InvoiceProduct[];
-        "bottom-notice"?: string;
+        bottomNotice?: string;
         customize?: InvoiceCustomizations;
     }
 
