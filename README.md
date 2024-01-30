@@ -443,6 +443,45 @@ easyinvoice.createInvoice(data, function (result) {
 
 <br/>
 
+## Error handling
+
+Callback
+
+```js
+var easyinvoice = require('easyinvoice');
+
+var data = {
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
+};
+
+easyinvoice.createInvoice(data, function (invoice) {
+    console.log(invoice);
+}).catch((error) => {
+    // Handle the error
+    console.log(error);
+});
+```
+
+Async/await
+
+```js
+var easyinvoice = require('easyinvoice');
+
+var data = {
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
+};
+
+try {
+    const invoice = await easyinvoice.createInvoice(data);
+    console.log(invoice);
+} catch (error) {
+    // Handle the error
+    console.log(error);
+}
+```
+
 ## Locales and Currency
 
 Used for number formatting and the currency symbol:
