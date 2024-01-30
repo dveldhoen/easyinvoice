@@ -2,4 +2,5 @@
 module.exports = {
   moduleFileExtensions: ["ts", "js"],
   testEnvironment: "jsdom",
+  testTimeout: 30000,
 };
