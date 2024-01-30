@@ -289,6 +289,33 @@ Web
 </html>
 ```
 
+## High volume: asynchronous invoice creation
+
+Our API is able to handle high volume requests. If you need to create a lot of invoices fast, make sure to create them
+asynchronously. This will allow you to create multiple invoices at the same time.
+
+Note: using async/await for this example
+
+```js
+// Import the library into your project
+var easyinvoice = require('easyinvoice');
+
+// Create a promises array to store all your promises
+const promises = [];
+
+// Use a loop to prepare all your invoices for async creation
+for (let i = 0; i < 25; i++) {
+    // Add your invoice data to the promise array
+    promises[i] = easyinvoice.createInvoice({
+        apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+        mode: "development", // Production or development, defaults to production
+    });
+}
+
+// Create all your invoices at the same time
+const invoices = await Promise.all(promises);
+```
+
 ## Complete Example (NodeJS)
 
 ```js
@@ -569,8 +596,8 @@ html
 
 ```html
 <!-- Only include when rendering is required -->
-<script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
-<script src="https://unpkg.com/pdfjs-dist/build/pdf.worker.min.js"></script>
+<script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js"></script>
 
 <!-- Include pdfjs version 2.3.200 for Internet Explorer compatibility, no worker required -->
 <!-- <script src="https://unpkg.com/pdfjs-dist@2.3.200/build/pdf.min.js"></script> -->
