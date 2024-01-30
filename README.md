@@ -42,18 +42,21 @@ Much appreciated!
 [//]: # (## EASY products)
 
 [//]: # ()
+
 [//]: # (| <b>Package</b> | Description          | Link                                                                                                                                                           |)
 
 [//]: # (|----------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|)
 
 [//]: # (| Easy PDF    | Easy PDF Creator     | <a href="https://www.npmjs.com/package/easypdf-io"><img src="https://img.shields.io/badge/NPM-EasyPDF.io-blue" alt="Available on Composer"></a>  |)
- 
+
 [//]: # (| Easy Invoice   | Easy Invoice Creator | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/NPM-EasyInvoice-blue" alt="Available on Composer"></a> |)
 
 ## Important
+
 1. Please note that this package is a wrapper for an API, so it's logic runs on external servers.
 2. Your data is secure and will not be shared with third parties.
-3. We try to keep the API up and running at all times, but we cannot guarantee 100% uptime. Please build in a retry mechanism in case the API is down for maintenance.
+3. We try to keep the API up and running at all times, but we cannot guarantee 100% uptime. Please build in a retry
+   mechanism in case the API is down for maintenance.
 
 ## Installation
 
@@ -93,11 +96,12 @@ Using jsDelivr CDN:
 
 ## Platform support
 
-|<b>Platform</b> | Repository |Supported  | Link |
-|---|---|---|---|
-| PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
-| Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
-| Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a> |
+| <b>Platform</b> | Repository | Supported | Link                                                                                                                                                                     |
+|-----------------|------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PHP             | Composer   | Yes!      | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
+| Javascript      | NPM        | Yes!      | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a>                        |
+| Python          | PIP        | Yes!      | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a>                            |
+
 <br/>
 
 ## Step-by-step guide
@@ -119,6 +123,7 @@ And gives us a clap if it helped you! 😉
 <br/>
 
 ## Sample
+
 <br/>
 <div align="center">
     <img width="350" style="border: 1px black solid" src="https://public.budgetinvoice.com/img/sample-invoice.png" alt="Easy Invoice Sample Logo Only">
@@ -129,16 +134,19 @@ And gives us a clap if it helped you! 😉
 
 - <a href="https://public.budgetinvoice.com/json/easyinvoice-sample.json">[View JSON] First Sample</a>
 - <a href="https://public.budgetinvoice.com/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
-<br/>
+  <br/>
 
 ## Plans
+
 | <b>Plan</b> | Rate                  | Price                                                                                                  | Link                                                                                                                                                                   |
 |-------------|-----------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Free        | 25 invoices / 15 days | $0                                                                                                     | Not required to register                                                                                                                                               |
 | Paid        | Unlimited             | - 30 day free trial<br/>- 1st month $1.99<br/>- $17.99 per month<br/><small>*Prices include VAT<small> | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
+
 <br/>
 
 ## To use paid
+
 1. Register through:
     - Web: <a href="https://app.budgetinvoice.com/register" target="_blank">https://app.budgetinvoice.com/register</a>
     - iOS: https://apple.co/3ySZ5JY
@@ -146,7 +154,8 @@ And gives us a clap if it helped you! 😉
 2. Create an API key through the app: settings -> API keys
 3. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
 
-Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
+Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in
+English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
 <br/>
 
 [//]: # (| Java | Maven | In progress... |  |)
@@ -161,21 +170,17 @@ Note: The GUI is not (yet) fully translated to English, though the path to getti
 
 [comment]: <> (- [ ] More soon...)
 
-## Import
+## Development mode
 
-CommonJS
-
-```js
-var easyinvoice = require('easyinvoice');
-```
-
-ES6 =<
-
-```js
-import easyinvoice from 'easyinvoice';
-```
+When using the free version, you can set the mode to 'development' to make sure you are not running into rate limits
+while testing this package or developing your invoices. The free version is limited to 25 invoices per 15 days. When
+your
+invoice looks good, you can switch to 'production' mode to create your production invoices. Production mode is activated
+by either not setting the mode or setting the mode to 'production'.
 
 ## Direct REST API access
+
+In case you don't want to use NPM, but you want to call our invoice creation api directly.
 
 ```shell
 # HTTPS POST 
@@ -185,7 +190,8 @@ https://api.budgetinvoice.com/v2/free/invoices
 Format: JSON
 Structure: {
   "data": { # Parent parameter must be 'data'
-    "mode": "development",
+    "apiKey": "free", # Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode": "development", # Production or development, defaults to production
     "products": [
       {
         "quantity": 2,
@@ -201,6 +207,20 @@ Structure: {
 Header: "Authorization": "Bearer 123abc" # Replace 123abc with your apiKey
 ```
 
+## Import
+
+CommonJS
+
+```js
+var easyinvoice = require('easyinvoice');
+```
+
+ES6 =<
+
+```js
+import easyinvoice from 'easyinvoice';
+```
+
 ## Getting Started - Basic Example
 
 NodeJS
@@ -211,15 +231,16 @@ var easyinvoice = require('easyinvoice');
 
 // Create your invoice! Easy!
 var data = {
-    mode: "development",
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production
     products: [
         {
             quantity: 2,
             description: "Test product",
             taxRate: 6,
             price: 33.87
-         }
-      ]
+        }
+    ]
 };
 
 easyinvoice.createInvoice(data, function (result) {
@@ -244,17 +265,18 @@ Web
 <script>
     // Create your invoice! Easy!
     var data = {
-       mode: "development",
-       products: [
-          {
-             quantity: 2,
-             description: "Test product",
-             taxRate: 6,
-             price: 33.87
-          }
-       ]
+        apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+        mode: "development", // Production or development, defaults to production
+        products: [
+            {
+                quantity: 2,
+                description: "Test product",
+                taxRate: 6,
+                price: 33.87
+            }
+        ]
     };
-    
+
     easyinvoice.createInvoice(data, function (result) {
         // The response will contain a base64 encoded PDF file
         console.log('PDF base64 string: ', result.pdf);
@@ -274,100 +296,96 @@ Web
 var easyinvoice = require('easyinvoice');
 
 var data = {
-    // Set the mode to development to make sure you are not running into rate limits while testing this package
-    "mode": "development", // production or development, defaults to production
-    
-    // If not using the free version, set your API key
-    // "apiKey": "123abc", // Get apiKey through: https://app.budgetinvoice.com/register
-
-    "images": {
+    apiKey: "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    mode: "development", // Production or development, defaults to production   
+    images: {
         // The logo on top of your invoice
-        "logo": "https://public.budgetinvoice.com/img/logo_en_original.png",
+        logo: "https://public.budgetinvoice.com/img/logo_en_original.png",
         // The invoice background
-        "background": "https://public.budgetinvoice.com/img/watermark-draft.jpg"
+        background: "https://public.budgetinvoice.com/img/watermark-draft.jpg"
     },
     // Your own data
-    "sender": {
-        "company": "Sample Corp",
-        "address": "Sample Street 123",
-        "zip": "1234 AB",
-        "city": "Sampletown",
-        "country": "Samplecountry"
-        //"custom1": "custom value 1",
-        //"custom2": "custom value 2",
-        //"custom3": "custom value 3"
+    sender: {
+        company: "Sample Corp",
+        address: "Sample Street 123",
+        zip: "1234 AB",
+        city: "Sampletown",
+        country: "Samplecountry"
+        // custom1: "custom value 1",
+        // custom2: "custom value 2",
+        // custom3: "custom value 3"
     },
     // Your recipient
-    "client": {
-        "company": "Client Corp",
-        "address": "Clientstreet 456",
-        "zip": "4567 CD",
-        "city": "Clientcity",
-        "country": "Clientcountry"
-        // "custom1": "custom value 1",
-        // "custom2": "custom value 2",
-        // "custom3": "custom value 3"
+    client: {
+        company: "Client Corp",
+        address: "Clientstreet 456",
+        zip: "4567 CD",
+        city: "Clientcity",
+        country: "Clientcountry"
+        // custom1: "custom value 1",
+        // custom2: "custom value 2",
+        // custom3: "custom value 3"
     },
-    "information": {
+    information: {
         // Invoice number
-        "number": "2021.0001",
+        number: "2021.0001",
         // Invoice data
-        "date": "12-12-2021",
+        date: "12-12-2021",
         // Invoice due date
-        "due-date": "31-12-2021"
+        dueDate: "31-12-2021"
     },
     // The products you would like to see on your invoice
     // Total values are being calculated automatically
-    "products": [
+    products: [
         {
-            "quantity": 2,
-            "description": "Product 1",
-            "taxRate": 6,
-            "price": 33.87
+            quantity: 2,
+            description: "Product 1",
+            taxRate: 6,
+            price: 33.87
         },
         {
-            "quantity": 4.1,
-            "description": "Product 2",
-            "taxRate": 6,
-            "price": 12.34
+            quantity: 4.1,
+            description: "Product 2",
+            taxRate: 6,
+            price: 12.34
         },
         {
-            "quantity": 4.5678,
-            "description": "Product 3",
-            "taxRate": 21,
-            "price": 6324.453456
+            quantity: 4.5678,
+            description: "Product 3",
+            taxRate: 21,
+            price: 6324.453456
         }
     ],
     // The message you would like to display on the bottom of your invoice
-    "bottom-notice": "Kindly pay your invoice within 15 days.",
+    bottomNotice: "Kindly pay your invoice within 15 days.",
     // Settings to customize your invoice
-    "settings": {
-        "currency": "USD", // See documentation 'Locales and Currency' for more info. Leave empty for no currency.
-        // "locale": "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')        
-        // "margin-top": 25, // Defaults to '25'
-        // "margin-right": 25, // Defaults to '25'
-        // "margin-left": 25, // Defaults to '25'
-        // "margin-bottom": 25, // Defaults to '25'
-        // "format": "A4", // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
-        // "height": "1000px", // allowed units: mm, cm, in, px
-        // "width": "500px", // allowed units: mm, cm, in, px
-        // "orientation": "landscape", // portrait or landscape, defaults to portrait
+    settings: {
+        currency: "USD", // See documentation 'Locales and Currency' for more info. Leave empty for no currency.
+        // locale: "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')        
+        // marginTop: 25, // Defaults to '25'
+        // marginRight: 25, // Defaults to '25'
+        // marginLeft: 25, // Defaults to '25'
+        // marginBottom: 25, // Defaults to '25'
+        // format: "A4", // Defaults to A4, options: A3, A4, A5, Legal, Letter, Tabloid
+        // height: "1000px", // allowed units: mm, cm, in, px
+        // width: "500px", // allowed units: mm, cm, in, px
+        // orientation: "landscape", // portrait or landscape, defaults to portrait
     },
     // Translate your invoice to your preferred language
-    "translate": {
-        // "invoice": "FACTUUR",  // Default to 'INVOICE'
-        // "number": "Nummer", // Defaults to 'Number'
-        // "date": "Datum", // Default to 'Date'
-        // "due-date": "Verloopdatum", // Defaults to 'Due Date'
-        // "subtotal": "Subtotaal", // Defaults to 'Subtotal'
-        // "products": "Producten", // Defaults to 'Products'
-        // "quantity": "Aantal", // Default to 'Quantity'
-        // "price": "Prijs", // Defaults to 'Price'
-        // "product-total": "Totaal", // Defaults to 'Total'
-        // "total": "Totaal", // Defaults to 'Total'
-        // "vat": "btw" // Defaults to 'vat'
+    translate: {
+        // invoice: "FACTUUR",  // Default to 'INVOICE'
+        // number: "Nummer", // Defaults to 'Number'
+        // date: "Datum", // Default to 'Date'
+        // dueDate: "Verloopdatum", // Defaults to 'Due Date'
+        // subtotal: "Subtotaal", // Defaults to 'Subtotal'
+        // products: "Producten", // Defaults to 'Products'
+        // quantity: "Aantal", // Default to 'Quantity'
+        // price: "Prijs", // Defaults to 'Price'
+        // productTotal: "Totaal", // Defaults to 'Total'
+        // total: "Totaal", // Defaults to 'Total'
+        // vat: "btw" // Defaults to 'vat'
     },
-    
+
     // Customize enables you to provide your own templates
     // Please review the documentation for instructions and examples
     // "customize": {
@@ -384,17 +402,17 @@ easyinvoice.createInvoice(data, function (result) {
 
 ## Return values
 
-|<b>Key</b> | Value                                                  | Data Type |
-|---|--------------------------------------------------------|---|
-| <b>result.pdf</b>             | <b>The PDF file as base64 string</b>                   | <b>String</b> |
-| result.calculations.products | Array of objects reflecting the products used in creation | Array |
-| result.calculations.products[key].subtotal | Rounded price without tax per product                  | Number |
-| result.calculations.products[key].tax | Rounded tax per product                                | Number |
-| result.calculations.products[key].total | Rounded price including tax per product                | Number |
-| result.calculations.tax | Object containing total calculated tax per unique tax rate  | Array |
-| result.calculations.tax[rate] | Total tax for all products with same tax rate          | Number |
-| result.calculations.subtotal | Rounded price without tax for all products             | Number |
-| result.calculations.total | Rounded price with tax for all products                | Number |
+| <b>Key</b>                                 | Value                                                      | Data Type     |
+|--------------------------------------------|------------------------------------------------------------|---------------|
+| <b>result.pdf</b>                          | <b>The PDF file as base64 string</b>                       | <b>String</b> |
+| result.calculations.products               | Array of objects reflecting the products used in creation  | Array         |
+| result.calculations.products[key].subtotal | Rounded price without tax per product                      | Number        |
+| result.calculations.products[key].tax      | Rounded tax per product                                    | Number        |
+| result.calculations.products[key].total    | Rounded price including tax per product                    | Number        |
+| result.calculations.tax                    | Object containing total calculated tax per unique tax rate | Array         |
+| result.calculations.tax[rate]              | Total tax for all products with same tax rate              | Number        |
+| result.calculations.subtotal               | Rounded price without tax for all products                 | Number        |
+| result.calculations.total                  | Rounded price with tax for all products                    | Number        |
 
 <br/>
 
@@ -500,6 +518,7 @@ var data = {
 const result = await easyinvoice.createInvoice(data);
 await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
 ```
+
 ## Print your invoice (browser only)
 
 ```js
@@ -509,6 +528,7 @@ var data = {
 const result = await easyinvoice.createInvoice(data);
 easyinvoice.print(result.pdf);
 ```
+
 ## Download your invoice (browser only)
 
 ```js
@@ -564,7 +584,8 @@ await easyinvoice.render(elementId, result.pdf);
 
 ## Template customization
 
-Download our default template (invoice-v2) <a href="https://public.budgetinvoice.com/templates/invoice-v2/index.txt" download>here</a> to have an
+Download our default template (
+invoice-v2) <a href="https://public.budgetinvoice.com/templates/invoice-v2/index.txt" download>here</a> to have an
 example which you can customize.
 
 Supported file types:
@@ -691,11 +712,11 @@ creation.
 </tr>
 <tr>
 <td>%due-date-title%</td> 
-<td>translate.due-date</td>
+<td>translate.dueDate</td>
 </tr>
 <tr>
 <td>%due-date%</td> 
-<td>settings.due-date</td>
+<td>settings.dueDate</td>
 </tr>
 <tr>
 <td>%products-header-products%</td> 
@@ -711,7 +732,7 @@ creation.
 </tr>
 <tr>
 <td>%products-header-total%</td> 
-<td>translate.product-total</td>
+<td>translate.productTotal</td>
 </tr>
 <tr>
 <td>
