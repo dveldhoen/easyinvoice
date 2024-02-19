@@ -57,7 +57,7 @@ Much appreciated!
 2. Your data is secure and will not be shared with third parties.
 3. We try to keep the API up and running at all times, but we cannot guarantee 100% uptime. Please build in a retry
    mechanism in case the API is down for maintenance.
-4. Make sure to upgrade your package to either >2.4.0 or >3.0.44 for apiKey support.
+4. Make sure to upgrade your package to either >2.4.0 or >3.0.25 for apiKey support.
 
 ## Installation
 
@@ -153,7 +153,7 @@ And gives us a clap if it helped you! 😉
     - iOS: https://apple.co/3ySZ5JY
     - Android: https://play.google.com/store/apps/details?id=nl.dashweb.factuursimpel
 2. Create an API key through the app: settings -> API keys
-3. Make sure to upgrade your package to either >2.4.0 or >3.0.44 for apiKey support.
+3. Make sure to upgrade your package to either >2.4.0 or >3.0.25 for apiKey support.
 4. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
 
 Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in
