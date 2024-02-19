@@ -153,7 +153,8 @@ And gives us a clap if it helped you! 😉
     - iOS: https://apple.co/3ySZ5JY
     - Android: https://play.google.com/store/apps/details?id=nl.dashweb.factuursimpel
 2. Create an API key through the app: settings -> API keys
-3. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
+3. Make sure to upgrade your package to either >2.4.0 or >3.0.44 for apiKey support.
+4. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
 
 Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in
 English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
