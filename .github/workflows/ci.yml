@@ -24,15 +24,15 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up the minimum supported Node.js version
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22.14.0
       - name: Remember the minimum Node.js executable
         run: node -p '"MINIMUM_NODE=" + process.execPath' >> "$GITHUB_ENV"
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
-      - uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+      - uses: pnpm/setup@a0881977cd8ea73b1ed212236c99ca10dcc80cf4 # v3.1.1
         with:
           cache: true
           install: false
@@ -59,7 +59,7 @@ jobs:
         # A failed upload is shown on the run as a failed step, but it must not fail the job,
         # because the release workflow only runs after a successful CI run on master.
         continue-on-error: true
-        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         with:
           files: coverage/lcov.info
           disable_search: true
